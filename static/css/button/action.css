@@ -1,0 +1,28 @@
+/* Action: This button should convey a normal, inconsequential action, such as clicking a link */
+.elgg-button-action {
+	background: #ccc url('<?php echo elgg_get_site_url(); ?>_graphics/button_background.gif') repeat-x 0 0;
+	border:1px solid #999;
+	color: #333;
+	padding: 2px 15px;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0 1px 0 white;
+	cursor: pointer;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.elgg-button-action:hover,
+.elgg-button-action:focus {
+	background: #ccc url('<?php echo elgg_get_site_url(); ?>_graphics/button_background.gif') repeat-x 0 -15px;
+	color: #111;
+	text-decoration: none;
+	border: 1px solid #999;
+}

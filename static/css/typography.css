@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Crimson Text Bold'), local('CrimsonText-Bold'), url('http://themes.googleusercontent.com/static/fonts/crimsontext/v3/rEy5tGc5HdXy56Xvd4f3IxAPw1J91axKNXP_-QX9CC8.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Crimson Text'), local('CrimsonText-Roman'), url('http://themes.googleusercontent.com/static/fonts/crimsontext/v3/3IFMwfRa07i-auYR-B-zNaRDOzjiPcYnFooOUGCOsRk.woff') format('woff');
+}
+
+h1,h2,h3,h4,h5,h6 {font-weight:normal}
+
+.elgg-heading-main {
+	font-family: 'Crimson Text', serif;
+	font-size: 23px;
+	text-transform: uppercase; 
+	color: #0a2b33;
+}

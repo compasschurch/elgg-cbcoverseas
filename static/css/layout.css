@@ -1,0 +1,41 @@
+/***** PAGE BODY LAYOUT ******/
+.elgg-layout {
+	min-height: 360px;
+}
+
+.elgg-layout-two-sidebar {
+	background: transparent url('<?php echo elgg_get_site_url(); ?>_graphics/two_sidebar_background.gif') repeat-y right top;
+}
+
+.elgg-layout-error {
+	margin-top: 20px;
+}
+
+.elgg-sidebar {
+	position: relative;
+	padding: 20px 10px;
+	float: right;
+	width: 210px;
+	margin: 0 0 0 10px;
+}
+
+.elgg-sidebar-alt {
+	position: relative;
+	padding: 20px 10px;
+	float: left;
+	width: 160px;
+	margin: 0 10px 0 0;
+}
+
+.elgg-main {
+	position: relative;
+	min-height: 360px;
+	padding: 10px;
+	background: white url(http://www.compasschurch.org/websites/compassbiblenew/templates/compass/images/bg_topnav.jpg) repeat-x;
+	border-radius: 8px;
+}
+
+.elgg-main > .elgg-head {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}

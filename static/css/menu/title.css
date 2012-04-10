@@ -1,0 +1,11 @@
+/* ***************************************
+	TITLE
+*************************************** */
+.elgg-menu-title {
+	float: right;
+}
+
+.elgg-menu-title > li {
+	display: inline-block;
+	margin-left: 4px;
+}

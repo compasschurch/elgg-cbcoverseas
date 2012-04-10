@@ -1,0 +1,62 @@
+/* ***************************************
+	Spacing (from OOCSS)
+*************************************** */
+/**
+ * Spacing classes
+ * Should be used to modify the default spacing between objects (not between nodes of the same object)
+ * Please use judiciously. You want to be using defaults most of the time, these are exceptions!
+ * <type><location><size>
+ * <type>: m = margin, p = padding
+ * <location>: a = all, t = top, r = right, b = bottom, l = left, h = horizontal, v = vertical
+ * <size>: n = none, s = small, m = medium, l = large
+ */
+
+/* Padding */
+.pan{padding:0}
+.prn, .phn{padding-right:0}
+.pln, .phn{padding-left:0}
+.ptn, .pvn{padding-top:0}
+.pbn, .pvn{padding-bottom:0}
+
+.pas{padding:5px}
+.prs, .phs{padding-right:5px}
+.pls, .phs{padding-left:5px}
+.pts, .pvs{padding-top:5px}
+.pbs, .pvs{padding-bottom:5px}
+
+.pam{padding:10px}
+.prm, .phm{padding-right:10px}
+.plm, .phm{padding-left:10px}
+.ptm, .pvm{padding-top:10px}
+.pbm, .pvm{padding-bottom:10px}
+
+.pal{padding:20px}
+.prl, .phl{padding-right:20px}
+.pll, .phl{padding-left:20px}
+.ptl, .pvl{padding-top:20px}
+.pbl, .pvl{padding-bottom:20px}
+
+/* Margin */
+.man{margin:0}
+.mrn, .mhn{margin-right:0}
+.mln, .mhn{margin-left:0}
+.mtn, .mvn{margin-top:0}
+.mbn, .mvn{margin-bottom:0}
+
+.mas{margin:5px}
+.mrs, .mhs{margin-right:5px}
+.mls, .mhs{margin-left:5px}
+.mts, .mvs{margin-top:5px}
+.mbs, .mvs{margin-bottom:5px}
+
+.mam{margin:10px}
+.mrm, .mhm{margin-right:10px}
+.mlm, .mhm{margin-left:10px}
+.mtm, .mvm{margin-top:10px}
+.mbm, .mvm{margin-bottom:10px}
+
+.mal{margin:20px}
+.mrl, .mhl{margin-right:20px}
+.mll, .mhl{margin-left:20px}
+.mtl, .mvl{margin-top:20px}
+.mbl, .mvl{margin-bottom:20px}

@@ -1,0 +1,21 @@
+/* Submit: This button should convey, "you're about to take some definitive action" */
+.elgg-button-submit {
+	color: white;
+	text-shadow: 1px 1px 0px black;
+	text-decoration: none;
+	border: 1px solid #4690d6;
+	background: #4690d6 url('<?php echo elgg_get_site_url(); ?>_graphics/button_graduation.png') repeat-x left 10px;
+}
+
+.elgg-button-submit:hover {
+	border-color: #0054a7;
+	text-decoration: none;
+	color: white;
+	background: #0054a7 url('<?php echo elgg_get_site_url(); ?>_graphics/button_graduation.png') repeat-x left 10px;
+}
+
+.elgg-button-submit.elgg-state-disabled {
+	background: #999;
+	border-color: #999;
+	cursor: default;
+}

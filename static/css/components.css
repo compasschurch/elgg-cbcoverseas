@@ -1,0 +1,91 @@
+/**
+ * Layout Object CSS
+ *
+ * Image blocks, lists, tables, gallery, messages
+ *
+ * @package Elgg.Core
+ * @subpackage UI
+ */
+
+/* ***************************************
+	Image Block
+*************************************** */
+.elgg-image-block {
+	padding: 3px 0;
+}
+.elgg-image-block .elgg-image {
+	float: left;
+	margin-right: 5px;
+}
+.elgg-image-block .elgg-image-alt {
+	float: right;
+	margin-left: 5px;
+}
+
+/* ***************************************
+	List
+*************************************** */
+.elgg-list {
+	border-bottom: 1px dotted #CCCCCC;
+	margin: 5px 0;
+	clear: both;
+}
+.elgg-list > li {
+	border-bottom: 1px dotted #CCCCCC;
+}
+
+.elgg-item .elgg-subtext {
+	margin-bottom: 5px;
+}
+.elgg-item .elgg-content {
+	margin: 10px 5px;
+}
+
+.elgg-list-blog > .elgg-item {
+	margin-top: 20px;	
+}
+
+/* ***************************************
+	Gallery
+*************************************** */
+.elgg-gallery {
+	border: none;
+	margin-right: auto;
+	margin-left: auto;
+}
+.elgg-gallery td {
+	padding: 5px;
+}
+.elgg-gallery-fluid > li {
+	float: left;
+}
+.elgg-gallery-users > li {
+	margin: 0 2px;
+}
+
+/* ***************************************
+	Owner Block
+*************************************** */
+.elgg-owner-block {
+	margin-bottom: 20px;
+}
+
+
+/* **************************************
+	Comments (from elgg_view_comments)
+************************************** */
+.elgg-comments {
+	margin-top: 25px;
+}
+.elgg-comments > form {
+	margin-top: 15px;
+}
+
+/* ***************************************
+	Image-related
+*************************************** */
+.elgg-photo {
+	border: 1px solid #ccc;
+	padding: 3px;
+	background-color: white;
+}

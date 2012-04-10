@@ -1,0 +1,24 @@
+/* ***************************************
+	FILTER MENU
+*************************************** */
+.elgg-menu-filter {
+	font-weight: bold;
+	background: url(http://www.compasschurch.org/websites/compassbiblenew/templates/compass/images/bg_footer.png);
+	width: 103%;
+	margin-left: -10px;
+	display: table;
+	
+}
+
+.elgg-menu-filter > li {
+	float: left;
+}
+
+.elgg-menu-filter > li > a {
+	color: white;
+	padding: 7px 20px;
+}
+
+.elgg-menu-filter > .elgg-state-selected > a {
+	color: #0B303D;
+}
