@@ -20,23 +20,15 @@ $params['content'] = $sidebar_content;
 $sidebar = elgg_view('page/layouts/content/sidebar', $params);
 
 // allow page handlers to override the default header
-if (isset($vars['header'])) {
-	$vars['header_override'] = $vars['header'];
-}
-$header = elgg_view('page/layouts/content/header', $vars);
+$header = elgg_extract('header', $vars, elgg_view('page/layouts/content/header', $vars));
 
 // the all important content
 $content = elgg_extract('content', $vars, '');
 
-// optional footer for main content area
-$footer_content = elgg_extract('footer', $vars, '');
-$params = $vars;
-$params['content'] = $footer_content;
-$footer = elgg_view('page/layouts/content/footer', $params);
-
 $params = array(
-	'content' => $header . $content . $footer,
+	'content' => $content . $footer,
 	'sidebar' => $sidebar,
+	'title' => $vars['title'],
 );
 if (isset($vars['class'])) {
 	$params['class'] = $vars['class'];
