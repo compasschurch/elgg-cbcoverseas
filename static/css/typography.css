@@ -20,3 +20,13 @@ h1,h2,h3,h4,h5,h6 {font-weight:normal}
 	text-transform: uppercase; 
 	color: #0a2b33;
 }
+
+.elgg-heading-site {
+	background: transparent url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/header_logo.gif') no-repeat;	
+	display: block;
+	height: 83px;
+	position: relative;
+	text-indent: -9999em;
+	top: 14px;
+	width: 295px;
+}
