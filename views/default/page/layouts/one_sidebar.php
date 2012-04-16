@@ -30,19 +30,24 @@ $nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
 	</div>
 
 	<div class="elgg-main elgg-body">
-		<?php
-			
-			if (isset($vars['title'])) {
-				echo elgg_view_title($vars['title']);
-			}
-			
-			// @todo deprecated so remove in Elgg 2.0
-			if (isset($vars['area1'])) {
-				echo $vars['area1'];
-			}
-			if (isset($vars['content'])) {
-				echo $vars['content'];
-			}
-		?>
+		<div class="elgg-head">
+			<?php
+				
+				if (isset($vars['title'])) {
+					echo elgg_view_title($vars['title']);
+				}
+			?>
+		</div>
+		<div class="elgg-content">
+			<?php
+				// @todo deprecated so remove in Elgg 2.0
+				if (isset($vars['area1'])) {
+					echo $vars['area1'];
+				}
+				if (isset($vars['content'])) {
+					echo $vars['content'];
+				}
+			?>
+		</div>
 	</div>
 </div>

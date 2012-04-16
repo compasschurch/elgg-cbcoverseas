@@ -21,7 +21,7 @@ h3 {
 	text-transform: uppercase;
 }
 
-.elgg-heading-main {
+h2, .elgg-heading-main {
 	font-family: 'Crimson Text', serif;
 	font-size: 23px;
 	text-transform: uppercase; 
