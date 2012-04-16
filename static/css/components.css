@@ -26,12 +26,11 @@
 	List
 *************************************** */
 .elgg-list {
-	border-bottom: 1px dotted #CCCCCC;
 	margin: 5px 0;
 	clear: both;
 }
 .elgg-list > li {
-	border-bottom: 1px dotted #CCCCCC;
+	margin-bottom: 5px;
 }
 
 .elgg-item .elgg-subtext {
