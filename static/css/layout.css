@@ -12,27 +12,27 @@
 }
 
 .elgg-sidebar {
-	position: relative;
+	float: left;
+	margin: 0 10px 0 0;
 	padding: 20px 10px;
-	float: right;
+	position: relative;
 	width: 210px;
-	margin: 0 0 0 10px;
 }
 
 .elgg-sidebar-alt {
-	position: relative;
+	float: right;
+	margin: 0 0 0 10px;
 	padding: 20px 10px;
-	float: left;
+	position: relative;
 	width: 160px;
-	margin: 0 10px 0 0;
 }
 
 .elgg-main {
-	position: relative;
-	min-height: 360px;
-	padding: 10px;
 	background: white url(http://www.compasschurch.org/websites/compassbiblenew/templates/compass/images/bg_topnav.jpg) repeat-x;
 	border-radius: 8px;
+	min-height: 360px;
+	padding: 10px;
+	position: relative;
 }
 
 .elgg-main > .elgg-head {
