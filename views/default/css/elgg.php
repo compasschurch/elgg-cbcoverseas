@@ -51,7 +51,6 @@ Skin CSS
  * misc           - to be removed/redone
 
 *******************************************************************************/
-echo elgg_view('css/elements/typography', $vars);
 include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/typography.css';
 echo elgg_view('css/elements/forms', $vars);
 
