@@ -1,5 +1,5 @@
 <?php
 
 return array(
-	'/dashboard' => 'user/dashboard',	
+	'/activity' => 'site/activity',
 );

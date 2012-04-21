@@ -9,7 +9,6 @@ $title = elgg_echo('newsfeed');
 
 $composer = elgg_view_menu('composer', array('entity' => $user, 'class' => 'elgg-menu-hz'));
 
-
 $db_prefix = elgg_get_config('dbprefix');
 $activity = elgg_list_river(array(
 	'joins' => array("JOIN {$db_prefix}entities object ON object.guid = rv.object_guid"),

@@ -100,9 +100,42 @@ blockquote {
 	padding: 3px 15px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: bold;
-	color: #0054A7;
+h1, h2, h3, h4, h5, h6 { color: #0054A7; font-weight:normal }
+
+h3 {
+	color: #12303E;
+	font-family: 'Crimson Text', Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+h2, .elgg-heading-main {
+	color: #0a2b33;
+	font-family: 'Crimson Text', serif;
+	font-size: 23px;
+	text-transform: uppercase; 
+}
+
+.elgg-heading-site {
+	background: transparent url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/header_logo.gif') no-repeat;	
+	color: white;
+	direction: ltr;
+	display: block;
+	font-family: Georgia, times, serif;
+	font-size: 2em;
+	font-style: italic;
+	height: 83px;
+	line-height: 1.4em;
+	position: relative;
+	text-decoration: none;
+	text-indent: -9999em;
+	text-shadow: 1px 2px 4px #333333;
+	top: 14px;
+	width: 295px;
+}
+
+.elgg-subtext {
+	color: #999;	
 }
 
 h1 { font-size: 1.8em; }
@@ -111,16 +144,6 @@ h3 { font-size: 1.2em; }
 h4 { font-size: 1.0em; }
 h5 { font-size: 0.9em; }
 h6 { font-size: 0.8em; }
-
-.elgg-heading-site, .elgg-heading-site:hover {
-	font-size: 2em;
-	line-height: 1.4em;
-	color: white;
-	font-style: italic;
-	font-family: Georgia, times, serif;
-	text-shadow: 1px 2px 4px #333333;
-	text-decoration: none;
-}
 
 .elgg-heading-main {
 	float: left;
@@ -183,34 +206,4 @@ h6 { font-size: 0.8em; }
 }
 .elgg-output img {
 	max-width: 100%;
-}
-
-h1,h2,h3,h4,h5,h6 {font-weight:normal}
-
-h3 {
-	color: #12303E;
-	font-family: 'Crimson Text', Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	text-transform: uppercase;
-}
-
-h2, .elgg-heading-main {
-	font-family: 'Crimson Text', serif;
-	font-size: 23px;
-	text-transform: uppercase; 
-	color: #0a2b33;
-}
-
-.elgg-heading-site {
-	background: transparent url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/header_logo.gif') no-repeat;	
-	display: block;
-	height: 83px;
-	position: relative;
-	text-indent: -9999em;
-	top: 14px;
-	width: 295px;
-}
-
-.elgg-subtext {
-	color: #999;	
 }
