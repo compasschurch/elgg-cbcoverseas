@@ -11,28 +11,28 @@
   font-family: 'Muli';
   font-style: normal;
   font-weight: 300;
-  src: local('Muli Light'), local('Muli-Light'), url('http://themes.googleusercontent.com/static/fonts/muli/v4/TgrecWq39GVsTOFonFwGXQLUuEpTyoUstqEm5AMlJo4.woff') format('woff');
+  src: local('Muli Light'), local('Muli-Light'), url('//themes.googleusercontent.com/static/fonts/muli/v4/TgrecWq39GVsTOFonFwGXQLUuEpTyoUstqEm5AMlJo4.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Muli';
   font-style: normal;
   font-weight: 400;
-  src: local('Muli'), url('http://themes.googleusercontent.com/static/fonts/muli/v4/minRpKQdEvXRRS8oAbAtWvesZW2xOQ-xsNqO47m55DA.woff') format('woff');
+  src: local('Muli'), url('//themes.googleusercontent.com/static/fonts/muli/v4/minRpKQdEvXRRS8oAbAtWvesZW2xOQ-xsNqO47m55DA.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Crimson Text';
   font-style: normal;
   font-weight: 700;
-  src: local('Crimson Text Bold'), local('CrimsonText-Bold'), url('http://themes.googleusercontent.com/static/fonts/crimsontext/v3/rEy5tGc5HdXy56Xvd4f3IxAPw1J91axKNXP_-QX9CC8.woff') format('woff');
+  src: local('Crimson Text Bold'), local('CrimsonText-Bold'), url('//themes.googleusercontent.com/static/fonts/crimsontext/v3/rEy5tGc5HdXy56Xvd4f3IxAPw1J91axKNXP_-QX9CC8.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Crimson Text';
   font-style: normal;
   font-weight: normal;
-  src: local('Crimson Text'), local('CrimsonText-Roman'), url('http://themes.googleusercontent.com/static/fonts/crimsontext/v3/3IFMwfRa07i-auYR-B-zNaRDOzjiPcYnFooOUGCOsRk.woff') format('woff');
+  src: local('Crimson Text'), local('CrimsonText-Roman'), url('//themes.googleusercontent.com/static/fonts/crimsontext/v3/3IFMwfRa07i-auYR-B-zNaRDOzjiPcYnFooOUGCOsRk.woff') format('woff');
 }
 
 /* ***************************************
