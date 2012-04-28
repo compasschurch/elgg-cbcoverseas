@@ -36,6 +36,7 @@
 }
 
 .elgg-main > .elgg-head {
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	margin-top: 5px;
+	height: 39px;
 }
