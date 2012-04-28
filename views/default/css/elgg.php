@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Elgg primary CSS view
  *
@@ -20,7 +20,6 @@ if ($old_css_view != elgg_get_config("viewpath")) {
 	return true;
 }
 
-
 /*******************************************************************************
 
 Base CSS
@@ -31,10 +30,9 @@ Base CSS
 
 *******************************************************************************/
 include __DIR__ . "/reset.css";
-
+include __DIR__ . "/forms.css";
 include __DIR__ . "/elgg/core.css";
-
-echo elgg_view("css/elements/grid", $vars);
+include __DIR__ . "/elgg/grid.css";
 
 
 /*******************************************************************************
@@ -52,7 +50,12 @@ Skin CSS
 
 *******************************************************************************/
 include __DIR__ . "/elgg/typography.css";
-include __DIR__ . "/forms.css";
+include __DIR__ . "/elgg/friends/picker.css";
+include __DIR__ . "/elgg/friends/collections.css";
+
+/* jquery-ui stuff */
+include __DIR__ . "/ui/datepicker.css";
+include __DIR__ . "/ui/autocomplete.css";
 
 /* buttons */
 include __DIR__ . "/elgg/button.css";
@@ -111,12 +114,10 @@ include __DIR__ . "/elgg/page.css";
 include __DIR__ . "/elgg/system-messages.css";
 
 /* misc */
-include __DIR__ . "/elgg/misc.css";
-include __DIR__ . "/elgg/friends-collections.css";
 
 // included last to have higher priority
 echo elgg_view("css/elements/helpers", $vars);
-
+include __DIR__ . "/spacing.css";
 
 // in case plugins are still extending the old "css" view, display it
 echo elgg_view("css", $vars);
