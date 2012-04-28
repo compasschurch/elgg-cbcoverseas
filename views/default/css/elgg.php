@@ -30,7 +30,7 @@ Base CSS
  * grid
 
 *******************************************************************************/
-echo elgg_view("css/elements/reset", $vars);
+include __DIR__ . "/reset.css";
 
 include __DIR__ . "/elgg/core.css";
 
@@ -52,7 +52,7 @@ Skin CSS
 
 *******************************************************************************/
 include __DIR__ . "/elgg/typography.css";
-echo elgg_view("css/elements/forms", $vars);
+include __DIR__ . "/forms.css";
 
 /* buttons */
 include __DIR__ . "/elgg/button.css";
@@ -112,6 +112,7 @@ include __DIR__ . "/elgg/system-messages.css";
 
 /* misc */
 include __DIR__ . "/elgg/misc.css";
+include __DIR__ . "/elgg/friends-collections.css";
 
 // included last to have higher priority
 echo elgg_view("css/elements/helpers", $vars);
