@@ -1,3 +1,3 @@
 <?php
 
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/search.css';
+include dirname(__DIR__) . '/css/elgg/search.css';

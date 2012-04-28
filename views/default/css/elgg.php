@@ -14,9 +14,9 @@
  */
 
 // check if there is a theme overriding the old css view and use it, if it exists
-$old_css_view = elgg_get_view_location('css');
-if ($old_css_view != elgg_get_config('viewpath')) {
-	echo elgg_view('css', $vars);
+$old_css_view = elgg_get_view_location("css");
+if ($old_css_view != elgg_get_config("viewpath")) {
+	echo elgg_view("css", $vars);
 	return true;
 }
 
@@ -30,11 +30,11 @@ Base CSS
  * grid
 
 *******************************************************************************/
-echo elgg_view('css/elements/reset', $vars);
+echo elgg_view("css/elements/reset", $vars);
 
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/core.css';
+include __DIR__ . "/elgg/core.css";
 
-echo elgg_view('css/elements/grid', $vars);
+echo elgg_view("css/elements/grid", $vars);
 
 
 /*******************************************************************************
@@ -51,71 +51,71 @@ Skin CSS
  * misc           - to be removed/redone
 
 *******************************************************************************/
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/typography.css';
-echo elgg_view('css/elements/forms', $vars);
+include __DIR__ . "/elgg/typography.css";
+echo elgg_view("css/elements/forms", $vars);
 
 /* buttons */
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/button.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/button/cancel.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/button/submit.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/button/action.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/button/delete.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/button/dropdown.css';
+include __DIR__ . "/elgg/button.css";
+include __DIR__ . "/elgg/button/cancel.css";
+include __DIR__ . "/elgg/button/submit.css";
+include __DIR__ . "/elgg/button/action.css";
+include __DIR__ . "/elgg/button/delete.css";
+include __DIR__ . "/elgg/button/dropdown.css";
 
 /* icons */
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/icon.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/avatar.css';
+include __DIR__ . "/elgg/icon.css";
+include __DIR__ . "/elgg/avatar.css";
 
 /* navigation */
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/entity.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/extras.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/filter.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/footer.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/general.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/hover.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/longtext.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/owner-block.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/page.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/river.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/site.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/title.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/topbar.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/menu/widget.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/breadcrumbs.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/pagination.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/tabs.css';
+include __DIR__ . "/elgg/menu/entity.css";
+include __DIR__ . "/elgg/menu/extras.css";
+include __DIR__ . "/elgg/menu/filter.css";
+include __DIR__ . "/elgg/menu/footer.css";
+include __DIR__ . "/elgg/menu/general.css";
+include __DIR__ . "/elgg/menu/hover.css";
+include __DIR__ . "/elgg/menu/longtext.css";
+include __DIR__ . "/elgg/menu/owner-block.css";
+include __DIR__ . "/elgg/menu/page.css";
+include __DIR__ . "/elgg/menu/river.css";
+include __DIR__ . "/elgg/menu/site.css";
+include __DIR__ . "/elgg/menu/title.css";
+include __DIR__ . "/elgg/menu/topbar.css";
+include __DIR__ . "/elgg/menu/widget.css";
+include __DIR__ . "/elgg/breadcrumbs.css";
+include __DIR__ . "/elgg/pagination.css";
+include __DIR__ . "/elgg/tabs.css";
 
 /* modules + widgets */
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/module.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/module/aside.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/module/dropdown.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/module/featured.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/module/info.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/module/popup.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/module/widget.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/widget.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/widgets.css';
+include __DIR__ . "/elgg/module.css";
+include __DIR__ . "/elgg/module/aside.css";
+include __DIR__ . "/elgg/module/dropdown.css";
+include __DIR__ . "/elgg/module/featured.css";
+include __DIR__ . "/elgg/module/info.css";
+include __DIR__ . "/elgg/module/popup.css";
+include __DIR__ . "/elgg/module/widget.css";
+include __DIR__ . "/elgg/widget.css";
+include __DIR__ . "/elgg/widgets.css";
 
 /* components */
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/components.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/message.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/tags.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/table.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/river.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/river/item.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/river/comments.css';
+include __DIR__ . "/elgg/components.css";
+include __DIR__ . "/elgg/message.css";
+include __DIR__ . "/elgg/tags.css";
+include __DIR__ . "/elgg/table.css";
+include __DIR__ . "/elgg/river.css";
+include __DIR__ . "/elgg/river/item.css";
+include __DIR__ . "/elgg/river/comments.css";
 
 /* layout */
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/layout.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/page.css';
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/system-messages.css';
+include __DIR__ . "/elgg/layout.css";
+include __DIR__ . "/elgg/page.css";
+include __DIR__ . "/elgg/system-messages.css";
 
 /* misc */
-include elgg_get_plugins_path() . 'missions.compasschurch.org/static/css/misc.css';
+include __DIR__ . "/elgg/misc.css";
 
 // included last to have higher priority
-echo elgg_view('css/elements/helpers', $vars);
+echo elgg_view("css/elements/helpers", $vars);
 
 
-// in case plugins are still extending the old 'css' view, display it
-echo elgg_view('css', $vars);
+// in case plugins are still extending the old "css" view, display it
+echo elgg_view("css", $vars);
