@@ -20,35 +20,16 @@ if ($old_css_view != elgg_get_config("viewpath")) {
 	return true;
 }
 
-/*******************************************************************************
-
-Base CSS
- * CSS reset
- * core
- * helpers (moved to end to have a higher priority)
- * grid
-
-*******************************************************************************/
+/* Base CSS */
 include __DIR__ . "/reset.css";
 include __DIR__ . "/forms.css";
+include __DIR__ . "/typography.css";
+
 include __DIR__ . "/elgg/core.css";
 include __DIR__ . "/elgg/grid.css";
 
 
-/*******************************************************************************
-
-Skin CSS
- * typography     - fonts, line spacing
- * forms          - forms, inputs
- * buttons        - action, cancel, delete, submit, dropdown, special
- * navigation     - menus, breadcrumbs, pagination
- * icons          - icons, sprites, graphics
- * modules        - modules, widgets
- * layout_objects - lists, content blocks, notifications, avatars
- * layout         - page layout
- * misc           - to be removed/redone
-
-*******************************************************************************/
+/* Skin CSS */
 include __DIR__ . "/elgg/typography.css";
 include __DIR__ . "/elgg/friends/picker.css";
 include __DIR__ . "/elgg/friends/collections.css";
@@ -113,10 +94,8 @@ include __DIR__ . "/elgg/layout.css";
 include __DIR__ . "/elgg/page.css";
 include __DIR__ . "/elgg/system-messages.css";
 
-/* misc */
-
 // included last to have higher priority
-echo elgg_view("css/elements/helpers", $vars);
+include __DIR__ . "/elgg/helpers.css";
 include __DIR__ . "/spacing.css";
 
 // in case plugins are still extending the old "css" view, display it
