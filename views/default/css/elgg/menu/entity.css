@@ -1,7 +1,7 @@
 /* ***************************************
 	ENTITY AND ANNOTATION
 *************************************** */
-<?php // height depends on line height/font size ?>
+/* height depends on line height/font size */
 .elgg-menu-entity, elgg-menu-annotation {
 	float: right;
 	margin-left: 15px;
@@ -16,7 +16,7 @@
 .elgg-menu-entity > li > a, .elgg-menu-annotation > li > a {
 	color: #aaa;
 }
-<?php // need to override .elgg-menu-hz ?>
+/* need to override .elgg-menu-hz */
 .elgg-menu-entity > li > a, .elgg-menu-annotation > li > a {
 	display: block;
 }

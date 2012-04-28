@@ -53,12 +53,8 @@
 	border: 1px solid #999;
 	border-top: 0;
 
-	-webkit-border-radius: 0 0 4px 4px;
-	-moz-border-radius: 0 0 4px 4px;
 	border-radius: 0 0 4px 4px;
 
-	-webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-	-moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
@@ -66,12 +62,8 @@
 	background-color: white;
 	color: #555;
 
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
 	border-radius: 0;
 
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
 	box-shadow: none;
 }
 
@@ -82,8 +74,6 @@
 
 .elgg-menu-site-more > li:last-child > a,
 .elgg-menu-site-more > li:last-child > a:hover {
-	-webkit-border-radius: 0 0 4px 4px;
-	-moz-border-radius: 0 0 4px 4px;
 	border-radius: 0 0 4px 4px;
 }
 

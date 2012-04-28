@@ -4,14 +4,10 @@
 }
 
 .elgg-river-comments li:first-child {
-	-webkit-border-radius: 5px 0 0;
-	-moz-border-radius: 5px 0 0;
 	border-radius: 5px 0 0;
 }
 
 .elgg-river-comments li:last-child {
-	-webkit-border-radius: 0 0 5px 5px;
-	-moz-border-radius: 0 0 5px 5px;
 	border-radius: 0 0 5px 5px;
 }
 
@@ -28,8 +24,6 @@
 
 .elgg-river-comments-tab {
 	background-color: #EEE;
-	-webkit-border-radius: 5px 5px 0 0;
-	-moz-border-radius: 5px 5px 0 0;
 	border-radius: 5px 5px 0 0;
 	color: #4690D6;
 	display: block;

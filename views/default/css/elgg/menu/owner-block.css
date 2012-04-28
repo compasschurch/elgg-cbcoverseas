@@ -4,8 +4,6 @@
 .elgg-menu-owner-block li a {
 	display: block;
 	
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
 	border-radius: 8px;
 	
 	background-color: white;

@@ -14,8 +14,6 @@
 	background: #eee;
 	margin: 0 0 0 10px;
 	
-	-webkit-border-radius: 5px 5px 0 0;
-	-moz-border-radius: 5px 5px 0 0;
 	border-radius: 5px 5px 0 0;
 }
 .elgg-tabs a {

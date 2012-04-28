@@ -16,15 +16,11 @@
 	border: 1px solid #ccc;
 	overflow: hidden;
 
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
 .ui-autocomplete .ui-menu-item {
 	padding: 0px 4px;
 	
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
 .ui-autocomplete .ui-menu-item:hover {
