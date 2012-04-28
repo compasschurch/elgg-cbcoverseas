@@ -28,7 +28,7 @@
 }
 
 .elgg-main {
-	background: white url(http://www.compasschurch.org/websites/compassbiblenew/templates/compass/images/bg_topnav.jpg) repeat-x;
+	background: white url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_topnav.jpg') repeat-x;
 	border-radius: 8px;
 	min-height: 360px;
 	padding: 10px;

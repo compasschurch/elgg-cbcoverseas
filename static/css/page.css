@@ -15,7 +15,7 @@
 /***** DEFAULT LAYOUT ******/
 /* the width is on the page rather than topbar to handle small viewports */
 .elgg-page-default {
-	background: #123040 url(http://www.compasschurch.org/websites/compassbiblenew/templates/compass/images/bg_container.jpg);
+	background: #123040 url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_container.jpg');
 	min-height: 100%;
 	min-width: 956px;
 }
@@ -40,14 +40,14 @@
 }
 
 .elgg-page-default .elgg-page-body > .elgg-inner {
-	width: 956px;
 	margin: 0 auto;
 	padding: 30px 0 15px;
+	width: 956px;
 }
 
 .elgg-page-default .elgg-page-footer {
 	box-shadow: 0 5px 10px #000;
-	background: url(http://www.compasschurch.org/websites/compassbiblenew/templates/compass/images/bg_footer.png);
+	background: url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_footer.png');
 }
 
 .elgg-page-default .elgg-page-footer > .elgg-inner {
@@ -62,8 +62,8 @@
 .elgg-page-topbar {
 	background: #333333 url('<?php echo elgg_get_site_url(); ?>_graphics/toptoolbar_background.gif') repeat-x top left;
 	border-bottom: 1px solid #000;
-	position: relative;
 	height: 24px;
+	position: relative;
 	z-index: 9000;
 }
 
@@ -73,8 +73,8 @@
 
 /***** PAGE HEADER ******/
 .elgg-page-header {
-	position: relative;
 	background: transparent url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_header.jpg') repeat-x top left;
+	position: relative;
 }
 .elgg-page-header > .elgg-inner {
 	position: relative;
@@ -89,11 +89,4 @@
 }
 .elgg-page-footer a:hover {
 	color: #666;
-}
-
-.custom_logo {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  position: absolute;
-  bottom: 8px;
 }
