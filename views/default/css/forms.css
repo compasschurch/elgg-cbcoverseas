@@ -8,11 +8,8 @@
 /* ***************************************
 	Form Elements
 *************************************** */
-fieldset > div {
-	margin-bottom: 15px;
-}
-fieldset > div:last-child {
-	margin-bottom: 0;
+fieldset > div + div {
+	margin-top: 15px;
 }
 .elgg-form-alt > fieldset > .elgg-foot {
 	border-top: 1px solid #CCC;
@@ -40,11 +37,6 @@ input[type=text]:focus, textarea:focus {
 	background: #e4ecf5;
 	color:#333;
 }
-
-textarea {
-	height: 200px;
-}
-
 
 .elgg-longtext-control {
 	float: right;

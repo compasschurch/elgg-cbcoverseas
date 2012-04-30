@@ -15,9 +15,9 @@ if ($entity && $entity->canComment()) {
 	<div>
 		<?php echo elgg_view('input/plaintext', array('name' => 'generic_comment')); ?>
 	</div>
-	<div class="elgg-foot">
+	<footer class="elgg-foot">
 		<?php echo elgg_view('input/submit', array('value' => elgg_echo("generic_comments:post"))); ?>
-	</div>
+	</footer>
 <?php
 	
 	echo elgg_view('input/hidden', array(
