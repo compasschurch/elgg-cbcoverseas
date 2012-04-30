@@ -7,11 +7,11 @@ add_translation('en', array(
 
 	'page:members:index:title' => 'Missions Teams',
 	
-	'generic_comment:email:body' => "You have a new comment from %2$s.
+	'generic_comment:email:body' => "You have a new comment from %s.
 
 To reply or view the original item, click here:
 
-%4$s
+%s
 
 You cannot reply to this email.",
 
