@@ -21,6 +21,16 @@
 		<plugin>evan</plugin>
 		<priority>after</priority>
 	</requires>
+	<requires>
+		<type>plugin</type>
+		<name>messages</name>
+		<version>1.8</version>
+	</requires>
+	<requires>
+		<type>priority</type>
+		<plugin>messages</plugin>
+		<priority>after</priority>
+	</requires>
 	<conflicts>
 		<type>plugin</type>
 		<name>uservalidationbyemail</name>
