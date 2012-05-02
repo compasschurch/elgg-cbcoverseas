@@ -5,8 +5,6 @@
 * @package ElggMessages
 */
 
-system_message("Messaging");
-
 $subject = strip_tags(get_input('subject'));
 $body = get_input('body');
 $recipient_guid = get_input('recipient_guid');
