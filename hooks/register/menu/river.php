@@ -20,7 +20,7 @@ if (elgg_is_logged_in()) {
 	}
 	
 	$object = $item->getObjectEntity();
-	if (!elgg_in_context('widgets') && $item->annotation_id == 0) {
+	if (!elgg_in_context('widgets') && $item->annotation_id == 0 && elgg_is_active_plugin('likes')) {
 		if ($object->canAnnotate(0, 'likes')) {
 			if (!elgg_annotation_exists($object->guid, 'likes')) {
 				$menu->registerItem('like', array(
