@@ -39,6 +39,10 @@ switch ($page_type) {
 		break;
 }
 
+$options['wheres'] = array(
+	'action_type NOT IN ("friend", "comment")',
+);
+
 $activity = elgg_list_river($options);
 if (!$activity) {
 	$activity = elgg_echo('river:none');
