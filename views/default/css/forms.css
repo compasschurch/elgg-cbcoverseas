@@ -26,9 +26,9 @@ input, textarea {
 	border: 1px solid #ccc;
 	color: #666;
 	font: 120% Arial, Helvetica, sans-serif;
+	margin: 0;
 	padding: 5px;
 	width: 100%;	
-	border-radius: 5px;
 	box-sizing: border-box;
 }
 

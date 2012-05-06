@@ -59,10 +59,6 @@
 /* ***************************************
 	USER INPUT DISPLAY RESET
 *************************************** */
-.elgg-output {
-	margin-top: 10px;
-}
-
 .elgg-output dt { font-weight: bold }
 .elgg-output dd { margin: 0 0 1em 1em }
 

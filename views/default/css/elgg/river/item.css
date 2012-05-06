@@ -6,9 +6,7 @@
 }
 .elgg-river-item form {
 	background-color: #EEE;
-	padding: 4px;
-	
-	border-radius: 5px;
+	padding: 5px;
 }
 .elgg-river-item input[type=text] {
 	width: 80%;

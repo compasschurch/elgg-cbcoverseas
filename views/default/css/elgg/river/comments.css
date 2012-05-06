@@ -3,33 +3,13 @@
 	border-top: none;
 }
 
-.elgg-river-comments li:first-child {
-	border-radius: 5px 0 0;
-}
-
-.elgg-river-comments li:last-child {
-	border-radius: 0 0 5px 5px;
-}
-
 .elgg-river-comments li {
 	background-color: #EEE;
 	border-bottom: none;
-	padding: 4px;
+	padding: 5px;
 	margin-bottom: 2px;
 }
 
 .elgg-river-comments .elgg-media {
 	padding: 0;
-}
-
-.elgg-river-comments-tab {
-	background-color: #EEE;
-	border-radius: 5px 5px 0 0;
-	color: #4690D6;
-	display: block;
-	float: right;
-	font-size: 85%;
-	margin-top: 5px;
-	padding: 1px 7px;
-	width: auto;
 }

@@ -3,8 +3,7 @@
 	RIVER
 *************************************** */
 .elgg-menu-river {
-	float: left;
-	margin-right: 15px;
+	margin-bottom: 5px;
 	font-size: 90%;
 	color: #aaa;
 	line-height: 16px;
