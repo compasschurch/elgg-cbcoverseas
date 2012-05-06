@@ -13,7 +13,7 @@ $entity = $vars['entity'];
 if ($entity && $entity->canComment()) {
 ?>
 	<div>
-		<?php echo elgg_view('input/plaintext', array('name' => 'generic_comment')); ?>
+		<?php echo elgg_view('input/plaintext', array('name' => 'generic_comment', 'placeholder' => 'Leave a comment...')); ?>
 	</div>
 	<footer class="elgg-foot">
 		<?php echo elgg_view('input/submit', array('value' => elgg_echo("generic_comments:post"))); ?>
