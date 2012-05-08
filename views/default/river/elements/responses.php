@@ -52,7 +52,9 @@ if ($comments) {
 	echo elgg_view_annotation_list($comments, array('list_class' => 'elgg-river-comments'));
 }
 
-// inline comment form
-$form_vars = array('id' => "comments-add-{$object->getGUID()}");
-$body_vars = array('entity' => $object, 'inline' => true);
-echo elgg_view_form('comments/add', $form_vars, $body_vars);
+if ($object->canComment()) {
+	// inline comment form
+	$form_vars = array('id' => "comments-add-{$object->getGUID()}");
+	$body_vars = array('entity' => $object, 'inline' => true);
+	echo elgg_view_form('comments/add', $form_vars, $body_vars);
+}
