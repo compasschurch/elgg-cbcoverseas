@@ -33,6 +33,8 @@ include __DIR__ . "/elgg/grid.css";
 include __DIR__ . "/elgg/typography.css";
 include __DIR__ . "/elgg/friends/picker.css";
 include __DIR__ . "/elgg/friends/collections.css";
+include __DIR__ . "/elgg/form.css";
+include __DIR__ . "/elgg/input.css";
 
 /* jquery-ui stuff */
 include __DIR__ . "/ui/datepicker.css";
