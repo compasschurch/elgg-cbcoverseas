@@ -1,0 +1,8 @@
+.elgg-form-alt > fieldset > .elgg-foot {
+	border-top: 1px solid #CCC;
+	padding: 10px 0;
+}
+
+.elgg-form-login, .elgg-form-account {
+	max-width: 450px;
+}

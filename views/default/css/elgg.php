@@ -31,6 +31,7 @@ include __DIR__ . "/elgg/grid.css";
 
 /* Skin CSS */
 include __DIR__ . "/elgg/typography.css";
+include __DIR__ . "/elgg/heading.css";
 include __DIR__ . "/elgg/friends/picker.css";
 include __DIR__ . "/elgg/friends/collections.css";
 include __DIR__ . "/elgg/form.css";
