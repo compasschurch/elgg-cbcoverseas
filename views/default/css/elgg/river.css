@@ -1,9 +1,6 @@
 /* ***************************************
 	River
 *************************************** */
-.elgg-list-river > li {
-	border-bottom: 1px solid #CCC;
-}
 .elgg-river-timestamp {
 	color: #666;
 	font-size: 85%;

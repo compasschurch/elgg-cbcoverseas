@@ -85,12 +85,15 @@ include __DIR__ . "/elgg/widgets.css";
 
 /* components */
 include __DIR__ . "/elgg/components.css";
+include __DIR__ . "/elgg/gallery.css";
+include __DIR__ . "/elgg/image-block.css";
+include __DIR__ . "/elgg/list.css";
 include __DIR__ . "/elgg/message.css";
-include __DIR__ . "/elgg/tags.css";
-include __DIR__ . "/elgg/table.css";
 include __DIR__ . "/elgg/river.css";
 include __DIR__ . "/elgg/river/item.css";
 include __DIR__ . "/elgg/river/comments.css";
+include __DIR__ . "/elgg/tags.css";
+include __DIR__ . "/elgg/table.css";
 
 /* layout */
 include __DIR__ . "/elgg/layout.css";

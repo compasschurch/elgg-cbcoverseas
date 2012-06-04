@@ -1,0 +1,25 @@
+/* ***************************************
+	List
+*************************************** */
+.elgg-list {
+	margin: 5px 0;
+	clear: both;
+}
+.elgg-list > li {
+	margin-bottom: 5px;
+}
+
+.elgg-item .elgg-subtext {
+	margin-bottom: 5px;
+}
+.elgg-item .elgg-content {
+	margin: 10px 5px;
+}
+
+.elgg-list-blog > .elgg-item {
+	margin-top: 20px;	
+}
+
+.elgg-list-river > li {
+	border-bottom: 1px solid #CCC;
+}

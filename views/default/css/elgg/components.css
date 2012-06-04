@@ -8,65 +8,6 @@
  */
 
 /* ***************************************
-	Image Block
-*************************************** */
-.elgg-image-block > .elgg-image {
-	float: left;
-	margin-right: 10px;
-}
-.elgg-image-block > .elgg-image-alt {
-	float: right;
-	margin-left: 10px;
-}
-
-.elgg-image-block.elgg-size-tiny > .elgg-image {
-	margin-right: 5px;
-}
-.elgg-image-block.elgg-size-tiny > .elgg-image-alt {
-	margin-left: 5px;
-}
-
-/* ***************************************
-	List
-*************************************** */
-.elgg-list {
-	margin: 5px 0;
-	clear: both;
-}
-.elgg-list > li {
-	margin-bottom: 5px;
-}
-
-.elgg-item .elgg-subtext {
-	margin-bottom: 5px;
-}
-.elgg-item .elgg-content {
-	margin: 10px 5px;
-}
-
-.elgg-list-blog > .elgg-item {
-	margin-top: 20px;	
-}
-
-/* ***************************************
-	Gallery
-*************************************** */
-.elgg-gallery {
-	border: none;
-	margin-right: auto;
-	margin-left: auto;
-}
-.elgg-gallery td {
-	padding: 5px;
-}
-.elgg-gallery-fluid > li {
-	float: left;
-}
-.elgg-gallery-users > li {
-	margin: 0 2px;
-}
-
-/* ***************************************
 	Owner Block
 *************************************** */
 .elgg-owner-block {

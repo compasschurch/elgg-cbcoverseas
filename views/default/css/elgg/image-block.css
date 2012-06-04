@@ -1,0 +1,19 @@
+/* ***************************************
+	Image Block
+*************************************** */
+/* Default size is "tiny" for historical reasons */
+.elgg-image-block > .elgg-image {
+	float: left;
+	margin-right: 5px;
+}
+.elgg-image-block > .elgg-image-alt {
+	float: right;
+	margin-left: 5px;
+}
+
+.elgg-image-block.elgg-size-small > .elgg-image {
+	margin-right: 10px;
+}
+.elgg-image-block.elgg-size-small > .elgg-image-alt {
+	margin-left: 10px;
+}
