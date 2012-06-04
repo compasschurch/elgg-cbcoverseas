@@ -21,7 +21,7 @@ echo <<<HTML
 			$welcome
 		</h1>
 		$menu
-		<p>This is the new (more secure) home of the Jordan team!
+		<p>This is the new home of the Jordan team!
 		<p>You should have already received a new username + password if you were signed up for the Squarespace site.
 	</div>
 </div>
