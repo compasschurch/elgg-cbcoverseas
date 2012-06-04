@@ -3,10 +3,6 @@
 	min-height: 360px;
 }
 
-.elgg-layout-two-sidebar {
-	background: transparent url('<?php echo elgg_get_site_url(); ?>_graphics/two_sidebar_background.gif') repeat-y right top;
-}
-
 .elgg-layout-error {
 	margin-top: 20px;
 }
@@ -16,7 +12,8 @@
 	margin: 0 10px 0 0;
 	padding: 20px 10px;
 	position: relative;
-	width: 210px;
+	width: 21%;
+	max-width: 210px;
 }
 
 .elgg-sidebar-alt {
@@ -24,7 +21,8 @@
 	margin: 0 0 0 10px;
 	padding: 20px 10px;
 	position: relative;
-	width: 160px;
+	width: 16%;
+	max-width: 160px;
 }
 
 .elgg-main {

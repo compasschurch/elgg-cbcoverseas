@@ -17,7 +17,6 @@
 .elgg-page-default {
 	background: #123040 url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_container.jpg');
 	min-height: 100%;
-	min-width: 956px;
 }
 
 
@@ -28,31 +27,32 @@
 }
 
 .elgg-page-default .elgg-page-header > .elgg-inner {
-	width: 956px;
+	max-width: 956px;
 	margin: 0 auto;
 	height: 105px;
 }
 
 .elgg-page-default .elgg-page-body {
 	box-shadow: 0 7px 10px #000;
-	z-index: 1;
+	padding: 0 15px;
 	position: relative;
+	z-index: 1;
 }
 
 .elgg-page-default .elgg-page-body > .elgg-inner {
 	margin: 0 auto;
+	max-width: 956px;
 	padding: 30px 0 15px;
-	width: 956px;
 }
 
 .elgg-page-default .elgg-page-footer {
-	box-shadow: 0 5px 10px #000;
 	background: url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_footer.png');
+	box-shadow: 0 5px 10px #000;
 }
 
 .elgg-page-default .elgg-page-footer > .elgg-inner {
-	width: 956px;
 	margin: 0 auto;
+	max-width: 956px;
 	padding: 5px 0;
 }
 

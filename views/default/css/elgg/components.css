@@ -10,12 +10,19 @@
 /* ***************************************
 	Image Block
 *************************************** */
-.elgg-image-block .elgg-image {
+.elgg-image-block > .elgg-image {
 	float: left;
+	margin-right: 10px;
+}
+.elgg-image-block > .elgg-image-alt {
+	float: right;
+	margin-left: 10px;
+}
+
+.elgg-image-block.elgg-size-tiny > .elgg-image {
 	margin-right: 5px;
 }
-.elgg-image-block .elgg-image-alt {
-	float: right;
+.elgg-image-block.elgg-size-tiny > .elgg-image-alt {
 	margin-left: 5px;
 }
 

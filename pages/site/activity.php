@@ -61,6 +61,6 @@ $params = array(
 	'class' => 'elgg-river-layout',
 );
 
-$body = elgg_view_layout('content', $params);
+$body = elgg_view_layout('one_column', $params);
 
 echo elgg_view_page($title, $body);
