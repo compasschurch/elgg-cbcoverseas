@@ -41,6 +41,7 @@ switch ($page_type) {
 
 $options['wheres'] = array(
 	'action_type NOT IN ("friend", "comment")',
+	'view NOT IN ("river/user/default/profileiconupdate")',
 );
 
 $activity = elgg_list_river($options);
