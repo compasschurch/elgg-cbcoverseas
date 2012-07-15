@@ -11,9 +11,14 @@ elgg_register_action("likes/add", "$actions_path/likes/add.php");
 elgg_register_entity_url_handler('object', 'blog', 'missions_blog_url_handler');
 
 
-
+// We override this page using the evan framework method. See routes.php
 elgg_unregister_page_handler('activity');
+
+// These help prevent sending of all notifications, email or otherwise.
 elgg_unregister_event_handler('create', 'object', 'object_notifications');
+
+// This is necessary because tidypics calls object_notifications directly.
+elgg_register_plugin_hook_handler('object:notifications', 'all', 'missions_notifications_handler');
 
 
 elgg_extend_view('page/elements/head', 'mobile/viewport');

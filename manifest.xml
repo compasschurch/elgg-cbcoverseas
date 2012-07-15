@@ -31,6 +31,17 @@
 		<plugin>messages</plugin>
 		<priority>after</priority>
 	</requires>
+	<requires>
+		<type>priority</type>
+		<plugin>likes</plugin>
+		<priority>after</priority>
+	</requires>
+	<requires>
+		<type>priority</type>
+		<plugin>tidypics</plugin>
+		<priority>after</priority>
+	</requires>
+
 	<conflicts>
 		<type>plugin</type>
 		<name>uservalidationbyemail</name>
