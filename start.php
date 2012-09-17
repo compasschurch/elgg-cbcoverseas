@@ -53,7 +53,7 @@ Email questions or problems to webmaster@cbcoverseas.org.
 
 	foreach ($users_to_notify as $user) {
 		elgg_send_email($site->email, $user->email, $subject, $content);
+		echo "Sent email to $user->email";
 	}
 }
-
 

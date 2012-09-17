@@ -54,6 +54,7 @@ include __DIR__ . "/elgg/icon.css";
 include __DIR__ . "/elgg/avatar.css";
 
 /* navigation */
+include __DIR__ . "/elgg/menu/composer.css";
 include __DIR__ . "/elgg/menu/entity.css";
 include __DIR__ . "/elgg/menu/extras.css";
 include __DIR__ . "/elgg/menu/filter.css";
