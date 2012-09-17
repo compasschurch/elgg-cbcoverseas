@@ -20,5 +20,5 @@ elgg_unregister_event_handler('create', 'object', 'object_notifications');
 // This is necessary because tidypics calls object_notifications directly.
 elgg_register_plugin_hook_handler('object:notifications', 'all', 'missions_notifications_handler');
 
-
+elgg_register_plugin_hook_handler('cron', 'hourly', 'missions_daily_digest');
 elgg_extend_view('page/elements/head', 'mobile/viewport');
