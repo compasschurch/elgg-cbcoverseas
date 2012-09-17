@@ -35,6 +35,10 @@ function missions_daily_digest() {
 		'count' => TRUE,
 	));
 
+	if ($blogs + $photos <= 0) {
+		return;
+	}
+
 	$date = date("M j, Y");
 	$subject = "New activity on CBC Overseas ($date)";
 	$content = "Recent activity on CBC Overseas:
