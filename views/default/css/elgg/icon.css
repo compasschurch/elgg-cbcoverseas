@@ -11,6 +11,7 @@
 
 .elgg-icon {
 	background: transparent url('<?php echo elgg_get_site_url(); ?>_graphics/elgg_sprites.png') no-repeat left;
+	border: 0;
 	width: 16px;
 	height: 16px;
 	margin: 0 2px;
@@ -275,6 +276,6 @@
 
 .elgg-ajax-loader {
 	background: white url('<?php echo elgg_get_site_url(); ?>_graphics/ajax_loader_bw.gif') no-repeat center center;
-	min-height: 33px;
-	min-width: 33px;
+	height: 33px;
+	width: 33px;
 }

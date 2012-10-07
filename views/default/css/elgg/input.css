@@ -5,6 +5,20 @@
 	cursor: pointer;
 }
 
+.elgg-input-text {
+    background: white;
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    color: #999;
+    cursor: text;
+    font-family: "Muli",Arial,Tahoma,Verdana,sans-serif;
+    font-size: 100%;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 5px;
+    text-align: inherit;
+    width: 100%;
+}
 
 .elgg-input-access {
 	margin:5px 0 0 0;

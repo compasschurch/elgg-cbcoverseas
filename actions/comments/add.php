@@ -41,5 +41,8 @@ system_message(elgg_echo("generic_comment:posted"));
 //add to river
 add_to_river('river/annotation/generic_comment/create', 'comment', $user->guid, $entity->guid, "", 0, $annotation);
 
+$annotation = elgg_get_annotation_from_id($annotation);
+echo json_encode(elgg_get_comment_proto($annotation));
+
 // Forward to the page the action occurred on
 forward(REFERER);
