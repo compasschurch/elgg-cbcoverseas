@@ -96,15 +96,7 @@ function missions_notifications_handler() {
 	return true;
 }
 
-function missions_daily_digest() {
-	$batch = 50;
-	$offset = $batch * (int)date("G");
-	$users_to_notify = elgg_get_entities(array(
-		'type' => 'user',
-		'limit' => $batch, // Respect dreamhost rate limits
-		'offset' => $offset,
-	));
-
+function cbcoverseas_get_activity_email_content() {
 	$one_day_ago = strtotime("1 day ago");
 	$blogs = elgg_get_entities(array(
 		'type' => 'object',
@@ -125,8 +117,7 @@ function missions_daily_digest() {
 	}
 
 	$date = date("M j, Y");
-	$subject = "New activity on CBC Overseas ($date)";
-	$content = "Recent activity on CBC Overseas:
+	return "Recent activity on CBC Overseas:
 
 New blogs: $blogs
 New photos: $photos
@@ -138,7 +129,24 @@ Thanks!
 Email questions or problems to webmaster@cbcoverseas.org.
 ";
 
+}
+
+function missions_daily_digest() {
+	$subject = "New activity on CBC Overseas ($date)";
+	$content = cbcoverseas_get_activity_email_content();
+	if (!$content) {
+		return;
+	}
+	
 	$site = elgg_get_site_entity();
+
+	$batch = 50;
+	$offset = $batch * (int)date("G");
+	$users_to_notify = elgg_get_entities(array(
+		'type' => 'user',
+		'limit' => $batch, // Respect dreamhost rate limits
+		'offset' => $offset,
+	));
 
 	foreach ($users_to_notify as $user) {
 		elgg_send_email($site->email, $user->email, $subject, $content);

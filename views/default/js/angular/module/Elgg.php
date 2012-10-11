@@ -293,19 +293,24 @@
 			templateUrl: elgg.normalize_url('/ajax/view/js/angular/view/site/activity/template.html'),
 			
 			// TODO: switch this to "require('angular/view/site/activity/Controller')"
-			controller: function($scope, $http) {
-				$scope.totalItems = 0;
-				$scope.items = [];
+			controller: function($scope) {
+				$scope.collection = {
+					totalItems: 0,
+					items: []
+				};
 				
 				$scope.loadOlderItems = function() {
 					$scope.loadingOlderActivities = true;
 					elgg.getJSON('/mod/missions.compasschurch.org/api/activity.php', {
 						data: {
-							created_before: getOldestPublishedTime.call($scope)
+							created_before: getOldestPublishedTime.call($scope.collection)
 						}, 
 						success: function(result) {
-							$scope.items = result.items;
-							$scope.totalItems = result.totalItems;
+							$scope.collection.totalItems = result.totalItems;
+							result.items.forEach(function(item) {
+								$scope.collection.items.push(item);
+							});
+							$scope.collection.items = $scope.collection.items.concat(result.items);
 							$scope.loadingOlderActivities = false;						
 						}
 					});

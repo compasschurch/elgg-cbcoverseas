@@ -9,3 +9,6 @@ $posters = $vars['plugin']->posters;
 	<textarea name="params[posters]" class="elgg-input-textarea"><?php echo $posters; ?></textarea>
 </div>
 
+<pre>
+	<?php echo cbcoverseas_get_activity_email_content(); ?>
+</pre>

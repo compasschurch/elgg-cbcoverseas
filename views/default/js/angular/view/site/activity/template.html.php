@@ -8,7 +8,7 @@
 		<!-- TODO: Put the composer here ... -->
 		
 		<ul class="elgg-list elgg-list-river elgg-river">
-			<li data-ng-repeat="item in items">
+			<li data-ng-repeat="item in collection.items">
 				<div data-elgg-river-item="item"></div>
 			</li>
 		</ul>
