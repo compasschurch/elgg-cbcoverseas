@@ -1,8 +1,6 @@
 <?php 
 // URL: /:guid/likes.json
 
-require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/engine/start.php';
-
 header("Content-type: application/json");
 
 $guid = (int)get_input('guid');

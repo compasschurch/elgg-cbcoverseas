@@ -1,8 +1,6 @@
 <?php
 // URL: /:guid/activity.json
 
-require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/engine/start.php';
-
 header("Content-type: application/json");
 
 $objects = elgg_get_entities(array(

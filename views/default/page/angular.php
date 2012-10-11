@@ -14,9 +14,9 @@ header("Content-type: text/html; charset=UTF-8");
 
 ?>
 <!doctype html>
-<html data-ng-app="Elgg">
+<html>
 <head>
-<?php echo elgg_view('page/elements/head', $vars); ?>
+	<?php echo elgg_view('page/elements/head', $vars); ?>
 </head>
 <body>
 <div class="elgg-page elgg-page-default">
@@ -49,5 +49,22 @@ header("Content-type: text/html; charset=UTF-8");
 	</div>
 </div>
 <?php echo elgg_view('page/elements/foot'); ?>
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.0.6/require.min.js"></script>
+<script>
+	define('jquery', function() { return jQuery; });
+	define('elgg', function() { return elgg; });
+	define('angular', function() { return angular; });
+	define('angular/module/ngResource', function() { return angular; });
+	define('angular/module/ngSanitize', function() { return angular; });
+	define('moment', function() { return moment; });
+	define('showdown', function() { return Showdown; });
+	requirejs.config({
+		baseUrl: "/ajax/view",
+		deps: ['angular/module/Elgg'],
+		callback: function() {
+			angular.bootstrap(document.body, ['Elgg']);
+		}
+	});
+</script>
 </body>
 </html>

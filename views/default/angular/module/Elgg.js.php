@@ -1,5 +1,14 @@
+<?php header("Content-type: text/javascript"); ?>
 // <script>
-(function(angular, $, moment, Showdown, elgg) {
+define(function(require) {
+    var angular = require('angular');    
+    var $ = require('jquery');
+    var moment = require('moment');
+    var Showdown = require('showdown');
+    var elgg = require('elgg');
+    
+    require('angular/module/ngSanitize');
+    require('angular/module/ngResource');
     var Elgg = angular.module('Elgg', ['ngSanitize', 'ngResource']);
     
     // Move this to a "showdown" module?
@@ -76,7 +85,7 @@
                     $.extend(scope, item);
                 });
             },
-            templateUrl: elgg.normalize_url("/ajax/view/js/angular/directive/elggRiverItem/template.html"),
+            templateUrl: elgg.normalize_url("/ajax/view/angular/directive/elggRiverItem/template.html"),
 			// TODO: switch this to "require('angular/directive/elggRiverItem/Controller')"
             controller: function($scope, $http, elggSession, elgg) {    
                 $scope.user = elggSession.user;
@@ -148,7 +157,7 @@
             		
             		if (remainingLikes() > 0) {
             			this.loadingLikes = true;
-            			elgg.getJSON('/mod/missions.compasschurch.org/api/likes.php', {
+            			elgg.getJSON('/likes-json', {
             				data: {
             					limit: 0,
             					guid: $scope.object.guid
@@ -236,7 +245,7 @@
                                 
                 $scope.loadOlderItems = function() {
                     this.loadingOlderItems = true;
-                    elgg.getJSON('/mod/missions.compasschurch.org/api/comments.php', {
+                    elgg.getJSON('/comments-json', {
 	                    data: {
 	                    	guid: this.object.guid,
 	                    	created_before: getOldestPublishedTime.call(this.object.comments),
@@ -263,7 +272,7 @@
         return {
             restrict: 'A',
             replace: true,
-			templateUrl: elgg.normalize_url("/ajax/view/js/angular/directive/elggRiverComment/template.html"),
+			templateUrl: elgg.normalize_url("/ajax/view/angular/directive/elggRiverComment/template.html"),
 			// TODO: switch this to "require('angular/directive/elggRiverComment/Controller')"
             controller: function($scope, showdown) {
             	$scope.deleting = false;
@@ -284,45 +293,17 @@
         };
     });
     
-    Elgg.config(function($locationProvider) {
-    	$locationProvider.html5Mode(true);
-    });
-    
     Elgg.config(function($routeProvider) {
 		$routeProvider.when('/activity-new', {
-			templateUrl: elgg.normalize_url('/ajax/view/js/angular/view/site/activity/template.html'),
-			
-			// TODO: switch this to "require('angular/view/site/activity/Controller')"
-			controller: function($scope) {
-				$scope.collection = {
-					totalItems: 0,
-					items: []
-				};
-				
-				$scope.loadOlderItems = function() {
-					$scope.loadingOlderActivities = true;
-					elgg.getJSON('/mod/missions.compasschurch.org/api/activity.php', {
-						data: {
-							created_before: getOldestPublishedTime.call($scope.collection)
-						}, 
-						success: function(result) {
-							$scope.collection.totalItems = result.totalItems;
-							result.items.forEach(function(item) {
-								$scope.collection.items.push(item);
-							});
-							$scope.collection.items = $scope.collection.items.concat(result.items);
-							$scope.loadingOlderActivities = false;						
-						}
-					});
-				}
-				
-				$scope.loadOlderItems();
-			}
-		});
+			templateUrl: elgg.normalize_url('/ajax/view/angular/view/site/activity/template.html'),
+			controller: require('angular/view/site/activity/Controller')
+		}).otherwise({redirectTo:'/activity-new'});
 	});
 	
 	// TODO: Change to "require('angular/service/elggSession/value')"
     Elgg.value('elggSession', {
         user: <?php echo json_encode(elgg_get_person_proto(elgg_get_logged_in_user_entity())); ?>
-    });    
-})(angular, jQuery, moment, Showdown, elgg);
+    });
+    
+    return Elgg;
+});
