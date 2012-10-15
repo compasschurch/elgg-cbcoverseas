@@ -10,6 +10,5 @@ elgg_load_js('moment');
 elgg_load_js('angular');
 elgg_load_js('angular/module/ngResource');
 elgg_load_js('angular/module/ngSanitize');
-elgg_load_js('angular/module/Elgg');
 
 echo elgg_view('page/angular');

@@ -11,8 +11,8 @@
             </time>
         </div>
         <div class="elgg-river-message" ng-bind-html="object.content"></div>
-          
         <!-- Action buttons -->
+
         <ul class="elgg-menu elgg-menu-hz elgg-menu-river elgg-menu-river-default float">
             <li class="elgg-item" data-ng-show="!object.hasLiked">
                 <button class="link" data-ng-click="like()">
@@ -30,9 +30,9 @@
                 </button>
             </li>
         </ul>
-        
-        <!-- Activity indicators -->
-        <ul class="elgg-menu elgg-menu-hz elgg-menu-river elgg-menu-river-alt float-alt" data-ng-show="object.likes.totalItems > 0">
+
+		<!-- Activity indicators -->
+		<ul class="elgg-menu elgg-menu-hz elgg-menu-river elgg-menu-river-alt float-alt" data-ng-show="object.likes.totalItems > 0">
             <li class="elgg-item" data-ng-repeat="liker in getLikes(3)">
                 <img data-ng-src="{{liker.image.url}}" alt="{{liker.displayName}}" title="{{liker.displayName}}" width="16" height="16" />
             </li>
@@ -43,8 +43,8 @@
                 </button>
             </li>
         </ul>
-        
-        <!-- Likes drawer -->
+
+		<!-- Likes drawer -->
         <div class="elgg-river-likes-drawer clearfloat" data-ng-show="likesDrawerIsOpen">
         	<div class="elgg-river-more">
 	        	<button class="link" data-ng-click="toggleLikesDrawer()">
@@ -69,7 +69,7 @@
         </div>
         
         <!-- Comments drawer -->
-        <div class="elgg-river-comments-drawer clearfloat" data-ng-hide="likesDrawerIsOpen">
+		<div class="elgg-river-comments-drawer clearfloat" data-ng-hide="likesDrawerIsOpen">
             <div class="elgg-river-more" data-ng-show="remainingItems() > 0 && !loadingOlderItems">
                 <button class="link" data-ng-click="loadOlderItems()">
                     +{{remainingItems()}} more
@@ -83,11 +83,10 @@
             </ul>
             <div data-ng-hide="commenting" style="background-color: #EEE; padding:5px">
                 <button class="elgg-input-text"
-                        data-ng-click="commenting = true"
-                        data-focus-on="!commenting">
+                        data-ng-click="commenting = true">
                     Leave a comment...
                 </button>
-            </div>
+			</div>
             <form class="elgg-image-block elgg-form elgg-form-comments-add" 
                   data-ng-show="commenting" 
                   data-ng-submit="submitComment()">
@@ -96,9 +95,9 @@
                     <img data-ng-src="{{user.image.url}}" width="40" height="40" />                                    
                 </div>
                 <div class="elgg-body">
-                    <textarea required data-ng-model="newComment"
+				<textarea required data-ng-model="newComment"
                                        data-focus-on="commenting">
-                    </textarea>
+				</textarea>
                     <button class="elgg-button elgg-button-submit">
                         Comment
                     </button>
@@ -109,6 +108,5 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>

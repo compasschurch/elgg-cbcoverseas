@@ -28,7 +28,6 @@ $topbar = elgg_view('page/elements/topbar', $vars);
 $messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
 $header = elgg_view('page/elements/header', $vars);
 $body = elgg_view('page/elements/body', $vars);
-$footer = elgg_view('page/elements/footer', $vars);
 
 // Set the content type
 header("Content-type: text/html; charset=UTF-8");
@@ -61,11 +60,6 @@ header("Content-type: text/html; charset=UTF-8");
 	<div class="elgg-page-body">
 		<div class="elgg-inner">
 			<?php echo $body; ?>
-		</div>
-	</div>
-	<div class="elgg-page-footer">
-		<div class="elgg-inner">
-			<?php echo $footer; ?>
 		</div>
 	</div>
 </div>

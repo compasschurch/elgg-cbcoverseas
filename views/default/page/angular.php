@@ -39,12 +39,8 @@ header("Content-type: text/html; charset=UTF-8");
 	</div>
 	<div class="elgg-page-body">
 		<div class="elgg-inner" data-ng-view>
+			<div class="elgg-ajax-loader centered"></div>
 			<!-- Angular fills in this area -->
-		</div>
-	</div>
-	<div class="elgg-page-footer">
-		<div class="elgg-inner">
-			<?php echo $footer; ?>
 		</div>
 	</div>
 </div>
@@ -59,7 +55,7 @@ header("Content-type: text/html; charset=UTF-8");
 	define('moment', function() { return moment; });
 	define('showdown', function() { return Showdown; });
 	requirejs.config({
-		baseUrl: "/ajax/view",
+		baseUrl: "/ajax/view/js",
 		deps: ['angular/module/Elgg'],
 		callback: function() {
 			angular.bootstrap(document.body, ['Elgg']);
