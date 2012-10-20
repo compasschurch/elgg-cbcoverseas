@@ -1,15 +1,17 @@
+// <script>
 define(function(require) {
     var angular = require('angular');    
     var ngSanitize = require('angular/module/ngSanitize');
     var ngResource = require('angular/module/ngResource');
     var moment = require('moment');
-    var Showdown = require('showdown');
+    var pagedown = require('pagedown');
     var elgg = require('elgg');
+    var ElggRiver = require('elgg/River');
     
     var Elgg = angular.module('Elgg', ['ngSanitize', 'ngResource']);
     
-    // Move this to a "showdown" module?
-    Elgg.value('showdown', new Showdown.converter());
+    // Move this to a "pagedown" module?
+    Elgg.value('markdown', new pagedown.Converter());
     
     // Move these to a "moment" module?
     Elgg.value('moment', moment);
@@ -32,19 +34,21 @@ define(function(require) {
     
     // Actual Elgg-specific stuff
     Elgg.value('elgg', elgg);
+    Elgg.value('elggRiver', new ElggRiver());
+    Elgg.value('elggSession', require('elgg/session'));
     
+    Elgg.directive('elggRiver', require('angular/directive/elggRiver/factory'));
+    Elgg.directive('elggRiverComment', require('angular/directive/elggRiverComment/factory'));
     Elgg.directive('elggRiverItem', require('angular/directive/elggRiverItem/factory'));
     
-    Elgg.directive('elggRiverComment', require('angular/directive/elggRiverComment/factory'));
-    
-    Elgg.config(function($routeProvider) {
+    Elgg.config(function($routeProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
 		$routeProvider.when('/activity', {
 			template: require('text!angular/view/site/activity/template.html'),
 			controller: require('angular/view/site/activity/Controller')
-		}).otherwise({redirectTo:'/activity'});
+		});
 	});
 	
-    Elgg.value('elggSession', require('elgg/session'));
     
     return Elgg;
 });

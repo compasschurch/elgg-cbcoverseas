@@ -1,3 +1,4 @@
+// <script>
 define(function(require) {
 	var elgg = require('elgg');
 	

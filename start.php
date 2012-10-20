@@ -30,8 +30,33 @@ function elgg_get_comment_proto(ElggAnnotation $comment) {
 	);
 }
 
+
+function elgg_get_attachment_proto(ElggObject $object) {
+	$objectJson = array(
+		'guid' => $object->guid,
+		"displayName" => $object->title,
+		"url" => $object->getURL(),
+		"content" => $object->description,
+	);
+
+	if ($object->getSubtype() == 'image') {
+		$objectJson['image'] = array(
+			'url' => $object->getIconURL('small'),
+			'width' => 100, // TODO: dynamically determine this from config variables
+			'height' => 100, // TODO: ...and this too, of course
+		);
+		$objectJson['fullImage'] = array(
+			'url' => $object->getIconURL('master'),
+			'width' => 550, // TODO: dynamically determine this from config variables
+			'height' => 550, // TODO: ...and this too, of course
+		);
+	}
+	
+	return $objectJson;
+}
+
 function elgg_get_object_proto(ElggObject $object) {
-	return array(
+	$objectJson = array(
 		'guid' => $object->guid,
 		"displayName" => $object->title,
 		"url" => $object->getURL(),
@@ -44,7 +69,30 @@ function elgg_get_object_proto(ElggObject $object) {
 		)),
 		"likes" => elgg_get_likes_proto($object),
 		"comments" => elgg_get_comments_proto($object),
+		'attachments' => array(),
 	);
+	
+	if ($object->getSubtype() == 'album') {
+		$photos = elgg_get_entities(array(
+			'container_guid' => $object->guid,
+			'type' => 'object',
+			'subtype' => 'image',
+		));
+		
+		foreach ($photos as $photo) {
+			$objectJson['attachments'][] = elgg_get_attachment_proto($photo);
+		}
+	}
+	
+	if ($object->getSubtype() == 'tidypics_batch') {
+		$photos = $object->getEntitiesFromRelationship('belongs_to_batch', true);
+		
+		foreach ($photos as $photo) {
+			$objectJson['attachments'][] = elgg_get_attachment_proto($photo);
+		}
+	}
+		
+	return $objectJson;
 }
 
 function elgg_get_likes_proto(ElggEntity $entity) {

@@ -23,22 +23,32 @@ elgg_register_plugin_hook_handler('cron', 'hourly', 'missions_daily_digest');
 elgg_extend_view('page/elements/head', 'mobile/viewport');
 elgg_extend_view('js/initialize_elgg', 'js/cbcoverseas/initialize_elgg');
 
-elgg_register_ajax_view('js/activitystreams/Collection.js');
-elgg_register_ajax_view('js/angular/directive/elggRiverComment/Controller.js');
-elgg_register_ajax_view('js/angular/directive/elggRiverComment/factory.js');
+// Templates
+elgg_register_ajax_view('js/angular/directive/elggRiver/template.html');
 elgg_register_ajax_view('js/angular/directive/elggRiverComment/template.html');
-elgg_register_ajax_view('js/angular/directive/elggRiverItem/Controller.js');
-elgg_register_ajax_view('js/angular/directive/elggRiverItem/factory.js');
 elgg_register_ajax_view('js/angular/directive/elggRiverItem/template.html');
-elgg_register_ajax_view('js/angular/directive/focusOn/factory.js');
-elgg_register_ajax_view('js/angular/view/site/activity/Controller.js');
 elgg_register_ajax_view('js/angular/view/site/activity/template.html');
-elgg_register_ajax_view('js/angular/module/Elgg.js');
 elgg_register_ajax_view('js/elgg/session.js');
-elgg_register_ajax_view('js/text.js');
 
-elgg_register_js('showdown', "https://raw.github.com/coreyti/showdown/3b9b743f90d4c808f50b54e0c5d408a7ac050704/compressed/showdown.js", 'footer');
-elgg_register_js('moment', "https://raw.github.com/timrwood/moment/1.7.2/min/moment.min.js", 'footer');
+// Javascript modules
+elgg_register_simplecache_view('js/activitystreams/Collection');
+elgg_register_simplecache_view('js/angular/directive/elggRiver/Controller');
+elgg_register_simplecache_view('js/angular/directive/elggRiver/factory');
+elgg_register_simplecache_view('js/angular/directive/elggRiverComment/Controller');
+elgg_register_simplecache_view('js/angular/directive/elggRiverComment/factory');
+elgg_register_simplecache_view('js/angular/directive/elggRiverItem/Controller');
+elgg_register_simplecache_view('js/angular/directive/elggRiverItem/factory');
+elgg_register_simplecache_view('js/angular/directive/focusOn/factory');
+elgg_register_simplecache_view('js/angular/view/site/activity/Controller');
+elgg_register_simplecache_view('js/angular/module/Elgg');
+elgg_register_simplecache_view('js/elgg/River');
+elgg_register_simplecache_view('js/text');
+
+
+elgg_register_js('requirejs', "//cdnjs.cloudflare.com/ajax/libs/require.js/2.0.6/require.min.js", 'footer');
+elgg_register_js('pagedown', "//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js", 'footer');
+elgg_register_js('moment', "//cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js", 'footer');
 elgg_register_js('angular', "https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js", 'footer');
 elgg_register_js('angular/module/ngResource', "//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js", 'footer');
 elgg_register_js('angular/module/ngSanitize', "//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-sanitize.min.js", 'footer');
+elgg_register_js('angular/module/Elgg', elgg_get_simplecache_url('js', 'angular/module/Elgg'), 'footer');

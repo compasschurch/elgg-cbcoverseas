@@ -8,7 +8,7 @@ $published_before = strtotime(get_input('published_before', to_atom(time())));
 $options = array(
 	'action_type' => 'create',
 	'type' => 'object',
-	'subtype' => 'blog',
+	'subtypes' => array('blog', 'album'),
 	'posted_time_upper' => $published_before - 1,
 );
 
@@ -18,19 +18,21 @@ $options['count'] = true;
 
 $totalItems = elgg_get_river($options);
 
-$first_published = to_atom($activities[count($activities) - 1]->posted);
 
 $collection_json = array(
 	'totalItems' => $totalItems,
 	'items' => array(),
 	'links' => array(
-		'next' => array(
-			'href' => elgg_normalize_url("/activity-json?published_before=" . urlencode($first_published))
-		),
+		'next' => null,
 	),
 );
 
-
+if (count($activities) == $totalItems) {
+	$first_published = to_atom($activities[count($activities) - 1]->posted);
+	$collection_json['links']['next'] = array(
+		'href' => elgg_normalize_url("/activity-json?published_before=" . urlencode($first_published))
+	);
+}
 
 foreach ($activities as $activity) {
 	

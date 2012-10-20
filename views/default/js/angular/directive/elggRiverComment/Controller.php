@@ -1,5 +1,6 @@
+// <script>
 define(function() {
-	return function($scope, showdown) {
+	return function($scope, markdown) {
 		$scope.deleting = false;
 		
 		$scope.delete = function() {
@@ -7,7 +8,7 @@ define(function() {
 		};
 	
 	    $scope.getContent = function() {
-	        return showdown.makeHtml(this.content || '');
+	        return markdown.makeHtml(this.content || '');
 	    };
 	};
 });
