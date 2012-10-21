@@ -44,7 +44,7 @@
 
 		<!-- Activity indicators -->
 		<ul class="elgg-menu elgg-menu-hz elgg-menu-river elgg-menu-river-alt float-alt" data-ng-show="object.likes.totalItems > 0">
-            <li class="elgg-item" data-ng-repeat="liker in getLikes(3)">
+            <li class="elgg-item" data-ng-repeat="liker in getLikes(5)">
                 <img data-ng-src="{{liker.image.url}}" alt="{{liker.displayName}}" title="{{liker.displayName}}" width="16" height="16" />
             </li>
             <li class="elgg-item">
