@@ -8,7 +8,7 @@ $published_before = strtotime(get_input('published_before', to_atom(time())));
 $options = array(
 	'action_type' => 'create',
 	'type' => 'object',
-	'subtypes' => array('blog', 'album'),
+	'subtypes' => array('blog', 'album', 'thewire'),
 	'posted_time_upper' => $published_before - 1,
 );
 

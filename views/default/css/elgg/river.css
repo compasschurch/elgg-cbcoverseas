@@ -22,11 +22,9 @@
 
 .elgg-river-layout {
 	margin: 0 auto;
-	max-width: 650px;
 }
 
 .elgg-river-layout .elgg-input-dropdown {
-	float: right;
 	margin: 10px 0;
 }
 

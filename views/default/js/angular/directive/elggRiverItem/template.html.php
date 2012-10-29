@@ -81,18 +81,18 @@
         
         <!-- Comments drawer -->
 		<div class="elgg-river-comments-drawer clearfloat" data-ng-hide="likesDrawerIsOpen">
-            <div class="elgg-river-more" data-ng-show="remainingItems() > 0 && !loadingOlderItems">
+            <div class="elgg-river-response elgg-river-more" data-ng-show="remainingItems() > 0 && !loadingOlderItems">
                 <button class="link" data-ng-click="loadOlderItems()">
                     +{{remainingItems()}} more
                 </button>
             </div>
             <div class="elgg-ajax-loader centered" data-ng-show="loadingOlderItems"></div>
             <ul class="elgg-list elgg-river-comments">
-                <li data-ng-repeat="comment in object.comments.items | orderBy:'published'">
+                <li class="elgg-river-response" data-ng-repeat="comment in object.comments.items | orderBy:'published'">
                     <div data-elgg-river-comment="comment"></div>
                 </li>
             </ul>
-            <div data-ng-hide="commenting" style="background-color: #EEE; padding:5px">
+            <div class="elgg-river-response" data-ng-hide="commenting">
                 <button class="elgg-input-text"
                         data-ng-click="commenting = true">
                     Leave a comment...

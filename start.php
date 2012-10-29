@@ -9,6 +9,7 @@ function elgg_get_person_proto(ElggUser $user) {
 		'guid' => $user->guid,
 		'objectType' => 'person',
 		'displayName' => $user->name,
+		'summary' => $user->briefdescription,
 		'image' => array(
 			'url' => $user->getIconURL('medium'),
 			'width' => 100, // TODO: dynamically determine this from config variables

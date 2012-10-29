@@ -1,3 +1,6 @@
+.elgg-menu-composer {
+	display: inline-block;
+}
 
 .elgg-menu-composer > li {
 	margin-right: 1em;
