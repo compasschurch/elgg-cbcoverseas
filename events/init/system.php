@@ -8,20 +8,20 @@ elgg_register_action("messages/send", "$actions_path/messages/send.php");
 elgg_register_action("likes/add", "$actions_path/likes/add.php");
 
 // Don't want to include the title of the blog in the URL in case we send urls out via email, so override the default.
-elgg_register_entity_url_handler('object', 'blog', 'missions_blog_url_handler');
+elgg_register_entity_url_handler('object', 'blog', 'cbcoverseas_blog_url_handler');
 
 // We override this page using the evan framework method. See routes.php
 elgg_unregister_page_handler('activity');
 elgg_unregister_page_handler('thewire');
-elgg_unregister_menu_item('site', 'thewire');
 
 // These help prevent sending of all notifications, email or otherwise.
 elgg_unregister_event_handler('create', 'object', 'object_notifications');
 
 // This is necessary because tidypics calls object_notifications directly.
-elgg_register_plugin_hook_handler('object:notifications', 'all', 'missions_notifications_handler');
+elgg_register_plugin_hook_handler('object:notifications', 'all', 'cbcoverseas_notifications_handler');
+elgg_register_plugin_hook_handler('cron', 'hourly', 'cbcoverseas_daily_digest');
 
-elgg_register_plugin_hook_handler('cron', 'hourly', 'missions_daily_digest');
+
 elgg_extend_view('page/elements/head', 'mobile/viewport');
 elgg_extend_view('js/initialize_elgg', 'js/cbcoverseas/initialize_elgg');
 

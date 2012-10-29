@@ -7,7 +7,8 @@
 	background: #4690d6 url('<?php echo elgg_get_site_url(); ?>_graphics/button_graduation.png') repeat-x left 10px;
 }
 
-.elgg-button-submit:hover {
+.elgg-button-submit:hover,
+.elgg-button-submit:focus {
 	border-color: #0054a7;
 	text-decoration: none;
 	color: white;

@@ -18,7 +18,8 @@
 	font-size:smaller;
 }
 
-.elgg-button-dropdown:hover {
+.elgg-button-dropdown:hover,
+.elgg-button-dropdown:focus {
 	background-color:#71B9F7;
 	text-decoration:none;
 }

@@ -10,6 +10,7 @@ $options = array(
 	'type' => 'object',
 	'subtypes' => array('blog', 'album', 'thewire'),
 	'posted_time_upper' => $published_before - 1,
+	'limit' => 5,
 );
 
 $activities = elgg_get_river($options);
@@ -17,7 +18,6 @@ $activities = elgg_get_river($options);
 $options['count'] = true;
 
 $totalItems = elgg_get_river($options);
-
 
 $collection_json = array(
 	'totalItems' => $totalItems,
@@ -27,7 +27,7 @@ $collection_json = array(
 	),
 );
 
-if (count($activities) == $totalItems) {
+if (count($activities) != $totalItems) {
 	$first_published = to_atom($activities[count($activities) - 1]->posted);
 	$collection_json['links']['next'] = array(
 		'href' => elgg_normalize_url("/activity-json?published_before=" . urlencode($first_published))

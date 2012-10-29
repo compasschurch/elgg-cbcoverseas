@@ -1,4 +1,4 @@
-<section class="elgg-module elgg-module-aside">
+<section class="elgg-module elgg-module-aside" data-ng-show="!!getPosters().length">
 	<header class="elgg-head">
 		<h3 class="elgg-title">Send a note:</h3>
 	</header>

@@ -3,7 +3,7 @@
 *************************************** */
 .elgg-menu-filter {
 	font-weight: bold;
-	background: url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_footer.png');
+	background: url('<?php echo elgg_get_site_url(); ?>mod/cbcoverseas/static/images/cbc/bg_footer.png');
 	width: 103%;
 	margin-left: -10px;
 	display: table;

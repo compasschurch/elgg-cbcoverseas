@@ -11,7 +11,7 @@ $body = elgg_extract('body', $vars, '');
 
 $recipients_options = array();
 
-$recipients = elgg_get_entities(array('guids' => elgg_get_plugin_setting('message_recipients', 'missions.compasschurch.org')));
+$recipients = cbcoverseas_get_posters();
 
 foreach ($recipients as $recipient) {
 	$recipients_options[$recipient->guid] = $recipient->name;

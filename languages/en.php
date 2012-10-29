@@ -15,6 +15,6 @@ To reply or view the original item, click here:
 
 You cannot reply to this email.",
 
-	'object:plugin:missions.compasschurch.org:creators:label' => 'Who are the content creators?',
+	'object:plugin:cbcoverseas:posters:label' => 'Who are the content creators?',
 	'river:create:object:thewire' => "%s",
 ));

@@ -1,6 +1,6 @@
 <?php
 
-function missions_blog_url_handler($blog) {
+function cbcoverseas_blog_url_handler($blog) {
   return "/blog/view/$blog->guid";
 }
 
@@ -141,7 +141,7 @@ function to_atom($timestamp) {
 /**
  * Prevent sending email notifications. True indicates we've "handled" the notifications.
  */
-function missions_notifications_handler() {
+function cbcoverseas_notifications_handler() {
 	return true;
 }
 
@@ -180,7 +180,7 @@ Email questions or problems to webmaster@cbcoverseas.org.
 
 }
 
-function missions_daily_digest() {
+function cbcoverseas_daily_digest() {
 	$subject = "New activity on CBC Overseas ($date)";
 	$content = cbcoverseas_get_activity_email_content();
 	if (!$content) {
@@ -202,3 +202,15 @@ function missions_daily_digest() {
 	}
 }
 
+
+function cbcoverseas_get_posters() {
+	$posterUsernames = explode("\n", elgg_get_plugin_setting('posters', 'cbcoverseas'));
+	$posters = array();
+	foreach ($posterUsernames as $username) {
+		$poster = get_user_by_username(trim($username));
+		if ($poster) {
+			$posters[] = $poster;
+		}
+	}
+	return $posters;
+}

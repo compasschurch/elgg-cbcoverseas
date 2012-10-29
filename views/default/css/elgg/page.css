@@ -15,7 +15,7 @@
 /***** DEFAULT LAYOUT ******/
 /* the width is on the page rather than topbar to handle small viewports */
 .elgg-page-default {
-	background: #123040 url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_container.jpg');
+	background: #123040 url('<?php echo elgg_get_site_url(); ?>mod/cbcoverseas/static/images/cbc/bg_container.jpg');
 	min-height: 100%;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .elgg-page-default .elgg-page-footer {
-	background: url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_footer.png');
+	background: url('<?php echo elgg_get_site_url(); ?>mod/cbcoverseas/static/images/cbc/bg_footer.png');
 	box-shadow: 0 5px 10px #000;
 }
 
@@ -71,7 +71,7 @@
 
 /***** PAGE HEADER ******/
 .elgg-page-header {
-	background: transparent url('<?php echo elgg_get_site_url(); ?>mod/missions.compasschurch.org/static/images/cbc/bg_header.jpg') repeat-x top left;
+	background: transparent url('<?php echo elgg_get_site_url(); ?>mod/cbcoverseas/static/images/cbc/bg_header.jpg') repeat-x top left;
 	position: relative;
 }
 .elgg-page-header > .elgg-inner {
