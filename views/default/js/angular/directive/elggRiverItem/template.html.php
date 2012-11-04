@@ -17,7 +17,7 @@
 		<ul class="tidypics-river-list" data-ng-show="!!getMediaAttachments().length">
 			<li class="tidypics-photo-item" data-ng-repeat="media in getMediaAttachments()">
 				<a href="{{media.url}}">
-					<img data-ng-src="{{media.image.url}}" width="80" height="80" class="elgg-photo"
+					<img data-ng-src="{{media.image.url}}" width="88" height="88" class="elgg-photo"
 					     alt="{{media.displayName}}" title="{{media.displayName}}" />
 				</a>
 			</li>
