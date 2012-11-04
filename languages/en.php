@@ -1,6 +1,7 @@
 <?php
 
 add_translation('en', array(
+	'admin:users:browse' => 'Browse',
 	'cbc:teams' => 'Teams',
 
 	'page:blog:index:title' => 'Blog',

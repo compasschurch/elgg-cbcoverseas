@@ -18,6 +18,10 @@
 .elgg-table tr:nth-child(even), .elgg-table tr.even {
 	background-color: #f0f0f0;
 }
+.elgg-table .elgg-avatar {
+	vertical-align: middle;
+}
+
 .elgg-table-alt {
 	width: 100%;
 	border-top: 1px solid #ccc;

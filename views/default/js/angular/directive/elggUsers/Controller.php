@@ -1,7 +1,7 @@
 // <script>
 define(function() {
 	return function($scope, elggDatabase) {
-		var collection = elggDatabase.getActivity();
+		var collection = elggDatabase.getUsers();
 		
 		$scope.hasNextItems = function() {
 			return !!collection.links.next;	

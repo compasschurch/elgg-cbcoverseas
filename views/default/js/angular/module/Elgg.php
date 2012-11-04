@@ -6,7 +6,7 @@ define(function(require) {
 	var moment = require('moment');
 	var pagedown = require('pagedown');
 	var elgg = require('elgg');
-	var ElggRiver = require('elgg/River');
+	var ElggDatabase = require('elgg/Database');
 	
 	var Elgg = angular.module('Elgg', ['ngSanitize', 'ngResource']);
 	
@@ -29,16 +29,18 @@ define(function(require) {
 	// Super-handy for forcing focus based on model values
 	Elgg.directive('focusOn', require('angular/directive/focusOn/factory'));
 	
+	// Infinite scrolling made simple
+	Elgg.directive('whenScrolled', require('angular/directive/whenScrolled/factory'));
 	
 	// Actual Elgg-specific stuff
 	Elgg.value('elgg', elgg);
-	Elgg.value('elggRiver', new ElggRiver());
+	Elgg.value('elggDatabase', new ElggDatabase());
 	Elgg.value('elggSession', require('elgg/session'));
 	
 	Elgg.directive('elggRiver', require('angular/directive/elggRiver/factory'));
 	Elgg.directive('elggRiverComment', require('angular/directive/elggRiverComment/factory'));
 	Elgg.directive('elggRiverItem', require('angular/directive/elggRiverItem/factory'));
-	
+	Elgg.directive('elggUsers', require('angular/directive/elggUsers/factory'));
 	
 	Elgg.config(function($routeProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);

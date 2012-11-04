@@ -5,7 +5,7 @@ function cbcoverseas_blog_url_handler($blog) {
 }
 
 function elgg_get_person_proto(ElggUser $user) {
-	return array(
+	$person = array(
 		'guid' => $user->guid,
 		'objectType' => 'person',
 		'displayName' => $user->name,
@@ -16,7 +16,24 @@ function elgg_get_person_proto(ElggUser $user) {
 			'height' => 100, // TODO: ...and this too, of course
 		),
 		'url' => $user->getURL(),
+		'location' => array(
+			'displayName' => $user->location,
+		),
+		'username' => $user->username,
 	);
+	
+	if (elgg_is_admin_logged_in()) {
+		$person['published'] = to_atom($user->time_created);
+		$person['banned'] = $user->isBanned();
+		$person['ban_reason'] = $user->ban_reason;
+		$person['email'] = $user->email;
+		
+		if ($user->last_action) {
+			$person['last_action'] = to_atom($user->last_action);
+		}
+	}
+	
+	return $person;
 }
 
 function elgg_get_comment_proto(ElggAnnotation $comment) {
