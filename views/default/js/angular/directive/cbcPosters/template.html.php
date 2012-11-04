@@ -6,12 +6,12 @@
 		<ul class="elgg-list">
 			<li data-ng-repeat="poster in getPosters()">
 				<div class="elgg-image-block">
-					<a href="{{poster.url}}" class="elgg-image">
+					<a href="/messages/compose?send_to={{poster.guid}}" class="elgg-image">
 						<img data-ng-src="{{poster.image.url}}" alt="" width="30" height="30" />
 					</a>
 					<div class="elgg-body">
 						<div>
-							<a href="{{poster.url}}">
+							<a href="/messages/compose?send_to={{poster.guid}}">
 								{{poster.displayName}}
 							</a>
 						</div>
