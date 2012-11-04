@@ -29,8 +29,9 @@ html, body {
 	margin-bottom: 1px;
 }
 img {
-	border-width:0;
 	border-color:transparent;
+	border-width:0;
+	max-width: 100%;
 }
 :focus {
 	outline: 0 none;
