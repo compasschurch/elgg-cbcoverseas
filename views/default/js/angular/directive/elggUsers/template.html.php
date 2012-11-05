@@ -1,4 +1,7 @@
 <div>
+	<div class="pbs">
+		<input type="search" data-ng-model="q" placeholder="Search..." />
+	</div>
 	<table class="elgg-table elgg-table-fixed">
 		<style scoped>
 			.elgg-col-email { max-width: 25%; width: 25%; }
@@ -15,9 +18,9 @@
 			<th class="elgg-col-status">Status</th>
 		</thead>
 		<tbody data-when-scrolled="hasNextItems() && !isLoadingNextItems() && loadNextItems()">
-			<tr data-ng-repeat="user in getItems()">
+			<tr data-ng-repeat="user in getItems() | filter:q">
 				<td style="width:1%">
-					<a href="{{user.url}}">
+					<a href="{{user.url}}" class="elgg-avatar">
 						<img data-ng-src="{{user.image.url}}" width=25 height=25 alt="" />
 					</a>
 				</td>
