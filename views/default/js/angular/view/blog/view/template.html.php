@@ -35,7 +35,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="elgg-output blog-post mvm"><p>THis is fun.</p></div>
+			<div class="elgg-output blog-post mvm" data-ng-bind-html="blog.content"></div>
 		</div>
 
 		<footer data-elgg-responses data-object="blog"></footer>
