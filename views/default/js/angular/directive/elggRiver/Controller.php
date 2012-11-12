@@ -1,8 +1,6 @@
 // <script>
 define(function() {
-	return function($scope, elggDatabase) {
-		var collection = elggDatabase.getActivity();
-		
+	return function($scope, river) {
 		$scope.hasNextItems = function() {
 			return !!collection.links.next;	
 		};
@@ -18,7 +16,5 @@ define(function() {
 		$scope.getItems = function() {
 			return collection.items;	
 		};
-		
-		$scope.loadNextItems();
 	};
 });

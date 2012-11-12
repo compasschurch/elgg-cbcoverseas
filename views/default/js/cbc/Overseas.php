@@ -1,11 +1,15 @@
 // <script>
 define(function(require) {
-	var ActivityStreamsCollection = require('activitystreams/Collection');
+	var elgg = require('elgg');
+	var ElggDatabase = require('elgg/Database');
 	
-	function CbcOverseas() {};
+	function CbcOverseas($http) {
+		ElggDatabase.call(this, $http);
+	}
+	elgg.inherit(CbcOverseas, ElggDatabase);
 	
 	CbcOverseas.prototype.getPosters = function() {
-		return new ActivityStreamsCollection('/posters-json');
+		return this.getCollection('/posters-json');
 	};
 	
 	return CbcOverseas;

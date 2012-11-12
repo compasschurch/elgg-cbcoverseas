@@ -3,6 +3,7 @@
  * Elgg Angular-enabled pageshell
  */
 
+$vars = array();
 
 // render content before head so that JavaScript and CSS can be loaded. See #4032
 $messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
@@ -39,11 +40,20 @@ header("Content-type: text/html; charset=UTF-8");
 		</div>
 	</div>
 	<div class="elgg-page-body">
-		<div class="elgg-inner">
-			<?php echo $vars['body']; ?>
+		<div class="elgg-inner" data-ng-view>
+			<!-- Main content loaded here -->
+			<div class="elgg-ajax-loader centered"></div>
 		</div>
 	</div>
 </div>
+
 <?php echo elgg_view('page/elements/foot'); ?>
+
+<script>
+require(['angular', 'angular/module/elggDefault'], function(angular) {
+	angular.bootstrap(document.body, ['elggDefault']);
+})
+</script>
+
 </body>
 </html>

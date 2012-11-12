@@ -37,15 +37,21 @@ function elgg_get_person_proto(ElggUser $user) {
 }
 
 function elgg_get_comment_proto(ElggAnnotation $comment) {
-	return array(
+	$commentJson = array(
 		'annotation_id' => $comment->id,
-		'author' => elgg_get_person_proto($comment->getOwnerEntity()),
 		'content' => $comment->value,
 		'published' => to_atom($comment->time_created),
 		'canDelete' => $comment->canEdit(),
 		'canEdit' => $comment->canEdit(),
 		'objectType' => 'comment',
 	);
+	
+	$owner = $comment->getOwnerEntity();
+	if ($owner) {
+		$commentJson['author'] = elgg_get_person_proto($owner);
+	}
+	
+	return $commentJson;
 }
 
 
@@ -76,9 +82,13 @@ function elgg_get_attachment_proto(ElggObject $object) {
 function elgg_get_object_proto(ElggObject $object) {
 	$objectJson = array(
 		'guid' => $object->guid,
+		'published' => to_atom($object->time_created),
+		'updated' => to_atom($object->time_updated),
 		"displayName" => $object->title,
 		"url" => $object->getURL(),
 		"content" => $object->description,
+		'canEdit' => $object->canEdit(),
+		'canDelete' => $object->canEdit(),
 		'hasLiked' => !!elgg_get_annotations(array(
 			'annotation_name' => 'likes',
 			'annotation_owner_guid' => elgg_get_logged_in_user_guid(),
@@ -90,6 +100,12 @@ function elgg_get_object_proto(ElggObject $object) {
 		'attachments' => array(),
 	);
 	
+	$owner = $object->getOwnerEntity();
+	if ($owner) {
+		$objectJson['author'] = elgg_get_person_proto($owner);
+	}
+
+
 	if ($object->getSubtype() == 'album') {
 		$photos = elgg_get_entities(array(
 			'container_guid' => $object->guid,
@@ -145,6 +161,18 @@ function elgg_get_comments_proto(ElggEntity $entity) {
 	}
 
 	return $comments_json;
+}
+
+function elgg_get_plugin_proto(ElggPlugin $plugin) {
+	$pluginJson = array(
+		'guid' => $plugin->guid,
+		'version' => $plugin->version,
+		'displayName' => $plugin->title,
+		'elggPluginId' => $plugin->getId(),
+		'isActive' => $plugin->isActive(),
+	);
+	
+	return $pluginJson;
 }
 
 function from_atom($timestamp) {

@@ -1,17 +1,14 @@
 // <script>
 define(function(require) {
 	var elgg = require('elgg');
+	var $ = require('jquery');
 	
-	function Collection(url) {
-		this.totalItems = 0;
-		this.items = [];
-		this.loadingNextItems = null;
-		this.links = {
-			next: {
-				href: url
-			}
-		};
+	function Collection(obj) {
+		$.extend(this, obj);
 		
+		this.totalItems = this.totalItems || 0;
+		this.items = this.items || [];
+		this.loadingNextItems = null;
 	}
 
 	// Private member functions
@@ -26,13 +23,13 @@ define(function(require) {
 	}
 	
 	function resetLoadingNext() {
-		this.loadingNextItems = null;						
+		this.loadingNextItems = null;
 	}
 	
 	// Public member functions
 	Collection.prototype.loadNextItems = function() {
-		if (!this.links.next) {
-			throw new Error('There is no "next" link present!');	
+		if (!this.hasNextItems()) {
+			throw new Error('There are no more items to load!');	
 		}
 		
 		if (this.loadingNextItems) {
@@ -44,6 +41,14 @@ define(function(require) {
 			done(appendCollection.bind(this)).
 			always(resetLoadingNext.bind(this));
 	};
+	
+	Collection.prototype.hasNextItems = function() {
+		return !!(this.links && this.links.next);
+	};
+	
+	Collection.prototype.isLoadingNextItems = function() {
+		return !!this.loadingNextItems;
+	}
 	
 	Collection.prototype.getOldestPublishedTime = function() {
 		return this.items.map(function(object) { 

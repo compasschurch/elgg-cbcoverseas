@@ -15,6 +15,7 @@
 	width: 16px;
 	height: 16px;
 	margin: 0 2px;
+	text-indent: -999em;
 }
 .elgg-icon-arrow-left {
 	background-position: 0 -0px;

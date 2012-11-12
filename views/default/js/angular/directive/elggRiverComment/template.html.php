@@ -2,9 +2,9 @@
      data-ng-mouseenter="hovering = true" 
      data-ng-mouseleave="hovering = false">
      
-    <div class="elgg-image">
+    <a href="{{author.url}}" class="elgg-image">
         <img data-ng-src="{{author.image.url}}" width="40" height="40" />                    
-    </div>
+    </a>
     <div class="elgg-body">
         <button class="elgg-icon elgg-icon-delete float-alt"
                 title="Delete this comment"
