@@ -210,22 +210,23 @@ function cbcoverseas_get_activity_email_content() {
 		return;
 	}
 
-	$date = date("M j, Y");
+	$site = elgg_get_site_entity();
 	return "Recent activity on CBC Overseas:
 
 New blogs: $blogs
 New photos: $photos
 
-Login here to view them: http://cbcoverseas.org/
+Login here to view them: $site->url
 
 Thanks!
 ---
-Email questions or problems to webmaster@cbcoverseas.org.
+Email questions or problems to $site->email.
 ";
 
 }
 
 function cbcoverseas_daily_digest() {
+	$date = date("M j, Y");
 	$subject = "New activity on CBC Overseas ($date)";
 	$content = cbcoverseas_get_activity_email_content();
 	if (!$content) {
