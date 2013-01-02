@@ -14,7 +14,7 @@
 	<requires>
 		<type>plugin</type>
 		<name>evan</name>
-		<version>1.1</version>
+		<version>1.10</version>
 	</requires>
 	<requires>
 		<type>priority</type>

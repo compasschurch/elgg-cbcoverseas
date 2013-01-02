@@ -1,6 +1,6 @@
 <?php
 
-function cbcoverseas_blog_url_handler($blog) {
+function cbcoverseas_blog_url_handler(ElggBlog $blog) {
   return "/blog/view/$blog->guid";
 }
 
@@ -189,65 +189,6 @@ function to_atom($timestamp) {
 function cbcoverseas_notifications_handler() {
 	return true;
 }
-
-function cbcoverseas_get_activity_email_content() {
-	$one_day_ago = strtotime("1 day ago");
-	$blogs = elgg_get_entities(array(
-		'type' => 'object',
-		'subtype' => 'blog',
-		'created_time_lower' => $one_day_ago,
-		'count' => TRUE,
-	));
-
-	$photos = elgg_get_entities(array(
-		'type' => 'object',
-		'subtype' => 'image',
-		'created_time_lower' => $one_day_ago,
-		'count' => TRUE,
-	));
-
-	if ($blogs + $photos <= 0) {
-		return;
-	}
-
-	$site = elgg_get_site_entity();
-	return "Recent activity on CBC Overseas:
-
-New blogs: $blogs
-New photos: $photos
-
-Login here to view them: $site->url
-
-Thanks!
----
-Email questions or problems to $site->email.
-";
-
-}
-
-function cbcoverseas_daily_digest() {
-	$date = date("M j, Y");
-	$subject = "New activity on CBC Overseas ($date)";
-	$content = cbcoverseas_get_activity_email_content();
-	if (!$content) {
-		return;
-	}
-	
-	$site = elgg_get_site_entity();
-
-	$batch = 50;
-	$offset = $batch * (int)date("G");
-	$users_to_notify = elgg_get_entities(array(
-		'type' => 'user',
-		'limit' => $batch, // Respect dreamhost rate limits
-		'offset' => $offset,
-	));
-
-	foreach ($users_to_notify as $user) {
-		elgg_send_email($site->email, $user->email, $subject, $content);
-	}
-}
-
 
 function cbcoverseas_get_posters() {
 	$posterUsernames = explode("\n", elgg_get_plugin_setting('posters', 'cbcoverseas'));

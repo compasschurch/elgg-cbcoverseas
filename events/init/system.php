@@ -24,7 +24,6 @@ elgg_unregister_menu_item('topbar', 'elgg_logo');
 
 // This is necessary because tidypics calls object_notifications directly.
 elgg_register_plugin_hook_handler('object:notifications', 'all', 'cbcoverseas_notifications_handler');
-elgg_register_plugin_hook_handler('cron', 'hourly', 'cbcoverseas_daily_digest');
 
 
 elgg_extend_view('page/elements/head', 'mobile/viewport');
