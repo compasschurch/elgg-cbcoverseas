@@ -5,7 +5,7 @@ class Cbcoverseas_Digest_NotifierTest extends PHPUnit_Framework_TestCase {
     function testUpdatesLastDigestTimeOnSuccess() {
         $mailer = new Evan_Email_NullSender(); 
         $clock = new Evan_MockClock();
-        $db = $this->getMock('Evan_Db');
+        $db = $this->getMock('Evan_Db_Mysql');
         $emailFactory = new Evan_Email_BlankMessageFactory();
 
         $notifier = new Cbcoverseas_Digest_Notifier($mailer, $clock, $db, $emailFactory);
@@ -21,7 +21,7 @@ class Cbcoverseas_Digest_NotifierTest extends PHPUnit_Framework_TestCase {
             ->method('__set')
             ->with('cbc_last_digest_time', $clock->getTimestamp());
 
-        $notifier->hourly();
+        $notifier->sendDigests(1);
     }
 
 }

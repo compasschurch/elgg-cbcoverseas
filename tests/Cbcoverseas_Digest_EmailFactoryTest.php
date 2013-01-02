@@ -2,18 +2,24 @@
 
 class Cbcoverseas_Digest_EmailFactoryTest extends PHPUnit_Framework_TestCase {
 
-    function testCreateForUser() {
-        $clock = new Evan_MockClock('2013-01-05');
-        $site = $this->getMock('ElggSite');
-        $views = $this->getMock('Evan_ViewService');
-        $db = $this->getMock('Evan_Db');
-        $i18n = $this->getMock('Evan_I18n');
+    function setUp() {
+        $this->clock = new Evan_MockClock('2013-01-05');
+        $this->site = $this->getMock('ElggSite');
+        $this->views = $this->getMock('Evan_ViewService');
+        $this->db = $this->getMock('Evan_Db');
+        $this->i18n = $this->getMock('Evan_I18n');
+        
+        // The object under test
+        $this->factory = new Cbcoverseas_Digest_EmailFactory(
+            $this->clock, $this->site, $this->views, $this->db, $this->i18n);
 
-        $factory = new Cbcoverseas_Digest_EmailFactory($clock, $site, $views, $db, $i18n);
         
-        $user = $this->getMock('ElggUser');
-        
-        $db->expects($this->exactly(2))
+        $this->user = $this->getMock('ElggUser');
+    }
+
+    function testCreateForUser() {
+
+        $this->db->expects($this->exactly(2))
             ->method('getEntities')
             ->will($this->returnCallback(function($options) {
                 switch ($options['subtype']) {
@@ -27,30 +33,43 @@ class Cbcoverseas_Digest_EmailFactoryTest extends PHPUnit_Framework_TestCase {
             }));
         
         // Check to make sure we're tweaking permissions correctly
-        $db->expects($this->exactly(2))
+        $this->db->expects($this->exactly(2))
             ->method('setUser');
         
-        $views->expects($this->once())
+        $this->views->expects($this->once())
             ->method('view')
             ->with(
                 $this->equalTo('cbcoverseas/digest.en'),
                 $this->equalTo(array(
                     'blogs' => 193587,
                     'photos' => 897893,
-                    'site' => $site,
-                    'user' => $user,
+                    'site' => $this->site,
+                    'user' => $this->user,
                 )),
                 $this->equalTo('email'))
             ->will($this->returnValue('activity summary'));
         
-        $i18n->expects($this->once())
+        $this->i18n->expects($this->once())
             ->method('translate')
             ->with(
                 $this->anything(),
                 array('Jan 5, 2013'),
                 $this->anything());
+ 
+        // Ensure that last digest time is initialized to last login if available.
+        $timestamp = time();
+        $this->user->expects($this->any())
+            ->method('__get')
+            ->will($this->returnValueMap(array(
+                array('cbc_last_digest_time', NULL),
+                array('last_login', $timestamp),
+            )));
+                
+        $this->user->expects($this->once())
+            ->method('__set')
+            ->with('cbc_last_digest_time', $timestamp);
         
-        $this->assertNotNull($factory->createForUser($user));
+        $this->assertNotNull($this->factory->createForUser($this->user));
         
     }
 

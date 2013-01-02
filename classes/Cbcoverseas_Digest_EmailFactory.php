@@ -34,21 +34,37 @@ class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
     private function getActivities(ElggUser $user) {
         $results = array();
         
+        $last_digest_time = $this->getLastDigestTime($user);
+        
         $results['blogs'] = $this->db->getEntities(array(
             'type' => 'object',
             'subtype' => 'blog',
-            'created_time_lower' => $user->cbc_last_digest_time,
+            'created_time_lower' => $last_digest_time,
             'count' => true,
         ));
         
         $results['photos'] = $this->db->getEntities(array(
             'type' => 'object',
             'subtype' => 'image',
-            'created_time_lower' => $user->cbc_last_digest_time,
+            'created_time_lower' => $last_digest_time,
             'count' => true,
         ));
         
         return $results;
+    }
+    
+    private function getLastDigestTime(ElggUser $user) {
+        // Initialize the last digest time if it hasn't yet been set.
+        if (!isset($user->cbc_last_digest_time)) {
+            if ($user->last_login) {
+                $user->cbc_last_digest_time = $user->last_login;
+            } else {
+                $two_weeks_ago = time() - 14 * 24 * 60 * 60;
+                $user->cbc_last_digest_time = $two_weeks_ago;
+            }
+        }
+        
+        return $user->cbc_last_digest_time;
     }
     
     /** @override */

@@ -12,4 +12,4 @@ $emailFactory = new Cbcoverseas_Digest_EmailFactory($clock, $site, $views, $db, 
 
 $notifier = new Cbcoverseas_Digest_Notifier($mailer, $clock, $db, $emailFactory);
 
-$notifier->hourly();
+$notifier->sendDigests(Cbcoverseas_Digest_Notifier::USERS_PER_HOUR);
