@@ -10,5 +10,8 @@ $emailFactory = new Cbcoverseas_Digest_EmailFactory(
 $users = $emailFactory->getUsers($usersPerHour);
 
 foreach ($users as $user) {
-    $EVAN->mailer->send($emailFactory->createForUser($user));
+	$email = $emailFactory->createForUser($user);
+	if ($email) {
+		$EVAN->mailer->send($email);
+	}
 }
