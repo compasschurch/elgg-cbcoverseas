@@ -7,6 +7,8 @@
  */
 class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
     
+    const LAST_NOTIFIED_METADATA = 'cbc_last_digest_time';
+
     public function __construct(Evan_Clock $clock, ElggSite $site, Evan_ViewService $views, Evan_Db $db, Evan_I18n $i18n) {
         $this->clock = $clock;
         $this->site = $site;
@@ -15,6 +17,59 @@ class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
         $this->i18n = $i18n;
     }    
     
+    /**
+     * @param int $limit The maximum number of users to return.
+     * 
+     * @return ElggUser[] A list of users to send the digest to.
+     */
+    public function getUsers($limit) {
+        $users = $this->getNeverNotifiedUsers($limit);
+        
+        // If we have leftover quota, use it on the least recently notified users.
+        $limit -= count($users);
+        if ($limit > 0) {
+            $users = array_merge($users, $this->getLeastRecentlyNotifiedUsers($limit));
+        }
+        
+        return $users;
+    }
+    
+    /**
+     * @param int $limit The maximum number of users to return.
+     * 
+     * @return ElggUser[] A list of users that have never been sent this digest.
+     */
+    private function getNeverNotifiedUsers($limit) {
+        $dbprefix = $this->db->getPrefix();
+        $name_metastring_id = $this->db->addMetastring('cbc_last_digest_time');
+
+        return $this->db->getEntities(array(
+            'type' => 'user',
+            'wheres' => array("NOT EXISTS (
+                SELECT 1 FROM {$dbprefix}metadata md
+                WHERE md.entity_guid = e.guid
+                    AND md.name_id = $name_metastring_id)"),
+            'limit' => $limit,
+        ));
+    }
+    
+    /**
+     * @param int $limit The maximum number of users to return.
+     * 
+     * @return ElggUser[] A list of users that have least-recently received the digest.
+     */
+    private function getLeastRecentlyNotifiedUsers($limit) {
+        $this->db->getEntities(array(
+            'type' => 'user',
+            'order_by_metadata' => array(
+                'name' => 'cbc_last_digest_time',
+                'direction' => 'asc',
+                'as' => 'integer',
+            ),
+            'limit' => $limit,
+        ));
+    }
+     
     private function getSubject(ElggUser $user) {
         $date = $this->clock->getDateTime()->format('M j, Y');
         
@@ -88,7 +143,10 @@ class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
             ->setFrom($this->site->email)
             ->setSubject($this->getSubject($user))
             ->setBody($this->getBody($user, $activities));
-            
+        
+        // Records the last time a digest was sent to the user.
+        $user->cbc_last_digest_time = $this->clock->getTimestamp();
+        
         $this->db->setUser($olduser);
         
         return $message;

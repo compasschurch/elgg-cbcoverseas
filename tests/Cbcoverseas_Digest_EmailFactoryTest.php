@@ -57,17 +57,21 @@ class Cbcoverseas_Digest_EmailFactoryTest extends PHPUnit_Framework_TestCase {
                 $this->anything());
  
         // Ensure that last digest time is initialized to last login if available.
-        $timestamp = time();
-        $this->user->expects($this->any())
+        $timestamp = $this->clock->getTimestamp();
+        $last_login = $timestamp - 6000;
+        $this->user->expects($this->atLeastOnce())
             ->method('__get')
             ->will($this->returnValueMap(array(
                 array('cbc_last_digest_time', NULL),
-                array('last_login', $timestamp),
+                array('last_login', $last_login),
             )));
                 
-        $this->user->expects($this->once())
+        $this->user->expects($this->exactly(2))
             ->method('__set')
-            ->with('cbc_last_digest_time', $timestamp);
+            ->will($this->returnValueMap(array(
+                array('cbc_last_digest_time', $last_login, NULL),
+                array('cbc_last_digest_time', $timestamp, NULL),
+            )));
         
         $this->assertNotNull($this->factory->createForUser($this->user));
         

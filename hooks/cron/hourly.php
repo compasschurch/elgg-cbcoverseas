@@ -1,15 +1,14 @@
 <?php
 
+global $EVAN;
 
-$mailer = new Evan_Email_ElggSender();
-$clock = new Evan_SystemClock();
-$db = new Evan_Db_Mysql();
+// Limit on number of users to respect hosting rate limits.
+$usersPerHour = 50;
+$emailFactory = new Cbcoverseas_Digest_EmailFactory(
+    $EVAN->clock, elgg_get_site_entity(), $EVAN->views, $EVAN->db, $EVAN->i18n);
 
-$site = elgg_get_site_entity();
-$views = new Evan_ViewService();
-$i18n = new Evan_I18n();
-$emailFactory = new Cbcoverseas_Digest_EmailFactory($clock, $site, $views, $db, $i18n);
+$users = $emailFactory->getUsers($usersPerHour);
 
-$notifier = new Cbcoverseas_Digest_Notifier($mailer, $clock, $db, $emailFactory);
-
-$notifier->sendDigests(Cbcoverseas_Digest_Notifier::USERS_PER_HOUR);
+foreach ($users as $user) {
+    $EVAN->mailer->send($emailFactory->createForUser($user));
+}

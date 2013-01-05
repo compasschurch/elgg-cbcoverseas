@@ -1,5 +1,18 @@
 <?php
 
+global $EVAN;
+
+if (!$EVAN) {
+    $EVAN = new stdClass;
+}
+
+$EVAN->mailer = new Evan_Email_ElggSender();
+$EVAN->clock = new Evan_SystemClock();
+$EVAN->db = new Evan_Db_Mysql();
+
+$EVAN->views = new Evan_ViewService();
+$EVAN->i18n = new Evan_I18n();
+
 function cbcoverseas_blog_url_handler(ElggBlog $blog) {
   return "/blog/view/$blog->guid";
 }
