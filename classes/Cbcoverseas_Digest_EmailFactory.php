@@ -25,7 +25,7 @@ class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
     public function getUsers($limit) {
         $users = $this->getNeverNotifiedUsers($limit);
         
-        // If we have leftover quota, use it on the least recently notified users.
+	// If we have leftover quota, use it on the least recently notified users.
         $limit -= count($users);
         if ($limit > 0) {
             $users = array_merge($users, $this->getLeastRecentlyNotifiedUsers($limit));
@@ -59,7 +59,7 @@ class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
      * @return ElggUser[] A list of users that have least-recently received the digest.
      */
     private function getLeastRecentlyNotifiedUsers($limit) {
-        $this->db->getEntities(array(
+        return $this->db->getEntities(array(
             'type' => 'user',
             'order_by_metadata' => array(
                 'name' => 'cbc_last_digest_time',

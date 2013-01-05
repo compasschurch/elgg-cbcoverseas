@@ -6,7 +6,7 @@ global $EVAN;
 
 $emailFactory = new Cbcoverseas_Digest_EmailFactory(
     $EVAN->clock, elgg_get_site_entity(), $EVAN->views, $EVAN->db, $EVAN->i18n);
-
+$users = $emailFactory->getUsers(50);
 ?>
 
 <div class="elgg-input-wrapper">
@@ -14,20 +14,20 @@ $emailFactory = new Cbcoverseas_Digest_EmailFactory(
 	<textarea name="params[posters]" class="elgg-input-textarea"><?php echo $plugin->posters; ?></textarea>
 </div>
 
-Next 50 users slated to receive a digest:
+Next <?php echo count($users); ?> users slated to receive a digest:
 <table class="elgg-table">
-    <thead>
-        <tr>
-            <td>User</td>
-            <td>Last Digest Time</td>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($emailFactory->getUsers(50) as $user): ?>
-        <tr>
-            <td><?php echo elgg_view('output/text', array('value' => $user->name)); ?></td>
-            <td><?php echo elgg_view('output/date', array('value' => $user->cbc_last_digest_time)); ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
+	<thead>
+		<tr>
+			<th>User</th>
+			<th>Last Digest Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($users as $user): ?>
+		<tr>
+			<td><?php echo elgg_view('output/text', array('value' => $user->name)); ?></td>
+			<td><?php echo elgg_view('output/date', array('value' => $user->cbc_last_digest_time)); ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
 </table>
