@@ -130,8 +130,11 @@ class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
         $activities = $this->getActivities($user);
         
         $totalActivities = array_sum(array_values($activities));
+	
+        // Records the last time we attempted to generate a digest for the user.
+        $user->cbc_last_digest_time = $this->clock->getTimestamp();
         
-        // If there's no activity, don't send an email!
+	// If there's no activity, don't send an email!
         if ($totalActivities <= 0) {
             $this->db->setUser($olduser);
             return NULL;
@@ -143,9 +146,6 @@ class Cbcoverseas_Digest_EmailFactory implements Evan_Email_MessageFactory {
             ->setFrom($this->site->email)
             ->setSubject($this->getSubject($user))
             ->setBody($this->getBody($user, $activities));
-        
-        // Records the last time a digest was sent to the user.
-        $user->cbc_last_digest_time = $this->clock->getTimestamp();
         
         $this->db->setUser($olduser);
         
