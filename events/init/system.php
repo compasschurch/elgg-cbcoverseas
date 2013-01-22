@@ -33,78 +33,64 @@ elgg_extend_view('page/elements/foot', 'cbc/foot');
 
 
 
-// Templates
-elgg_register_ajax_view('js/angular/directive/cbcPosters/template.html');
-elgg_register_ajax_view('js/angular/directive/elggResponses/template.html');
-elgg_register_ajax_view('js/angular/directive/elggRiver/template.html');
-elgg_register_ajax_view('js/angular/directive/elggRiverComment/template.html');
-elgg_register_ajax_view('js/angular/directive/elggRiverItem/template.html');
-elgg_register_ajax_view('js/angular/directive/elggUsers/template.html');
-elgg_register_ajax_view('js/angular/view/admin/plugins/settings/template.html');
-elgg_register_ajax_view('js/angular/view/blog/view/template.html');
-elgg_register_ajax_view('js/angular/view/photos/all/template.html');
-elgg_register_ajax_view('js/angular/view/site/activity/template.html');
+global $CBC;
+$CBC = new stdClass;
+
+$CBC->modules = array(
+	'activitystreams/Collection',
+	'angular/module/Elgg',
+	'angular/module/elggAdmin',
+	'angular/module/elggDefault',
+	'cbc/Overseas',
+	'elgg/Database',
+	'text',
+	'angular/directive/focusOn/factory',
+	'angular/directive/whenScrolled/factory',	
+);
+
+$CBC->templates = array();
+
+$CBC->views = array(
+	'admin/plugins/settings',
+	'blog/view',
+	'site/activity',
+	'photos/all',
+);
+
+foreach ($CBC->views as $view) {
+	$CBC->templates[] = "js/angular/view/$view/template.html";
+	$CBC->modules[] = "angular/view/$view/Controller";
+}
+
+$CBC->directives = array(
+	'cbcPosters',
+	'elggResponses',
+	'elggRiver',
+	'elggRiverComment',
+	'elggRiverItem',
+	'elggUsers',
+);
+
+foreach ($CBC->directives as $directive) {
+	$CBC->templates[] = "js/angular/directive/$directive/template.html";
+	$CBC->modules[] = "angular/directive/$directive/Controller";
+	$CBC->modules[] = "angular/directive/$directive/factory";
+}
+
+foreach ($CBC->templates as $template) {
+	elgg_register_ajax_view($template);
+}
+
+foreach ($CBC->modules as $module) {
+	elgg_register_simplecache_view("js/$module");
+}
+
 elgg_register_ajax_view('js/elgg/session.js');
 elgg_register_ajax_view('page/elements/sidebar');
 
 if (elgg_is_admin_logged_in()) {
 	elgg_register_ajax_view('plugins/cbcoverseas/settings');
 }
-
-// Javascript modules
-elgg_register_simplecache_view('js/activitystreams/Collection');
-elgg_register_simplecache_view('js/angular/module/Elgg');
-elgg_register_simplecache_view('js/angular/module/elggAdmin');
-elgg_register_simplecache_view('js/angular/module/elggDefault');
-elgg_register_simplecache_view('js/cbc/Overseas');
-elgg_register_simplecache_view('js/elgg/Database');
-elgg_register_simplecache_view('js/text');
-
-
-// Angular directives
-elgg_register_simplecache_view('js/angular/directive/cbcPosters/Controller');
-elgg_register_simplecache_view('js/angular/directive/cbcPosters/factory');
-elgg_register_simplecache_view('js/angular/directive/cbcPosters/template.html');
-
-elgg_register_simplecache_view('js/angular/directive/elggResponses/Controller');
-elgg_register_simplecache_view('js/angular/directive/elggResponses/factory');
-elgg_register_simplecache_view('js/angular/directive/elggResponses/template.html');
-
-elgg_register_simplecache_view('js/angular/directive/elggRiver/Controller');
-elgg_register_simplecache_view('js/angular/directive/elggRiver/factory');
-elgg_register_simplecache_view('js/angular/directive/elggRiver/template.html');
-
-elgg_register_simplecache_view('js/angular/directive/elggRiverComment/Controller');
-elgg_register_simplecache_view('js/angular/directive/elggRiverComment/factory');
-elgg_register_simplecache_view('js/angular/directive/elggRiverComment/template.html');
-
-elgg_register_simplecache_view('js/angular/directive/elggRiverItem/Controller');
-elgg_register_simplecache_view('js/angular/directive/elggRiverItem/factory');
-elgg_register_simplecache_view('js/angular/directive/elggRiverItem/template.html');
-
-elgg_register_simplecache_view('js/angular/directive/elggUsers/Controller');
-elgg_register_simplecache_view('js/angular/directive/elggUsers/factory');
-elgg_register_simplecache_view('js/angular/directive/elggUsers/template.html');
-
-elgg_register_simplecache_view('js/angular/directive/focusOn/factory');
-
-elgg_register_simplecache_view('js/angular/directive/whenScrolled/factory');
-
-
-
-// Angular views
-elgg_register_simplecache_view('js/angular/view/admin/plugins/settings/Controller');
-elgg_register_simplecache_view('js/angular/view/admin/plugins/settings/template.html');
-
-elgg_register_simplecache_view('js/angular/view/site/activity/Controller');
-elgg_register_simplecache_view('js/angular/view/site/activity/template.html');
-
-elgg_register_simplecache_view('js/angular/view/blog/view/Controller');
-elgg_register_simplecache_view('js/angular/view/blog/view/template.html');
-
-elgg_register_simplecache_view('js/angular/view/photos/all/Controller');
-elgg_register_simplecache_view('js/angular/view/photos/all/template.html');
-
 
 elgg_register_js('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js');
 elgg_register_js('jquery.form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.09/jquery.form.js');
