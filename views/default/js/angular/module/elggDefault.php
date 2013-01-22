@@ -27,6 +27,14 @@ define(function(require) {
 					return elggDatabase.getEntity($route.current.params.guid);
 				}
 			}
+		}).when('/photos/all', {
+			template: require('text!angular/view/photos/all/template.html'),
+			controller: require('angular/view/photos/all/Controller'),
+			resolve: {
+				albums: function(elggDatabase) {
+					return elggDatabase.getAlbums();
+				}
+			}
 		});
 	});
 	return elggDefault;

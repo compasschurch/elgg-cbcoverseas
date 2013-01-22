@@ -29,6 +29,7 @@
 			'angular/module/elggDefault': '<?php echo elgg_get_simplecache_url("js", "angular/module/elggDefault"); ?>'.slice(0, -3),
 			'angular/view/admin/plugins/settings/Controller': '<?php echo elgg_get_simplecache_url("js", "angular/view/admin/plugins/settings/Controller"); ?>'.slice(0, -3),
 			'angular/view/blog/view/Controller': '<?php echo elgg_get_simplecache_url("js", "angular/view/blog/view/Controller"); ?>'.slice(0, -3),
+			'angular/view/photos/all/Controller': '<?php echo elgg_get_simplecache_url("js", "angular/view/photos/all/Controller"); ?>'.slice(0, -3),
 			'angular/view/site/activity/Controller': '<?php echo elgg_get_simplecache_url("js", "angular/view/site/activity/Controller"); ?>'.slice(0, -3),
 			'cbc/Overseas': '<?php echo elgg_get_simplecache_url("js", "cbc/Overseas"); ?>'.slice(0, -3),
 			'elgg/Database': '<?php echo elgg_get_simplecache_url("js", "elgg/Database"); ?>'.slice(0, -3),

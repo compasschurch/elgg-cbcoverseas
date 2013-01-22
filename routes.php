@@ -11,7 +11,8 @@ return array(
 	'/likes-json' => 'likes.json',
 	'/posters-json' => 'site/posters.json',
 	'/users-json' => 'users.json',
-	
+	'/photos/all' => 'angular/default',
+	'/albums-json' => 'albums.json',	
 	'/admin/plugins-json' => 'admin/plugins.json',
 	'/admin/plugins/:plugin/settings' => 'angular/admin',
 );

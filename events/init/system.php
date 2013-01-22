@@ -42,6 +42,7 @@ elgg_register_ajax_view('js/angular/directive/elggRiverItem/template.html');
 elgg_register_ajax_view('js/angular/directive/elggUsers/template.html');
 elgg_register_ajax_view('js/angular/view/admin/plugins/settings/template.html');
 elgg_register_ajax_view('js/angular/view/blog/view/template.html');
+elgg_register_ajax_view('js/angular/view/photos/all/template.html');
 elgg_register_ajax_view('js/angular/view/site/activity/template.html');
 elgg_register_ajax_view('js/elgg/session.js');
 elgg_register_ajax_view('page/elements/sidebar');
@@ -100,6 +101,9 @@ elgg_register_simplecache_view('js/angular/view/site/activity/template.html');
 
 elgg_register_simplecache_view('js/angular/view/blog/view/Controller');
 elgg_register_simplecache_view('js/angular/view/blog/view/template.html');
+
+elgg_register_simplecache_view('js/angular/view/photos/all/Controller');
+elgg_register_simplecache_view('js/angular/view/photos/all/template.html');
 
 
 elgg_register_js('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js');
