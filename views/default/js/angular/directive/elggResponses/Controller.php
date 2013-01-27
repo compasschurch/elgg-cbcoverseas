@@ -118,10 +118,11 @@ define(function(require) {
         $scope.resetComment = function() {
             this.newComment = '';
             this.commenting = false;
+	    this.doneCommenting = true;
         };
 
-		$scope.$on('comments/delete', function(e) {
-        	$scope.deleteComment(e.targetScope);
+	$scope.$on('comments/delete', function(e) {
+        	$scope.deleteComment(e.targetScope.comment);
         });
         
         var removeComment = function(comment) {

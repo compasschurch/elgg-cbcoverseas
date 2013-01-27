@@ -13,19 +13,16 @@ define(function(require) {
 	// Move these to a "moment" module?
 	var moment = require('moment');
 	Elgg.value('moment', moment);
-	Elgg.filter('fromNow', function() {
+	Elgg.filter('fromNow', function(moment) {
 	    return function(dateString) {
 	        return moment(new Date(dateString)).fromNow();
 	    };
 	});
-	Elgg.filter('calendar', function() {
+	Elgg.filter('calendar', function(moment) {
 	    return function(dateString) {
 	        return moment(new Date(dateString)).calendar();
 	    };
 	});
-	
-	// Super-handy for forcing focus based on model values
-	Elgg.directive('focusOn', require('angular/directive/focusOn/factory'));
 	
 	// Infinite scrolling made simple
 	Elgg.directive('whenScrolled', require('angular/directive/whenScrolled/factory'));
@@ -35,7 +32,6 @@ define(function(require) {
 	Elgg.service('elggDatabase', require('elgg/Database'));
 	Elgg.value('elggSession', require('elgg/session'));
 	Elgg.value('elggLoggedInUser', require('elgg/session').user);
-		
 	Elgg.config(function($routeProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 		$routeProvider.otherwise({
@@ -50,8 +46,6 @@ define(function(require) {
 		});
 	});
 	
-	// CBC Overseas extensions
-	Elgg.directive('cbcPosters', require('angular/directive/cbcPosters/factory'));
 	Elgg.service('cbcOverseas', require('cbc/Overseas'));
 	
 	return Elgg;

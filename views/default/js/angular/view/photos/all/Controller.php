@@ -1,9 +1,14 @@
 // <script>
-
 define(function() {
-	return function($scope, albums) {
-		$scope.albums = albums;
+	function Controller($scope, albums) {
+		$scope.albums = albums;		
+	};
 
-		
-	};	
+	Controller.$resolve = {
+		albums: function(elggDatabase) {
+			return elggDatabase.getAlbums();
+		}
+	};
+
+	return Controller;
 });

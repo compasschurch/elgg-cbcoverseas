@@ -70,11 +70,11 @@
 		    <div class="elgg-ajax-loader centered" data-ng-show="loadingOlderItems"></div>
 		    <ul class="elgg-list elgg-river-comments">
 		        <li class="elgg-river-response" data-ng-repeat="comment in object.comments.items | orderBy:'published'">
-		            <div data-elgg-river-comment="comment"></div>
+		            <div data-elgg-river-comment data-comment="comment"></div>
 		        </li>
 		    </ul>
 		    <div class="elgg-river-response" data-ng-hide="commenting">
-		        <button class="elgg-input-text"
+		        <button class="elgg-input-text" data-elgg-focus-model="doneCommenting"
 		                data-ng-click="commenting = true">
 		            Leave a comment...
 		        </button>
@@ -88,7 +88,7 @@
 		        </div>
 		        <div class="elgg-body">
 				<textarea required data-ng-model="newComment"
-		                               data-focus-on="commenting">
+		                               data-elgg-focus-model="commenting">
 				</textarea>
 		            <button class="elgg-button elgg-button-submit">
 		                Comment

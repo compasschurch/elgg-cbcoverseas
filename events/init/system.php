@@ -11,6 +11,7 @@ elgg_register_action("likes/add", "$actions_path/likes/add.php");
 
 // Don't want to include the title of the blog in the URL in case we send urls out via email, so override the default.
 elgg_register_entity_url_handler('object', 'blog', 'cbcoverseas_blog_url_handler');
+elgg_register_entity_url_handler('object', 'image', 'cbcoverseas_image_url_handler');
 
 // We override this page using the evan framework method. See routes.php
 elgg_unregister_page_handler('activity');
@@ -44,26 +45,36 @@ $CBC->modules = array(
 	'cbc/Overseas',
 	'elgg/Database',
 	'text',
-	'angular/directive/focusOn/factory',
 	'angular/directive/whenScrolled/factory',	
+	'jquery/tinymce',
 );
 
 $CBC->templates = array();
 
 $CBC->views = array(
-	'admin/plugins/settings',
-	'blog/view',
-	'site/activity',
-	'photos/all',
+	// '/blog/add/:container_guid' => 'blog/add',
+	'/blog/view/:guid' => 'blog/view',
+	// '/messages/inbox/:username' => 'messages/inbox',
+	// '/messages/read/:guid' => 'messages/view',
+	// '/messages/sent/:evan' => 'messages/sent',
+	// '/photos/add/:container_guid' => 'photos/add',
+	'/photos/all' => 'photos/all',
+	'/photos/album/:guid/:title' => 'photos/album',
+	'/photos/image/:guid/:title' => 'photos/image',
+	// '/profile/:username' => 'user/view',
+	'/activity' => 'site/activity',
 );
 
 foreach ($CBC->views as $view) {
 	$CBC->templates[] = "js/angular/view/$view/template.html";
 	$CBC->modules[] = "angular/view/$view/Controller";
+	$CBC->modules[] = "angular/view/$view/route";
 }
 
 $CBC->directives = array(
 	'cbcPosters',
+	'elggFocusModel',
+	'elggInputHtml',
 	'elggResponses',
 	'elggRiver',
 	'elggRiverComment',
@@ -101,11 +112,12 @@ elgg_register_js('moment', "//cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/mom
 elgg_register_js('angular', "//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js", 'footer');
 elgg_register_js('angular/module/ngResource', "//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js", 'footer');
 elgg_register_js('angular/module/ngSanitize', "//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-sanitize.min.js", 'footer');
-elgg_register_js('angular/module/Elgg', elgg_get_simplecache_url('js', 'angular/module/Elgg'), 'footer');
 
 elgg_load_js('jquery');
 elgg_load_js('jquery.form');
 elgg_load_js('jquery-ui');
+elgg_load_js('tinymce');
+elgg_load_js('elgg.tinymce');
 elgg_load_js('requirejs');
 elgg_load_js('pagedown');
 elgg_load_js('moment');

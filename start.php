@@ -17,6 +17,12 @@ function cbcoverseas_blog_url_handler(ElggBlog $blog) {
   return "/blog/view/$blog->guid";
 }
 
+function cbcoverseas_image_url_handler(TidypicsImage $image) {
+	$album = $image->getContainerEntity();
+	$title = elgg_get_friendly_title($image->getTitle());
+	return "/photos/$album->guid/$image->guid/$title";
+}
+
 function elgg_get_person_proto(ElggUser $user) {
 	$person = array(
 		'guid' => $user->guid,
@@ -153,7 +159,17 @@ function elgg_get_object_proto(ElggObject $object) {
 			$objectJson['attachments'][] = elgg_get_attachment_proto($photo);
 		}
 	}
-		
+
+	if ($object->getSubtype() == 'image') {
+		$objectJson['image'] = array(
+			'url' => $object->getIconUrl('small'),
+		);
+
+		$objectJson['fullImage'] = array(
+			'url' => $object->getIconUrl('master'),
+		);
+	}
+	
 	return $objectJson;
 }
 
