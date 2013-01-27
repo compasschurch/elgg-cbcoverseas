@@ -2,7 +2,11 @@
 	<div class="elgg-main elgg-body">
 		<div class="elgg-head">
 			<ul class="elgg-menu elgg-menu-title elgg-menu-hz elgg-menu-title-default">
-				<!-- Insert menu items here -->
+				<li class="elgg-menu-item-upload" data-ng-show="album.canEdit">
+					<a href="/photos/upload/{{album.guid}}" class="elgg-button elgg-button-action">
+						{{ 'images:upload' | elggEcho }}
+					</a>
+				</li>
 			</ul>
 			<h2 class="elgg-heading-main">{{album.displayName}}</h2>
 		</div>

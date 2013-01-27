@@ -88,6 +88,14 @@ foreach ($CBC->directives as $directive) {
 	$CBC->modules[] = "angular/directive/$directive/factory";
 }
 
+$CBC->filters = array(
+	'elggEcho',
+);
+
+foreach ($CBC->filters as $filter) {
+	$CBC->modules[] = "angular/filter/$filter";
+}
+
 foreach ($CBC->templates as $template) {
 	elgg_register_ajax_view($template);
 }

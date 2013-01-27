@@ -10,6 +10,10 @@ define(function(require) {
 	foreach ($CBC->directives as $directive) {
 		echo "elggDefault.directive('$directive', require('angular/directive/$directive/factory'));\n";
 	}
+	
+	foreach ($CBC->filters as $filter) {
+		echo "elggDefault.filter('$filter', require('angular/filter/$filter'));\n";
+	}
 	?>
 
 	elggDefault.config(function($routeProvider) {
