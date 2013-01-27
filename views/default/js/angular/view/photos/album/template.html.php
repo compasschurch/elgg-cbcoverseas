@@ -8,13 +8,16 @@
 					</a>
 				</li>
 			</ul>
-			<h2 class="elgg-heading-main">{{album.displayName}}</h2>
+			<h2 class="elgg-heading-main">
+				{{album.displayName}}
+			</h2>
 		</div>
 		<div class="elgg-content">
 			<ul class="elgg-gallery tidypics-gallery">
 				<li data-ng-repeat="image in album.items" id="elgg-object-{{image.guid}}" class="elgg-item">
 					<a href="{{image.url}}">
-						<img data-ng-src="{{image.image.url}}" class="elgg-photo " title="{{image.displayName}}" alt="{{image.displayName}}">
+						<img data-ng-src="{{image.image.url}}" class="elgg-photo"
+						     title="{{image.displayName}}" alt="{{image.displayName}}" />
 					</a>
 				</li>
 			</ul>	

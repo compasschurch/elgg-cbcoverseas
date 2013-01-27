@@ -4,7 +4,7 @@
 			<ul class="elgg-menu elgg-menu-title elgg-menu-hz elgg-menu-title-default">
 				<li class="elgg-menu-item-add">
 					<a href="/photos/add/36" class="elgg-button elgg-button-action">
-						{{ 'album:create' | elggEcho }}
+						{{ 'photos:add' | elggEcho }}
 					</a>
 				</li>
 			</ul>

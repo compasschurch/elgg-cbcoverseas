@@ -3,7 +3,9 @@
 		<div class="elgg-head">
 			<ul class="elgg-menu elgg-menu-title elgg-menu-hz elgg-menu-title-default">
 				<li class="elgg-menu-item-download">
-					<a href="{{image.fullImage.url}}" class="elgg-button elgg-button-action">Download image</a>
+					<a href="{{image.fullImage.url}}" class="elgg-button elgg-button-action">
+						{{ 'image:download' | elggEcho }}
+					</a>
 				</li>
 			</ul>
 			<h2 class="elgg-heading-main">{{image.displayName}}</h2>
@@ -13,13 +15,13 @@
 				<ul class="elgg-menu elgg-menu-hz tidypics-album-nav">
 					<li data-ng-show="image.prev">
 						<a href="{{image.prev.url}}" rel="prev" title="{{image.prev.displayName}}">
-							<span class="elgg-icon elgg-icon-arrow-left">Previous</span>
+							<span class="elgg-icon elgg-icon-arrow-left">{{ 'previous' | elggEcho }}</span>
 						</a>
 					</li>
-					<li><span>{{image.album.index}} of {{image.album.totalItems}}</span></li>
+					<li><span>{{ 'image:index' | elggEcho:[image.album.index, image.album.totalItems] }}</span></li>
 					<li data-ng-show="image.next">
 						<a href="{{image.next.url}}" rel="next" title="{{image.next.displayName}}">
-							<span class="elgg-icon elgg-icon-arrow-right">Next</span>
+							<span class="elgg-icon elgg-icon-arrow-right">{{ 'next' | elggEcho }}</span>
 						</a>
 					</li>
 				</ul>
