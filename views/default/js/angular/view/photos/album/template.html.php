@@ -3,8 +3,18 @@
 		<div class="elgg-head">
 			<ul class="elgg-menu elgg-menu-title elgg-menu-hz elgg-menu-title-default">
 				<li class="elgg-menu-item-upload" data-ng-show="album.canEdit">
-					<a href="/photos/upload/{{album.guid}}" class="elgg-button elgg-button-action">
+					<a href="/photos/upload/{{album.guid}}" class="elgg-button elgg-button-submit">
 						{{ 'images:upload' | elggEcho }}
+					</a>
+				</li>
+				<li class="elgg-menu-item-edit" data-ng-show="album.canEdit">
+					<a href="/photos/edit/{{album.guid}}" class="elgg-button elgg-button-action">
+						{{ 'edit' | elggEcho }}
+					</a>
+				</li>
+				<li class="elgg-menu-item-delete" data-ng-show="album.canEdit">
+					<a data-ng-click="deleteEntity(album)">
+						<span class="elgg-icon elgg-icon-delete">Delete</span>
 					</a>
 				</li>
 			</ul>

@@ -3,10 +3,15 @@
 		<div class="elgg-head">
 			<ul class="elgg-menu elgg-menu-title elgg-menu-hz elgg-menu-title-default">
 				<li class="elgg-menu-item-download">
-					<a href="{{image.fullImage.url}}" class="elgg-button elgg-button-action">
+					<a href="{{image.fullImage.url}}" class="elgg-button elgg-button-action" download>
 						{{ 'image:download' | elggEcho }}
 					</a>
 				</li>
+				<li class="elgg-menu-item-edit" data-ng-show="image.canEdit">
+					<a href="/photos/edit/{{image.guid}}" class="elgg-button elgg-button-action">
+                                                {{ 'edit' | elggEcho }}
+                                        </a>
+                                </li>
 			</ul>
 			<h2 class="elgg-heading-main">{{image.displayName}}</h2>
 		</div>
@@ -30,7 +35,9 @@
 					<img data-ng-src="{{image.fullImage.url}}" class="elgg-photo tidypics-photo"
 					     title="{{image.displayName}}" alt="{{image.displayName}}" />
 				</a>
+
 			</div>
+			<div data-elgg-responses data-object="image"></div>
 		</div>
 	</div>
 </div>

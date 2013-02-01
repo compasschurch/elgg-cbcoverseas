@@ -1,4 +1,4 @@
-<div>
+<div class="elgg-responses">
 	<!-- Activity bar -->
 	<div>
 		<!-- Action buttons -->

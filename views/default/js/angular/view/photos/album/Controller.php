@@ -1,8 +1,14 @@
 // <script>
 
 define(function() {
-	function Controller($scope, album) {
+	function Controller($scope, album, $window) {
 		$scope.album = album;
+		
+		$scope.deleteEntity = function(album) {
+			if ($window.confirm('Are you sure?')) {
+				
+			}
+		};
 	}
 
 	Controller.$resolve = {
