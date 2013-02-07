@@ -45,14 +45,14 @@ $CBC->modules = array(
 	'cbc/Overseas',
 	'elgg/Database',
 	'text',
-	'angular/directive/whenScrolled/factory',	
 	'jquery/tinymce',
 );
 
 $CBC->templates = array();
 
 $CBC->views = array(
-	// '/blog/add/:container_guid' => 'blog/add',
+	'/blog/add/:container_guid' => 'blog/add',
+	'/blog/edit/:guid' => 'blog/edit',
 	'/blog/view/:guid' => 'blog/view',
 	// '/messages/inbox/:username' => 'messages/inbox',
 	// '/messages/read/:guid' => 'messages/view',
@@ -74,12 +74,14 @@ foreach ($CBC->views as $view) {
 $CBC->directives = array(
 	'cbcPosters',
 	'elggFocusModel',
+	'elggFormBlogSave',
 	'elggInputHtml',
 	'elggResponses',
 	'elggRiver',
 	'elggRiverComment',
 	'elggRiverItem',
 	'elggUsers',
+	'whenScrolled',
 );
 
 foreach ($CBC->directives as $directive) {

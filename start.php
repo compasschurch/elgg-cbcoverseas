@@ -105,6 +105,9 @@ function elgg_get_object_proto(ElggObject $object) {
 		'updated' => to_atom($object->time_updated),
 		"displayName" => $object->title,
 		"url" => $object->getURL(),
+		"container" => array(
+			'guid' => $object->getContainerEntity()->guid,
+		),
 		"content" => $object->description,
 		'canEdit' => $object->canEdit(),
 		'canDelete' => $object->canEdit(),
@@ -117,6 +120,7 @@ function elgg_get_object_proto(ElggObject $object) {
 		"likes" => elgg_get_likes_proto($object),
 		"comments" => elgg_get_comments_proto($object),
 		'attachments' => array(),
+		'access_id' => $object->access_id,
 	);
 	
 	$owner = $object->getOwnerEntity();
@@ -152,6 +156,11 @@ function elgg_get_object_proto(ElggObject $object) {
 		}
 	}
 	
+	if ($object->getSubtype() == 'blog') {
+		$objectJson['status'] = $object->status;
+		$objectJson['comments_on'] = $object->comments_on;
+	}
+
 	if ($object->getSubtype() == 'tidypics_batch') {
 		$photos = $object->getEntitiesFromRelationship('belongs_to_batch', true);
 		
