@@ -16,6 +16,8 @@ To reply or view the original item, click here:
 
 You cannot reply to this email.",
 
+	'LoginException:BannedUser' => 'We could not log you in. Please check your username/email and password.',
+
 	'object:plugin:cbcoverseas:posters:label' => 'Who are the content creators?',
 	'river:create:object:thewire' => "%s",
 ));
