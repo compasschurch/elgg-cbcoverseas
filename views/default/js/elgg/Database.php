@@ -34,6 +34,10 @@ define(function(require) {
 	Database.prototype.getPlugin = function(id) {
 		return this.getObject('/admin/plugins-json', {id:id});
 	};
+
+	Database.prototype.getAlbums = function() {
+		return this.getCollection('/albums-json');
+	};
 	
 	return Database;
 });

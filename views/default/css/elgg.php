@@ -105,6 +105,7 @@ include "$cssDir/elgg/river/comments.css";
 include "$cssDir/elgg/river/response.css";
 include "$cssDir/elgg/tags.css";
 include "$cssDir/elgg/table.css";
+include "$cssDir/elgg/responses.css";
 
 /* layout */
 include "$cssDir/elgg/layout.css";

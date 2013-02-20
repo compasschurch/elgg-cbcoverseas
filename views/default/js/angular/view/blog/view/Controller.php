@@ -1,7 +1,7 @@
 // <script>
 
 define(function() {
-	return function($scope, blog, elgg) {
+	function Controller($scope, blog, elgg) {
 		$scope.blog = blog;
 		
 		$scope.deleteEntity = function(guid) {
@@ -9,5 +9,13 @@ define(function() {
 				window.history.back();
 			});
 		};
-	};	
+	};
+
+	Controller.$resolve = {
+		blog: function(elggDatabase, $route) {
+			return elggDatabase.getEntity($route.current.params.guid);
+		}
+	};
+
+	return Controller;
 });

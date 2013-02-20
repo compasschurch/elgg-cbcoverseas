@@ -26,7 +26,7 @@
 		<div>
 			<ul class="elgg-list elgg-list-river elgg-river">
 				<li data-ng-repeat="item in river.items">
-					<div data-elgg-river-item="item"></div>
+					<div data-elgg-river-item data-activity="item"></div>
 				</li>
 			</ul>
 		
