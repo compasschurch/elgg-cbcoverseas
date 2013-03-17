@@ -8,11 +8,9 @@ define(function(require) {
             replace: true,
             template: require("text!./template.html"),
             controller: require('./Controller'),
-            link: function(scope, element, attrs) {            
-                scope.$watch(attrs.elggRiverItem, function(item) {
-                    $.extend(scope, item);
-                });
-            }
+            scope: {
+	        'activity': '='
+	    },
         };
     };
 });

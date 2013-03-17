@@ -1,6 +1,6 @@
 // <script>
 define(function() {
-	return function($scope, river, elggLoggedInUser) {
+	function Controller($scope, river, elggLoggedInUser) {
 		$scope.river = river;
 		$scope.user = elggLoggedInUser;
 		
@@ -9,5 +9,13 @@ define(function() {
 				$scope.$digest();
 			});
 		};
-	};	
+	}
+
+	Controller.$resolve = {
+		river: function(elggDatabase) {
+			return elggDatabase.getActivity();
+		},
+	};
+
+	return Controller;
 });

@@ -4,11 +4,11 @@ define(function() {
 		$scope.deleting = false;
 		
 		$scope.delete = function() {
-	    	this.$emit('comments/delete');
+	    		this.$emit('comments/delete');
 		};
 	
-	    $scope.getContent = function() {
-	        return markdown.makeHtml(this.content || '');
-	    };
+		$scope.getContent = function() {
+			return markdown.makeHtml(this.comment.content || '');
+		};
 	};
 });

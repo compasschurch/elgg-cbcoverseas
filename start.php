@@ -17,6 +17,12 @@ function cbcoverseas_blog_url_handler(ElggBlog $blog) {
   return "/blog/view/$blog->guid";
 }
 
+function cbcoverseas_image_url_handler(TidypicsImage $image) {
+	$album = $image->getContainerEntity();
+	$title = elgg_get_friendly_title($image->getTitle());
+	return "/photos/$album->guid/$image->guid/$title";
+}
+
 function elgg_get_person_proto(ElggUser $user) {
 	$person = array(
 		'guid' => $user->guid,
@@ -120,12 +126,27 @@ function elgg_get_object_proto(ElggObject $object) {
 
 
 	if ($object->getSubtype() == 'album') {
-		$photos = elgg_get_entities(array(
-			'container_guid' => $object->guid,
-			'type' => 'object',
-			'subtype' => 'image',
-		));
-		
+		$photosOptions = array(
+                        'container_guid' => $object->guid,
+                        'type' => 'object',
+                        'subtype' => 'image',
+                );
+
+		$photos = elgg_get_entities($photosOptions);
+
+		$objectJson['totalItems'] = $object->getSize();
+	
+		$coverImage = get_entity($object->getCoverImageGuid());
+		if ($coverImage) {
+			$objectJson['image'] = array(
+				'url' => $coverImage->getIconUrl('small'),
+			);
+		} else {
+			$objectJson['image'] = array(
+				'url' => elgg_normalize_url("mod/tidypics/graphics/empty_album.png"),
+			);
+		}
+
 		foreach ($photos as $photo) {
 			$objectJson['attachments'][] = elgg_get_attachment_proto($photo);
 		}
@@ -138,7 +159,17 @@ function elgg_get_object_proto(ElggObject $object) {
 			$objectJson['attachments'][] = elgg_get_attachment_proto($photo);
 		}
 	}
-		
+
+	if ($object->getSubtype() == 'image') {
+		$objectJson['image'] = array(
+			'url' => $object->getIconUrl('small'),
+		);
+
+		$objectJson['fullImage'] = array(
+			'url' => $object->getIconUrl('master'),
+		);
+	}
+	
 	return $objectJson;
 }
 
