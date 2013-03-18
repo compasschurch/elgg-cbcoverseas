@@ -3,6 +3,9 @@
 *************************************** */
 .elgg-menu-title {
 	float: right;
+
+	/* This gets it to align correctly with the layout title. */
+	margin-top: -.25em;
 }
 
 .elgg-menu-title > li {

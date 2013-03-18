@@ -1,9 +1,15 @@
 <?php
 header("Content-type: application/json");
 
+$container = get_user_by_username(get_input('alias'));
+if (!$container) {
+	$container = get_entity(get_input('container_guid'));
+}
+
 $albumsOptions = array(
 	'type' => 'object',
 	'subtype' => 'album',
+	'container_guid' => $container ? $container->guid : NULL,
 );
 $limit = (int)get_input('limit', 10, false);
 $offset = (int)get_input('offset', 0, false);

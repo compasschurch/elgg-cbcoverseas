@@ -30,8 +30,8 @@ define(function(require) {
 	// Elgg-specific stuff
 	Elgg.value('elgg', require('elgg'));
 	Elgg.service('elggDatabase', require('elgg/Database'));
-	Elgg.value('elggSession', require('elgg/session'));
-	Elgg.value('elggLoggedInUser', require('elgg/session').user);
+	Elgg.value('elggSession', elgg.session);
+	Elgg.value('elggLoggedInUser', elgg.session.user);
 	Elgg.config(function($routeProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 		$routeProvider.otherwise({

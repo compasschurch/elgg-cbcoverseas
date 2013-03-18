@@ -1,13 +1,11 @@
 <div class="elgg-layout elgg-river-layout">
-	<aside class="elgg-sidebar">
-		<div data-cbc-posters></div>
-	</aside>
-	<aside class="elgg-sidebar-alt">
-	</aside>
-	<section class="elgg-main elgg-body" role="main">
+	<main class="elgg-main elgg-body" role="main">
 		<header class="elgg-head">
 			<h2 class="elgg-heading-main">Activity</h2>
 		</header>
+		<aside class="elgg-sidebar-alt">
+			<div data-cbc-posters></div>
+		</aside>
 		<div class="elgg-composer">
 			<h4>Share:</h4>
 			<ul class="elgg-menu elgg-menu-composer elgg-menu-hz elgg-menu-composer-default">
@@ -23,7 +21,7 @@
 				</li>
 			</ul>
 		</div>		
-		<div>
+		<div class="elgg-content elgg-body">
 			<ul class="elgg-list elgg-list-river elgg-river">
 				<li data-ng-repeat="item in river.items">
 					<div data-elgg-river-item data-activity="item"></div>
@@ -41,5 +39,5 @@
 				</div>
 		    </div>
 		</div>
-	</section>
+	</main>
 </div>

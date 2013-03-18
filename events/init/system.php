@@ -32,7 +32,7 @@ elgg_extend_view('js/initialize_elgg', 'js/cbcoverseas/initialize_elgg');
 elgg_extend_view('css/admin', 'cbc/css/admin');
 elgg_extend_view('page/elements/foot', 'cbc/foot');
 
-
+elgg_unextend_view('page/elements/header', 'search/search_box');
 
 global $CBC;
 $CBC = new stdClass;
@@ -61,6 +61,7 @@ $CBC->views = array(
 	'/photos/all' => 'photos/all',
 	'/photos/album/:guid/:title' => 'photos/album',
 	'/photos/image/:guid/:title' => 'photos/image',
+	'/photos/owner/:alias' => 'photos/owner',
 	// '/profile/:username' => 'user/view',
 	'/activity' => 'site/activity',
 );

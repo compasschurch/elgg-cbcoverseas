@@ -7,7 +7,6 @@ $vars = array();
 
 // render content before head so that JavaScript and CSS can be loaded. See #4032
 $messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
-$topbar = elgg_view('page/elements/topbar', $vars);
 $header = elgg_view('page/elements/header', $vars);
 $footer = elgg_view('page/elements/footer', $vars);
 
@@ -26,19 +25,18 @@ header("Content-type: text/html; charset=UTF-8");
 		<?php echo $messages; ?>
 	</div>
 	
-	<?php if (elgg_is_logged_in()): ?>
-	<div class="elgg-page-topbar">
-		<div class="elgg-inner">
-			<?php echo $topbar; ?>
-		</div>
-	</div>
-	<?php endif; ?>
-	
 	<div class="elgg-page-header">
 		<div class="elgg-inner">
 			<?php echo $header; ?>
 		</div>
 	</div>
+	
+	<nav class="elgg-page-nav">
+		<div class="elgg-inner">
+			<?php echo elgg_view_menu('site'); ?>
+		</div>
+	</nav>
+
 	<div class="elgg-page-body">
 		<div class="elgg-inner" data-ng-view>
 			<!-- Main content loaded here -->

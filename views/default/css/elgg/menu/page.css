@@ -2,17 +2,9 @@
 	PAGE MENU
 *************************************** */
 .elgg-menu-page li {
-	color: #999; 
-	font-size: 12px;
 	line-height: 1.7em;
 }
 
 .elgg-menu-page li a {
 	color: #999;
-	text-decoration: none;
-}
-
-.elgg-menu-page li a:hover,
-.elgg-menu-page .elgg-state-selected a {
-	color:#fff;
 }

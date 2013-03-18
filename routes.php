@@ -10,6 +10,7 @@ return array(
 	'/photos/album/:guid/:title' => 'angular/default',
 	'/photos/all' => 'angular/default',
 	'/photos/image/:guid/:title' => 'angular/default',
+	'/photos/owner/:alias' => 'angular/default',
 
 	// JSON VIEWS
 	'/activity-json' => 'site/activity.json',

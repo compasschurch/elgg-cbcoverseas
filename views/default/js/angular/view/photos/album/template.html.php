@@ -23,14 +23,17 @@
 			</h2>
 		</div>
 		<div class="elgg-content">
-			<ul class="elgg-gallery tidypics-gallery">
+			<div class="elgg-output" data-ng-bind-html="album.content"></div>
+			<ul class="elgg-gallery tidypics-gallery" data-ng-show="album.totalItems > 0">
 				<li data-ng-repeat="image in album.items" id="elgg-object-{{image.guid}}" class="elgg-item">
 					<a href="{{image.url}}">
 						<img data-ng-src="{{image.image.url}}" class="elgg-photo"
 						     title="{{image.displayName}}" alt="{{image.displayName}}" />
 					</a>
 				</li>
-			</ul>	
+			</ul>
+			<div data-ng-show="album.totalItems == 0">There are no photos in this album... yet!</div>
+			<div data-elgg-responses data-object="album"></div>	
 		</div>
 	</div>
 </div>

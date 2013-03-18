@@ -19,7 +19,7 @@ define(function() {
 				access_id: this.album.access_id,
 			}).success(function(result) {
 				if (result.status == 0) {
-					$location.url(result.forward_url);
+					$location.url(result.forward_url.slice(elgg.config.wwwroot.length));
 				}
 				
 				$rootScope.$digest();

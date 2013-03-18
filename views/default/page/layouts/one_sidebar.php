@@ -20,23 +20,23 @@ if (isset($vars['class'])) {
 ?>
 
 <div class="<?php echo $class; ?>">
-	<div class="elgg-sidebar">
-		<?php echo elgg_view('page/elements/sidebar', $vars); ?>
-	</div>
-	<div class="elgg-main elgg-body">
+	<main class="elgg-main elgg-body">
 		<div class="elgg-head">
 			<?php echo elgg_view('page/layouts/content/header', $vars); ?>
 		</div>
-		<div class="elgg-content">
-			<?php
-				// @todo deprecated so remove in Elgg 2.0
-				if (isset($vars['area1'])) {
-					echo $vars['area1'];
-				}
-				if (isset($vars['content'])) {
-					echo $vars['content'];
-				}
-			?>
+		<div class="elgg-sidebar">
+			<?php echo elgg_view('page/elements/sidebar', $vars); ?>
 		</div>
-	</div>
+		<div class="elgg-content">
+		<?php
+			// @todo deprecated so remove in Elgg 2.0
+			if (isset($vars['area1'])) {
+				echo $vars['area1'];
+			}
+			if (isset($vars['content'])) {
+				echo $vars['content'];
+			}
+		?>
+		</div>
+	</main>
 </div>

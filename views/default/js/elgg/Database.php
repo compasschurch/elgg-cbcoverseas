@@ -23,20 +23,20 @@ define(function(require) {
 		return this.getObject('/entity-json', {guid: guid});
 	};
 
-	Database.prototype.getActivity = function() {
-		return this.getCollection('/activity-json');
+	Database.prototype.getActivity = function(data) {
+		return this.getCollection('/activity-json', data);
 	};
 	
-	Database.prototype.getUsers = function() {
-		return this.getCollection('/users-json');
+	Database.prototype.getUsers = function(data) {
+		return this.getCollection('/users-json', data);
 	};
 	
 	Database.prototype.getPlugin = function(id) {
 		return this.getObject('/admin/plugins-json', {id:id});
 	};
 
-	Database.prototype.getAlbums = function() {
-		return this.getCollection('/albums-json');
+	Database.prototype.getAlbums = function(data) {
+		return this.getCollection('/albums-json', data);
 	};
 	
 	return Database;

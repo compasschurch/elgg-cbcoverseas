@@ -24,6 +24,10 @@ function cbcoverseas_image_url_handler(TidypicsImage $image) {
 }
 
 function elgg_get_person_proto(ElggUser $user) {
+	if (!$user) {
+		return array();
+	}
+
 	$person = array(
 		'guid' => $user->guid,
 		'objectType' => 'person',
