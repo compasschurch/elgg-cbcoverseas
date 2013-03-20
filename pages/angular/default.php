@@ -33,7 +33,7 @@ header("Content-type: text/html; charset=UTF-8");
 	
 	<nav class="elgg-page-nav">
 		<div class="elgg-inner">
-			<?php echo elgg_view_menu('site'); ?>
+			<?php echo elgg_view_menu('site', array('sort_by' => 'priority')); ?>
 		</div>
 	</nav>
 

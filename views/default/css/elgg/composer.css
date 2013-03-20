@@ -2,10 +2,6 @@
 	display: none;
 }
 
-.elgg-composer {
-	padding: .5em 1em;
-}
-
 .elgg-composer > h4 {
 	color: gray;
 	display: inline-block;

@@ -1,4 +1,4 @@
-.elgg-heading-site {
+.elgg-heading-site, a.elgg-heading-site {
 	color: white;
 	display: block;
 	font-family: Georgia, times, serif;
@@ -6,6 +6,7 @@
 	position: relative;
 	text-decoration: none;
 }
+
 .elgg-heading-main {
 	float: left;
 	margin-right: 10px;

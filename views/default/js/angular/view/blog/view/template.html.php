@@ -1,6 +1,4 @@
 <div class="elgg-layout elgg-layout-one-sidebar clearfix">
-	<div class="elgg-sidebar"></div>
-	<div class="elgg-sidebar-alt"></div>
 	<article class="elgg-main elgg-body">
 		<header class="elgg-head">
 			<h2 class="elgg-heading-main">{{blog.displayName}}</h2>
@@ -36,8 +34,8 @@
 				</div>
 			</div>
 			<div class="elgg-output blog-post mvm" data-ng-bind-html="blog.content"></div>
+			<footer data-elgg-responses data-object="blog"></footer>
 		</div>
 
-		<footer data-elgg-responses data-object="blog"></footer>
 	</article>
 </div>
