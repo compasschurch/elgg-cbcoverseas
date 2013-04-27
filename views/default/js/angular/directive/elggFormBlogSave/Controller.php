@@ -1,7 +1,7 @@
 // <script>
 
 define(function() {
-	return function($scope, $routeParams, $rootScope, $location) {
+	return function($scope, $location, elgg) {
 		$scope.submit = function() {
 			elgg.action('blog/save', {
 				guid: this.blog.guid,
@@ -11,12 +11,14 @@ define(function() {
 				access_id: this.blog.access_id,
 				excerpt: this.blog.excerpt,
 				comments_on: this.blog.comments_on,
+				status: this.blog.status,
+				save: true
 			}).success(function(result) {
 				if (result.status == 0) {
 					$location.url(result.forward_url.slice(elgg.config.wwwroot.length));
 				}
 				
-				$rootScope.$digest();
+				$scope.$apply();
 			});
 		};		
 	};

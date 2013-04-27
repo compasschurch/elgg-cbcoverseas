@@ -10,7 +10,7 @@
 				{{activity.published | fromNow}}
 			</time>
 		</div>
-		<div class="elgg-river-message" ng-bind-html="activity.object.content"></div>
+		<div class="elgg-river-message elgg-output" ng-bind-html="activity.object.content"></div>
 		
 		<img data-ng-src="{{getMediaAttachment().fullImage.url}}" width="100%" data-ng-show="!!getMediaAttachment()" />
 		

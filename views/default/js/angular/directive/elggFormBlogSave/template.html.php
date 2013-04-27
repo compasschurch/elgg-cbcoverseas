@@ -55,7 +55,6 @@
         </div>
 
         <input type="submit" value="{{'save' | elggEcho}}" class="elgg-button elgg-button-submit">
-        <input type="submit" value="{{'preview' | elggEcho}}" class="elgg-button mls">
 </div>
 </fieldset>
 </form>
