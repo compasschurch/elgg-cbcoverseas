@@ -3,19 +3,14 @@
 	RIVER
 *************************************** */
 .elgg-menu-river {
-	margin-bottom: 5px;
-	font-size: 90%;
 	color: #aaa;
-	line-height: 16px;
-	height: 16px;
 }
 .elgg-menu-river > li {
 	display: inline-block;
-	margin-right: 5px;
+	margin-right: .5em;
 }
 .elgg-menu-river > li > a {
 	color: #aaa;
-	height: 16px;
 }
 
 .elgg-menu-river > li > a {

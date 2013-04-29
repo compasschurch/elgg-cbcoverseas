@@ -39,7 +39,6 @@
 	Typography
 *************************************** */
 body {
-	line-height: 1.4em;
 	font-family: "Muli", Arial, Tahoma, Verdana, sans-serif;
 }
 
@@ -48,6 +47,7 @@ a {
 }
 
 a:hover,
+a:focus,
 a.selected { /* @todo remove .selected */
 	color: #555555;
 	text-decoration: underline;

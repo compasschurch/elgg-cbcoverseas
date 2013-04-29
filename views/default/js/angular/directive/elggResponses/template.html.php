@@ -38,25 +38,25 @@
 	<div>
 		<!-- Likes drawer -->
 		<div class="elgg-river-likes-drawer clearfloat" data-ng-show="likesDrawerIsOpen">
-			<div class="elgg-river-more">
+			<div class="elgg-river-response elgg-river-more">
 		    	<button class="link" data-ng-click="toggleLikesDrawer()">
 		    		&laquo; Hide likes
 		    	</button>        		
 			</div>
-			<div style="background: #EEE; padding: 5px">
-		    	<ul class="elgg-list elgg-list-likes">
-		    		<li class="elgg-item" data-ng-repeat="liker in object.likes.items">
-		    			<div class="elgg-image-block">
-		    				<a href="{{liker.url}}" class="elgg-image">
+			<div class="elgg-river-response">
+		    		<ul class="elgg-list elgg-list-likes">
+		    			<li class="elgg-item" data-ng-repeat="liker in object.likes.items">
+		    				<div class="elgg-image-block">
+		    					<a href="{{liker.url}}" class="elgg-image">
 								<img data-ng-src="{{liker.image.url}}" width="25" height="25" />
-		    				</a>
-		    				<div class="elgg-body">
-		    					<a href="{{liker.url}}">{{liker.displayName}}</a>
+		    					</a>
+		    					<div class="elgg-body">
+		    						<a href="{{liker.url}}">{{liker.displayName}}</a>
+		    					</div>
 		    				</div>
-		    			</div>
-		    		</li>
-		    	</ul>
-		    	<div class="elgg-ajax-loader centered" data-ng-show="loadingLikes"></div>
+		    			</li>
+		    		</ul>
+		    		<div class="elgg-ajax-loader centered" data-ng-show="loadingLikes"></div>
 			</div>
 		</div>
 		

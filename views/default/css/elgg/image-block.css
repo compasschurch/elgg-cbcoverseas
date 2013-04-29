@@ -5,16 +5,16 @@
 .elgg-image-block > .elgg-image {
 	float: left;
 	line-height: 0;
-	margin-right: 5px;
+	margin-right: .5em;
 }
 .elgg-image-block > .elgg-image-alt {
 	float: right;
-	margin-left: 5px;
+	margin-left: .5em;
 }
 
 .elgg-image-block.elgg-size-small > .elgg-image {
-	margin-right: 10px;
+	margin-right: .75em;
 }
 .elgg-image-block.elgg-size-small > .elgg-image-alt {
-	margin-left: 10px;
+	margin-left: .75em;
 }

@@ -1,11 +1,11 @@
 .link {
-    color: #4690D6;
-    text-decoration: none;
-    background: none;
-    border: 0;
-    	font-size: 100%;
+	color: #4690D6;
+	text-decoration: none;
+	background: none;
+	border: 0;
+	font-size: inherit;
 	margin: 0;
-    padding: 0;
+	padding: 0;
 }
 
 .link:hover,
@@ -41,6 +41,10 @@
 /* ***************************************
 	USER INPUT DISPLAY RESET
 *************************************** */
+.elgg-output {
+	line-height: 1.5;
+}
+
 .elgg-output dt { font-weight: bold }
 .elgg-output dd { margin: 0 0 1em 1em }
 
@@ -59,7 +63,7 @@
 }
 .elgg-output table td {
 	border: 1px solid #ccc;
-	padding: 3px 5px;
+	padding: .25em .5em;
 }
 .elgg-output img {
 	max-width: 100%;

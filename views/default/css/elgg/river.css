@@ -3,16 +3,14 @@
 *************************************** */
 .elgg-river-timestamp {
 	color: #666;
-	font-size: 85%;
 	font-style: italic;
-	line-height: 1.2em;
 }
 
 .elgg-river-attachments,
 .elgg-river-message,
 .elgg-river-content {
-	line-height: 1.5em;
-	margin: 8px 0 5px;
+	line-height: 1.5;
+	margin: .25em 0;
 }
 
 .elgg-river-attachments .elgg-avatar,
@@ -25,13 +23,11 @@
 }
 
 .elgg-river-layout .elgg-input-dropdown {
-	margin: 10px 0;
+	margin: 1em 0;
 }
 
 .elgg-river-more {
 	background-color: #EEE;
-	
-	padding: 2px 4px;
-	font-size: 85%;
+	font-size: .75em;
 	margin-bottom: 2px;
 }

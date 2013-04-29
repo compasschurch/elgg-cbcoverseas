@@ -6,7 +6,7 @@
 .elgg-river-comments li {
 	background-color: #EEE;
 	border-bottom: none;
-	padding: 5px;
+	padding: .5em;
 	margin-bottom: 2px;
 }
 

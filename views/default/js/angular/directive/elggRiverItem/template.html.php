@@ -2,7 +2,7 @@
     <a href="{{activity.actor.url}}" class="elgg-image">
         <img data-ng-src="{{activity.actor.image.url}}" alt="" width="60" height="60" />                    
     </a>
-    <div class="elgg-body pas">
+    <div class="elgg-body">
 		<!-- Main content -->
 		<div class="elgg-river-summary">
 			<span data-ng-bind-html="activity.title"></span>
