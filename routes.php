@@ -1,6 +1,9 @@
 <?php
 
 return array(
+	'/login' => 'account/login',
+	'/register' => 'account/register',
+	
 	'/activity' => 'angular/default',
 	'/blog/view/:guid' => 'angular/default',
 	'/blog/add/:container_guid' => 'angular/default',

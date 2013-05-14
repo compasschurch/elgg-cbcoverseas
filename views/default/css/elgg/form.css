@@ -4,5 +4,6 @@
 }
 
 .elgg-form-login, .elgg-form-account {
-	max-width: 450px;
+	max-width: 20em;
+	margin: 0 auto;
 }
