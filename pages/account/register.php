@@ -33,6 +33,10 @@ elgg_register_menu_item('title', ElggMenuItem::factory(array(
 	'class' => 'elgg-button elgg-button-action',
 )));
 
+$form_params = array(
+	'class' => 'elgg-form-account',
+);
+
 $body_params = array(
 	'friend_guid' => $friend_guid,
 	'invitecode' => $invitecode

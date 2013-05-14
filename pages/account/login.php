@@ -22,6 +22,6 @@ elgg_register_menu_item('title', ElggMenuItem::factory(array(
 	'class' => 'elgg-button elgg-button-submit',
 )));
 
-$login_box = elgg_view_form('login');
+$login_box = elgg_view_form('login', array('class' => 'elgg-form-account'));
 $content = elgg_view_layout('one_column', array('content' => $login_box));
 echo elgg_view_page(elgg_echo('login'), $content, 'external');

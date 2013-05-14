@@ -3,7 +3,7 @@
 	padding: 1em 0;
 }
 
-.elgg-form-login, .elgg-form-register {
-	max-width: 20em;
+.elgg-form-account {
+	max-width: 25em;
 	margin: 0 auto;
 }
