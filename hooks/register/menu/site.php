@@ -33,5 +33,12 @@ if (elgg_is_logged_in()) {
 		'text' => elgg_echo('logout'),
 		'section' => 'settings',
 	));
+} else {
+	$menu->registerItem('login', array(
+		'href' => '/login',
+		'text' => elgg_echo('login'),
+		'section' => 'settings',
+	));
 }
+
 return $menu->getItems();

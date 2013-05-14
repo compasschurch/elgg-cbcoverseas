@@ -47,11 +47,5 @@ header("Content-type: text/html; charset=UTF-8");
 
 <?php echo elgg_view('page/elements/foot'); ?>
 
-<script>
-require(['angular', 'angular/module/elggDefault'], function(angular) {
-	angular.bootstrap(document.body, ['elggDefault']);
-})
-</script>
-
 </body>
 </html>
