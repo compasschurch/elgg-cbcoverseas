@@ -117,7 +117,7 @@ if (elgg_is_admin_logged_in()) {
 elgg_register_js('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js');
 elgg_register_js('jquery.form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.09/jquery.form.js');
 elgg_register_js('jquery-ui', '//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js');
-elgg_register_js('requirejs', "//cdnjs.cloudflare.com/ajax/libs/require.js/2.0.6/require.min.js", 'footer');
+elgg_register_js('require', "//cdnjs.cloudflare.com/ajax/libs/require.js/2.0.6/require.min.js", 'footer');
 elgg_register_js('pagedown', "//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js", 'footer');
 elgg_register_js('moment', "//cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js", 'footer');
 elgg_register_js('angular', "//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js", 'footer');
@@ -129,7 +129,7 @@ elgg_load_js('jquery.form');
 elgg_load_js('jquery-ui');
 elgg_load_js('tinymce');
 elgg_load_js('elgg.tinymce');
-elgg_load_js('requirejs');
+elgg_load_js('require');
 elgg_load_js('pagedown');
 elgg_load_js('moment');
 elgg_load_js('angular');
