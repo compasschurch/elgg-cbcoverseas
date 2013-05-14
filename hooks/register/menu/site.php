@@ -13,9 +13,12 @@ if (elgg_is_admin_logged_in()) {
 	));
 }
 
-$unread = (int)messages_count_unread();
 
 if (elgg_is_logged_in()) {
+	$unread = (int)messages_count_unread();
+	
+	$user = elgg_get_logged_in_user_entity();
+
 	$menu->registerItem('messages', array(
 		'href' => '/messages/inbox',
 		'text' => elgg_echo('messages') . ($unread > 0 ? "<span class='elgg-count'>$unread</span>" : ""),
@@ -23,7 +26,7 @@ if (elgg_is_logged_in()) {
 	));
 	
 	$menu->registerItem('settings', array(
-		'href' => '/settings',
+		'href' => "/settings/user/$user->username",
 		'text' => elgg_echo('settings'),
 		'section' => 'settings',
 	));
