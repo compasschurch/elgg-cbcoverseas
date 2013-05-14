@@ -26,32 +26,18 @@ if (elgg_is_logged_in()) {
 	forward();
 }
 
-elgg_register_menu_item('title', array(
+elgg_register_menu_item('title', ElggMenuItem::factory(array(
+	'name' => 'login',
 	'href' => '/login',
 	'text' => elgg_echo('login'),
-));
-
-$title = elgg_echo("register");
-
-$content = elgg_view_title($title);
-
-// create the registration url - including switching to https if configured
-$register_url = elgg_get_site_url() . 'action/register';
-if (elgg_get_config('https_login')) {
-	$register_url = str_replace("http:", "https:", $register_url);
-}
-$form_params = array(
-	'action' => $register_url,
-	'class' => 'elgg-form-account',
-);
+	'class' => 'elgg-button elgg-button-action',
+)));
 
 $body_params = array(
 	'friend_guid' => $friend_guid,
 	'invitecode' => $invitecode
 );
-$content .= elgg_view_form('register', $form_params, $body_params);
-
-$content .= elgg_view('help/register');
+$content = elgg_view_form('register', $form_params, $body_params);
 
 $body = elgg_view_layout("one_column", array('content' => $content));
 

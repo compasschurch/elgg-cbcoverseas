@@ -3,6 +3,7 @@
 return array(
 	'/login' => 'account/login',
 	'/register' => 'account/register',
+	'/forgotpassword' => 'account/forgotten_password',
 	
 	'/activity' => 'angular/default',
 	'/blog/view/:guid' => 'angular/default',
