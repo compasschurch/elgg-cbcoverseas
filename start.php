@@ -13,7 +13,7 @@ $EVAN->db = new Evan_Db_Mysql();
 $EVAN->views = new Evan_ViewService();
 $EVAN->i18n = new Evan_I18n();
 
-function cbcoverseas_blog_url_handler(ElggBlog $blog) {
+function cbcoverseas_blog_url_handler(ElggObject $blog) {
   return "/blog/view/$blog->guid";
 }
 
