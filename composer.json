@@ -1,0 +1,30 @@
+{
+    "name": "compasschurch/elgg-cbcoverseas",
+    "type": "elgg-plugin",
+    "description": "Elgg theme and modifications specific to cbcoverseas.org",
+    "extra": {
+        "installer-name": "cbcoverseas"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cbcoverseas\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evan Winslow",
+            "email": "evan.b.winslow@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "composer/installers": "~1.0",
+        "elgg/elgg": "~1.9",
+        "ewinslow/elgg-evan": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
+    }
+}

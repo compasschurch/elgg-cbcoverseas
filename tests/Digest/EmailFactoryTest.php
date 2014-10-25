@@ -1,22 +1,24 @@
 <?php
 
-namespace Cbcoverseas\Digest\Factory
+namespace Cbcoverseas\Digest;
+
+use Evan\Time\MockClock;
 
 class EmailFactoryTest extends \PHPUnit_Framework_TestCase {
 
     function setUp() {
-        $this->clock = new Evan_MockClock('2013-01-05');
-        $this->site = $this->getMock('ElggSite');
-        $this->views = $this->getMock('Evan_ViewService');
-        $this->db = $this->getMock('Evan_Db');
-        $this->i18n = $this->getMock('Evan_I18n');
+        $this->clock = new MockClock('2013-01-05');
+        $this->site = $this->getMockBuilder('ElggSite')->disableOriginalConstructor()->getMock();
+        $this->views = $this->getMock('Evan\Viewer');
+        $this->db = $this->getMock('Evan\Storage\Db');
+        $this->i18n = $this->getMock('Evan\I18n\Translator');
         
         // The object under test
         $this->factory = new EmailFactory(
             $this->clock, $this->site, $this->views, $this->db, $this->i18n);
 
         
-        $this->user = $this->getMock('ElggUser');
+        $this->user = $this->getMockBuilder('ElggUser')->disableOriginalConstructor()->getMock();
     }
 
     function testCreateForUser() {

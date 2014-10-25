@@ -29,8 +29,7 @@ elgg_register_plugin_hook_handler('object:notifications', 'all', 'cbcoverseas_no
 elgg_extend_view('page/elements/head', 'mobile/viewport');
 elgg_extend_view('page/elements/head', 'cbc/head', 1);
 elgg_extend_view('js/initialize_elgg', 'js/cbcoverseas/initialize_elgg');
-elgg_extend_view('css/admin', 'cbc/css/admin');
-elgg_extend_view('page/elements/foot', 'cbc/foot');
+elgg_extend_view('css/admin', 'cbc/admin.css');
 
 elgg_unextend_view('page/elements/header', 'search/search_box');
 
