@@ -1,6 +1,8 @@
 <?php
 
-class Cbcoverseas_Digest_EmailFactoryTest extends PHPUnit_Framework_TestCase {
+namespace Cbcoverseas\Digest\Factory
+
+class EmailFactoryTest extends \PHPUnit_Framework_TestCase {
 
     function setUp() {
         $this->clock = new Evan_MockClock('2013-01-05');
@@ -10,7 +12,7 @@ class Cbcoverseas_Digest_EmailFactoryTest extends PHPUnit_Framework_TestCase {
         $this->i18n = $this->getMock('Evan_I18n');
         
         // The object under test
-        $this->factory = new Cbcoverseas_Digest_EmailFactory(
+        $this->factory = new EmailFactory(
             $this->clock, $this->site, $this->views, $this->db, $this->i18n);
 
         
@@ -28,7 +30,7 @@ class Cbcoverseas_Digest_EmailFactoryTest extends PHPUnit_Framework_TestCase {
                     case 'image':
                         return 897893;
                     default:
-                        throw new Exception("Unexpected subtype");
+                        throw new \Exception("Unexpected subtype");
                 }
             }));
         

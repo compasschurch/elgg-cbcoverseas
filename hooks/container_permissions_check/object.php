@@ -15,6 +15,7 @@ switch ($subtype) {
 				return true;
 			}
 		}
+		// TODO(evan): Fix this to include admins
 		return false;
 	default:
 		return NULL;
