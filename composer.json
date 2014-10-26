@@ -20,6 +20,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
+        "php": "~5.4",
         "composer/installers": "~1.0",
         "elgg/elgg": "~1.9",
         "ewinslow/elgg-evan": "dev-master"

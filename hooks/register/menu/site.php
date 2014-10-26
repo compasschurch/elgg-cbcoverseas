@@ -4,7 +4,6 @@ use Evan\Menu;
 $menu = new Menu($return);
 
 $menu->unregisterItem('blog');
-$menu->unregisterItem('thewire');
 
 if (elgg_is_admin_logged_in()) {
 	$menu->registerItem('admin', array(
