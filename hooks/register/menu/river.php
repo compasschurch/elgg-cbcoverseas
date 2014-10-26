@@ -1,6 +1,7 @@
 <?php
+use Evan\Menu;
 
-$menu = new EvanMenu($return);
+$menu = new Menu($return);
 
 $menu->unregisterItem('likes');
 
