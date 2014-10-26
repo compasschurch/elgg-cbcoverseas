@@ -3,8 +3,9 @@
 namespace Cbcoverseas\Digest;
 
 use Evan\Time\MockClock;
+use PHPUnit_Framework_TestCase as TestCase;
 
-class EmailFactoryTest extends \PHPUnit_Framework_TestCase {
+class EmailFactoryTest extends TestCase {
 
     function setUp() {
         $this->clock = new MockClock('2013-01-05');
@@ -79,6 +80,37 @@ class EmailFactoryTest extends \PHPUnit_Framework_TestCase {
         
         $this->assertNotNull($this->factory->createForUser($this->user));
         
+    }
+    
+    /**
+     * 1. user A last logged in a few hours ago.
+     * 2. user B sends user A a private message.
+     * 3. Run the digest
+     * 4. Check that user A is sent a digest.
+     */
+    public function testDigestEmailIncludesUnreadPrivateMessages() {
+        $this->markTestIncomplete('Requires manual testing for now');
+        // TODO(ewinslow): This is not implemented at all
+    }
+    
+    /**
+     * 1. user A last logged in a few hours ago.
+     * 2. user B uploads a new photo.
+     * 3. Run the digest.
+     * 4. Check that user A is sent a digest email.
+     */
+    public function testDigestEmailIncludesUnseenPhotoUploads() {
+        $this->markTestIncomplete('Requires manual testing for now');
+    }
+    
+    /**
+     * 1. user A last logged in a few hours ago.
+     * 2. user B posts a blog.
+     * 3. Run the digest
+     * 4. Check that user A is sent a digest email.
+     */
+    public function testDigestEmailIncludesUnreadBlogPosts() {
+        $this->markTestIncomplete('Requires manual testing for now');
     }
 
 }
