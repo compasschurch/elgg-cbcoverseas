@@ -22,9 +22,13 @@ class EmailFactoryTest extends TestCase {
         $this->user = $this->getMockBuilder('ElggUser')->disableOriginalConstructor()->getMock();
     }
 
+
+    // TODO(ewinslow): Redo this test
+    // It uses mocks heavily and is therefore quite brittle. It breaks when you add new
+    // features to the digest factory. That shouldn't happen!
     function testCreateForUser() {
 
-        $this->db->expects($this->exactly(2))
+        $this->db->expects($this->exactly(3))
             ->method('getEntities')
             ->will($this->returnCallback(function($options) {
                 switch ($options['subtype']) {
@@ -32,6 +36,8 @@ class EmailFactoryTest extends TestCase {
                         return 193587;
                     case 'image':
                         return 897893;
+                    case 'messages':
+                        return 923524;
                     default:
                         throw new \Exception("Unexpected subtype");
                 }
@@ -48,6 +54,7 @@ class EmailFactoryTest extends TestCase {
                 $this->equalTo(array(
                     'blogs' => 193587,
                     'photos' => 897893,
+                    'messages' => 923524,
                     'site' => $this->site,
                     'user' => $this->user,
                 )),
@@ -111,5 +118,19 @@ class EmailFactoryTest extends TestCase {
     public function testDigestEmailIncludesUnreadBlogPosts() {
         $this->markTestIncomplete('Requires manual testing for now');
     }
-
+    
+	/**
+	 * Email digests should not be sent if user has checked "No email notifications".
+	 * 
+	 * Users should not have to decide between having an account and getting
+	 * spammed with updates. Maybe they want to keep an account but only visit
+	 * once a month.
+	 * 
+	 * 1. Assume we have 2 users in the system. One of them has turned off email notifications.
+	 * 2. Get a list of users who should get the email digest this round.
+	 * 3. Check that the result has only one user and that it is the right one.
+	 */
+	public function testEmailDigestsRespectEmailNotificationPreferences() {
+		$this->markTestSkipped('Implement this!');
+	}
 }
