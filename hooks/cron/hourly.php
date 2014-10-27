@@ -4,8 +4,7 @@ global $EVAN;
 
 // Limit on number of users to respect hosting rate limits.
 $usersPerHour = 50;
-$emailFactory = new \Cbcoverseas\Digest\EmailFactory(
-    $EVAN->clock, elgg_get_site_entity(), $EVAN->views, $EVAN->db, $EVAN->i18n);
+$emailFactory = $EVAN->get('Cbcoverseas\Digest\EmailFactory');
 
 $users = $emailFactory->getUsers($usersPerHour);
 

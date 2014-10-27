@@ -4,8 +4,7 @@ $plugin = $vars['plugin'];
 
 global $EVAN;
 
-$emailFactory = new Cbcoverseas_Digest_EmailFactory(
-    $EVAN->clock, elgg_get_site_entity(), $EVAN->views, $EVAN->db, $EVAN->i18n);
+$emailFactory = $EVAN->get('Cbcoverseas\Digest\EmailFactory');
 $users = $emailFactory->getUsers(50);
 ?>
 
