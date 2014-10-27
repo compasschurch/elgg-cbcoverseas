@@ -8,23 +8,6 @@ if (!elgg_is_logged_in() && (!elgg_get_site_entity()->isPublicPage() || current_
 	forward('/login');
 }
 
-function cbcoverseas_blog_url_handler(ElggBlog $blog) {
-  return "/blog/view/$blog->guid";
-}
-
-function cbcoverseas_image_url_handler(TidypicsImage $image) {
-	$album = $image->getContainerEntity();
-	$title = elgg_get_friendly_title($image->getTitle());
-	return "/photos/$album->guid/$image->guid/$title";
-}
-
-/**
- * Prevent sending email notifications. True indicates we've "handled" the notifications.
- */
-function cbcoverseas_notifications_handler() {
-	return true;
-}
-
 function cbcoverseas_get_posters() {
 	$posterUsernames = explode("\n", elgg_get_plugin_setting('posters', 'cbcoverseas'));
 	$posters = array();
@@ -36,3 +19,8 @@ function cbcoverseas_get_posters() {
 	}
 	return $posters;
 }
+
+elgg_register_event_handler('init', 'system', function() {
+	global $EVAN;
+	$EVAN->make('Cbcoverseas\Events')->initSystem();
+});

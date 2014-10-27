@@ -59,7 +59,6 @@ class E2eTest extends TestCase {
 		$this->markTestIncomplete('Requires manual testing for now');
 	}
 	
-	
 	/**
 	 * The access options for posts should be limited to totally private or logged-in.
 	 * 
