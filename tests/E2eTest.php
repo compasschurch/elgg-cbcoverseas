@@ -138,4 +138,37 @@ class E2eTest extends TestCase {
 	public function testEmailDigestsAreSentOutHourly() {
 		$this->markTestIncomplete('Requires manual testing for now');
 	}
+	
+	/**
+	 * Since the system is meant to be locked down, we require users who are
+	 * allowed in to be hand-curated.
+	 * 
+	 * 1. Assume there is already an admin in the system.
+	 * 2. Have a new user register successfully for a new account.
+	 * 3. Try to log them in.
+	 * 4. Check that it fails with an error about needing to wait for approval.
+	 * 5. Approve them.
+	 * 6. Try to log them in.
+	 * 7. Check that it worked this time.
+	 * 
+	 * NB: This is provided by the uservalidationbyadmin plugin ATM.
+	 */
+	public function testUsersMustBeManuallyApprovedByAnAdmin() {
+		$this->markTestIncomplete('Requires manual testing for now');
+	}
+	
+	/**
+	 * There needs to be a UI for triaging unvalidated users... obviously!
+	 * 
+	 * 1. Assume we have 3 unvalidated users.
+	 * 2. Go to the triage UI (currently /admin/users/unvalidated?)
+	 * 3. Mark one as deleted, one as spam, and one as valid.
+	 * 4. Check that we now have 0 unvalidated users.
+	 * 5. Check that we have 1 new user (the validated one).
+	 * 6. Check that the deleted user is no longer in the DB.
+	 * 7. Check that the spam user is still in the DB but disabled as spam.
+	 */
+	public function testProvidesADashboardForAdminsToValidateRegistrations() {
+		$this->markTestIncomplete('Requires manual testing for now');
+	}
 }
