@@ -23,7 +23,8 @@
         "php": "~5.4",
         "composer/installers": "~1.0",
         "elgg/elgg": "~1.9",
-        "ewinslow/elgg-evan": "dev-master"
+        "ewinslow/elgg-evan": "dev-master",
+        "ewinslow/elgg-uservalidationbyadmin": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.4"
