@@ -116,6 +116,17 @@ class EmailFactory implements MessageFactory {
             'count' => true,
         ));
         
+        $results['messages'] = $this->db->getEntities(array(
+            'type' => 'object',
+            'subtype' => 'messages',
+            'created_time_lower' => $last_digest_time,
+            'metadata_name_value_pairs' => array(
+                array('name' => 'toId', 'value' => $user->guid),
+                array('name' => 'readYet', 'value' => 0), // only unread messages
+            ),
+            'count' => true,
+        ));
+        
         return $results;
     }
     

@@ -2,6 +2,8 @@
 
 $blogs = (int)$vars['blogs'];
 $photos = (int)$vars['photos'];
+$messages = (int)$vars['messages'];
+
 $site = $vars['site'];
 $user = $vars['user'];
 
@@ -12,6 +14,7 @@ There was activity recently on CBC Overseas:
 
 New blogs: <?php echo $blogs; ?> 
 New photos: <?php echo $photos; ?> 
+New messages: <?php echo $messages; ?> 
 
 Login at <?php echo $site->url; ?> to view them.
 

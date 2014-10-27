@@ -86,18 +86,17 @@ class EmailFactoryTest extends TestCase {
      * 1. user A last logged in a few hours ago.
      * 2. user B sends user A a private message.
      * 3. Run the digest
-     * 4. Check that user A is sent a digest.
+     * 4. Check that user A is sent a digest with exactly 1 unread message.
      */
     public function testDigestEmailIncludesUnreadPrivateMessages() {
         $this->markTestIncomplete('Requires manual testing for now');
-        // TODO(ewinslow): This is not implemented at all
     }
     
     /**
      * 1. user A last logged in a few hours ago.
      * 2. user B uploads a new photo.
      * 3. Run the digest.
-     * 4. Check that user A is sent a digest email.
+     * 4. Check that user A is sent a digest email with exactly 1 new photo.
      */
     public function testDigestEmailIncludesUnseenPhotoUploads() {
         $this->markTestIncomplete('Requires manual testing for now');
@@ -107,7 +106,7 @@ class EmailFactoryTest extends TestCase {
      * 1. user A last logged in a few hours ago.
      * 2. user B posts a blog.
      * 3. Run the digest
-     * 4. Check that user A is sent a digest email.
+     * 4. Check that user A is sent a digest email with exactly 1 new blog.
      */
     public function testDigestEmailIncludesUnreadBlogPosts() {
         $this->markTestIncomplete('Requires manual testing for now');
