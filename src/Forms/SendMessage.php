@@ -2,47 +2,50 @@
 namespace Cbcoverseas\Forms;
 
 /**
- * Elgg add like action
+ * Send a message action
+ * 
+ * @package ElggMessages
  */
 class SendMessage {
 	public function submit() {
-		$entity_guid = (int) get_input('guid');
+		$subject = strip_tags(get_input('subject'));
+		$body = get_input('body');
+		$recipient_guid = get_input('recipient_guid');
 		
-		//check to see if the user has already liked the item
-		if (elgg_annotation_exists($entity_guid, 'likes')) {
-			system_message(elgg_echo("likes:alreadyliked"));
-			forward(REFERER);
-		}
-		// Let's see if we can get an entity with the specified GUID
-		$entity = get_entity($entity_guid);
-		if (!$entity) {
-			register_error(elgg_echo("likes:notfound"));
-			forward(REFERER);
-		}
+		elgg_make_sticky_form('messages');
 		
-		// limit likes through a plugin hook (to prevent liking your own content for example)
-		if (!$entity->canAnnotate(0, 'likes')) {
-			// plugins should register the error message to explain why liking isn't allowed
-			forward(REFERER);
+		//$reply = get_input('reply',0); // this is the guid of the message replying to
+		
+		if (!$recipient_guid) {
+			register_error(elgg_echo("messages:user:blank"));
+			forward("messages/compose");
 		}
 		
-		$user = elgg_get_logged_in_user_entity();
-		$annotation = create_annotation($entity->guid,
-										'likes',
-										"likes",
-										"",
-										$user->guid,
-										$entity->access_id);
-		
-		// tell user annotation didn't work if that is the case
-		if (!$annotation) {
-			register_error(elgg_echo("likes:failure"));
-			forward(REFERER);
+		$user = get_user($recipient_guid);
+		if (!$user) {
+			register_error(elgg_echo("messages:user:nonexist"));
+			forward("messages/compose");
 		}
 		
-		system_message(elgg_echo("likes:likes"));
+		// Make sure the message field, send to field and title are not blank
+		if (!$body || !$subject) {
+			register_error(elgg_echo("messages:blank"));
+			forward("messages/compose");
+		}
 		
-		// Forward back to the page where the user 'liked' the object
-		forward(REFERER);
+		// Otherwise, 'send' the message 
+		$result = messages_send($subject, $body, $recipient_guid, 0, $reply, false);
+		
+		// Save 'send' the message
+		if (!$result) {
+			register_error(elgg_echo("messages:error"));
+			forward("messages/compose");
+		}
+		
+		elgg_clear_sticky_form('messages');
+			
+		system_message(elgg_echo("messages:posted"));
+		
+		forward('messages/inbox/' . elgg_get_logged_in_user_entity()->username);
 	}
 }
