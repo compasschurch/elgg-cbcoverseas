@@ -20,11 +20,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "~5.4",
+        "arckinteractive/elgg_hybridauth": "~1.2",
         "composer/installers": "~1.0",
         "elgg/elgg": "~1.9",
         "ewinslow/elgg-evan": "dev-master",
-        "ewinslow/elgg-uservalidationbyadmin": "dev-master"
+        "ewinslow/elgg-google": "dev-master",
+        "ewinslow/elgg-uservalidationbyadmin": "dev-master",
+        "php": "~5.4",
+        "srokap/db_backup": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.4"
