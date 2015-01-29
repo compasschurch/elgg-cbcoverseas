@@ -8,6 +8,8 @@ return array(
 
 	'page:members:index:title' => 'Missions Teams',
 	
+	'messages:email:body' => 'To view your messages, click here:\n\n%3$s',
+
 	// Notification overrides
 	// These restrict the content of the notification for maximum privacy
 	
