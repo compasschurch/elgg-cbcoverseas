@@ -5,7 +5,6 @@ $plugin = $vars['plugin'];
 global $EVAN;
 
 $emailFactory = $EVAN->get('Cbcoverseas\Digest\EmailFactory');
-$users = $emailFactory->getUsers(50);
 ?>
 
 <div class="elgg-input-wrapper">
@@ -13,7 +12,34 @@ $users = $emailFactory->getUsers(50);
 	<textarea name="params[posters]" class="elgg-input-textarea"><?php echo $plugin->posters; ?></textarea>
 </div>
 
-Next <?php echo count($users); ?> users slated to receive a digest:
+<?php $recentUsers = $emailFactory->getMostRecentlyNotifiedUsers(50); ?>
+
+Last <?php echo count($recentUsers); ?> users to receive a digest:
+<table class="elgg-table">
+	<thead>
+		<tr>
+			<th>User</th>
+			<th>Digest Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($recentUsers as $user): ?>
+		<tr>
+			<td>
+				<?php echo elgg_view('output/url', array(
+					'text' => $user->name,
+					'href' => $user->getUrl(),
+				)); ?>
+			</td>
+			<td><?php echo date('r', $user->cbc_last_digest_time); ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
+<?php $upcomingUsers = $emailFactory->getUsers(50); ?>
+
+Next <?php echo count($upcomingUsers); ?> users slated to receive a digest:
 <table class="elgg-table">
 	<thead>
 		<tr>
@@ -22,7 +48,7 @@ Next <?php echo count($users); ?> users slated to receive a digest:
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach ($users as $user): ?>
+		<?php foreach ($upcomingUsers as $user): ?>
 		<tr>
 			<td>
 				<?php echo elgg_view('output/url', array(

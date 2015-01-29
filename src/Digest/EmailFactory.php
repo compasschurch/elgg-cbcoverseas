@@ -80,6 +80,18 @@ class EmailFactory implements MessageFactory {
             'limit' => $limit,
         ));
     }
+    
+    public function getMostRecentlyNotifiedUsers($limit) {
+        return $this->db->getEntities(array(
+            'type' => 'user',
+            'order_by_metadata' => array(
+                'name' => 'cbc_last_digest_time',
+                'direction' => 'desc',
+                'as' => 'integer',
+            ),
+            'limit' => $limit,
+        ));
+    }
      
     private function getSubject(User $user) {
         $date = $this->clock->getDateTime()->format('M j, Y');
