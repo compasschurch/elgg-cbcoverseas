@@ -24,7 +24,12 @@ Next <?php echo count($users); ?> users slated to receive a digest:
 	<tbody>
 		<?php foreach ($users as $user): ?>
 		<tr>
-			<td><?php echo elgg_view('output/text', array('value' => $user->name)); ?></td>
+			<td>
+				<?php echo elgg_view('output/url', array(
+					'text' => $user->name,
+					'href' => $user->getUrl(),
+				)); ?>
+			</td>
 			<td><?php echo date('r', $user->cbc_last_digest_time); ?></td>
 		</tr>
 		<?php endforeach; ?>
