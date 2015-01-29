@@ -8,7 +8,8 @@ return array(
 
 	'page:members:index:title' => 'Missions Teams',
 	
-	'messages:email:body' => 'To view your messages, click here:\n\n%3$s',
+	'messages:email:subject' => 'New private message on CBC Overseas!',
+	'messages:email:body' => 'To view your messages, click here: %3$s',
 
 	// Notification overrides
 	// These restrict the content of the notification for maximum privacy
