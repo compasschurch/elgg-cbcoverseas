@@ -11,9 +11,12 @@ class E2eTest extends TestCase {
 	 * Liking something may leak confidential info that we don't want to leak.
 	 * Email is not a secure enough medium for our needs.
 	 * 
-	 * 1. Assume we have a user and a post by someone else
+	 * 1. Assume we have a User and a Poster who posted a blog
 	 * 2. User likes the post (action: likes/add)
-	 * 3. Check that no notifications were scheduled/sent to post's owner
+	 * 3. Check that no notifications were scheduled/sent to Poster
+	 * 4. Fast forward one hour (i.e. trigger the hourly digest)
+	 * 5. Check that a digest was sent to Poster with info on the new like
+	 * 
 	 */
 	public function testLikesDoesNotSendEmailNotification() {
 		$this->markTestIncomplete("Requires manual testing for now");
@@ -28,8 +31,10 @@ class E2eTest extends TestCase {
 	 * 1. Assume we have users A and B
 	 * 2. User A sends user B a private message (action: messages/send)
 	 * 3. Check that no notifications were scheduled/sent to user B
+	 * 4. Fast forward one hour and trigger the hourly cron
+	 * 5. Check that a digest was sent to user B which mentions the PM
 	 */
-	public function testPrivateMessageDoesNotSendEmailNotification() {
+	public function testPrivateMessageNotificationIsSentWithDigest() {
 		$this->markTestIncomplete("Requires manual testing for now");
 	}
 	
@@ -169,6 +174,22 @@ class E2eTest extends TestCase {
 	 * 7. Check that the spam user is still in the DB but disabled as spam.
 	 */
 	public function testProvidesADashboardForAdminsToValidateRegistrations() {
+		$this->markTestIncomplete('Requires manual testing for now');
+	}
+	
+	/**
+	 * Knowledge of the site is disemminated by word of mouth,
+	 * not via search engines.
+	 * 
+	 * 1. Check that robots.txt "disallows" all indexing.
+	 * 2. Since only well-behaved indexers will observe robots.txt,
+	 *    also test that the only accessible pages for logged-out users are:
+	 *    
+	 *     * /login
+	 *     * /register
+	 * 
+	 */
+	public function testSearchIndexingIsDisabled() {
 		$this->markTestIncomplete('Requires manual testing for now');
 	}
 }
