@@ -3,6 +3,14 @@ namespace Cbcoverseas;
 
 class Events {
 	public function initSystem() {
+		elgg_register_page_handler('', function() {
+			if (elgg_is_logged_in()) {
+				forward('/blog/all');
+			} else {
+				forward('/login');
+			}
+		});
+
 		elgg_register_plugin_hook_handler('entity:url', 'image', function($hook, $type, $return, $params) {
 			$entity = $params['entity'];
 
