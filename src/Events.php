@@ -3,17 +3,17 @@ namespace Cbcoverseas;
 
 class Events {
 	public function initSystem() {
-		$forms_path = __DIR__ . '/Forms';
-		
-		// Don't want to include the title of the content in the URL
-		// in case we send urls out via email, so override the default.
-		elgg_register_entity_url_handler('object', 'blog', function(ElggBlog $blog) {
-			return "/blog/view/$blog->guid";
-		});
-		
-		elgg_register_entity_url_handler('object', 'image', function(TidypicsImage $image) {
-			$album = $image->getContainerEntity();
-			return "/photos/$album->guid/$image->guid";
+		elgg_register_plugin_hook_handler('entity:url', 'image', function($hook, $type, $return, $params) {
+			$entity = $params['entity'];
+
+			// Don't want to include the title of the content in the URL
+			// in case we send urls out via email, so override the default.
+			if ($entity instanceof TidypicsImage) {
+				$album = $entity->getContainerEntity();
+				return "/photos/$album->guid/$entity->guid";
+			} else if ($entity instanceof ElggBlog) {
+				return "/blog/view/$entity->guid";
+			}
 		});
 		
 		/**
