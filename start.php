@@ -1,10 +1,6 @@
 <?php
 
 if (!elgg_is_logged_in() && (!elgg_get_site_entity()->isPublicPage() || current_page_url() == elgg_get_site_url())) {
-	if (!elgg_get_site_entity()->isPublicPage()) {
-		register_error(elgg_echo('loggedinrequired'));
-	}
-
 	forward('/login');
 }
 
