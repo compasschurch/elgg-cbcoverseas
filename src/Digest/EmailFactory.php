@@ -52,7 +52,7 @@ class EmailFactory implements MessageFactory {
      */
     private function getNeverNotifiedUsers($limit) {
         $dbprefix = $this->db->getPrefix();
-        $name_metastring_id = $this->db->addMetastring('cbc_last_digest_time');
+        $name_metastring_id = $this->db->addMetastring(self::LAST_NOTIFIED_METADATA);
 
         return $this->db->getEntities(array(
             'type' => 'user',
@@ -73,7 +73,7 @@ class EmailFactory implements MessageFactory {
         return $this->db->getEntities(array(
             'type' => 'user',
             'order_by_metadata' => array(
-                'name' => 'cbc_last_digest_time',
+                'name' => self::LAST_NOTIFIED_METADATA,
                 'direction' => 'asc',
                 'as' => 'integer',
             ),
@@ -85,7 +85,7 @@ class EmailFactory implements MessageFactory {
         return $this->db->getEntities(array(
             'type' => 'user',
             'order_by_metadata' => array(
-                'name' => 'cbc_last_digest_time',
+                'name' => self::LAST_NOTIFIED_METADATA,
                 'direction' => 'desc',
                 'as' => 'integer',
             ),
@@ -144,16 +144,16 @@ class EmailFactory implements MessageFactory {
     
     private function getLastDigestTime(User $user) {
         // Initialize the last digest time if it hasn't yet been set.
-        if (!isset($user->cbc_last_digest_time)) {
+        if (!isset($user->{self::LAST_NOTIFIED_METADATA})) {
             if ($user->last_login) {
-                $user->cbc_last_digest_time = $user->last_login;
+                $user->{self::LAST_NOTIFIED_METDATA} = $user->last_login;
             } else {
                 $two_weeks_ago = time() - 14 * 24 * 60 * 60;
-                $user->cbc_last_digest_time = $two_weeks_ago;
+                $user->{self::LAST_NOTIFIED_METADATA} = $two_weeks_ago;
             }
         }
         
-        return $user->cbc_last_digest_time;
+        return $user->{self::LAST_NOTIFIED_METADATA};
     }
     
     /** @override */
@@ -166,7 +166,7 @@ class EmailFactory implements MessageFactory {
         $totalActivities = array_sum(array_values($activities));
 	
         // Records the last time we attempted to generate a digest for the user.
-        $user->cbc_last_digest_time = $this->clock->getTimestamp();
+        $user->{self::LAST_NOTIFIED_METADATA} = $this->clock->getTimestamp();
         
 	// If there's no activity, don't send an email!
         if ($totalActivities <= 0) {
