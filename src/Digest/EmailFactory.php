@@ -146,7 +146,7 @@ class EmailFactory implements MessageFactory {
         // Initialize the last digest time if it hasn't yet been set.
         if (!isset($user->{self::LAST_NOTIFIED_METADATA})) {
             if ($user->last_login) {
-                $user->{self::LAST_NOTIFIED_METDATA} = $user->last_login;
+                $user->{self::LAST_NOTIFIED_METADATA} = $user->last_login;
             } else {
                 $two_weeks_ago = time() - 14 * 24 * 60 * 60;
                 $user->{self::LAST_NOTIFIED_METADATA} = $two_weeks_ago;

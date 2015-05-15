@@ -15,7 +15,7 @@ class Cron {
 		foreach ($users as $user) {
 			$email = $emailFactory->createForUser($user);
 			if ($email) {
-				$EVAN->mailer->send($email);
+				$EVAN->get('Evan\Email\Sender')->send($email);
 			}
 		}
 	}
